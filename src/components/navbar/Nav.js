@@ -19,9 +19,7 @@ const Nav = () => {
           />
           <ul>
             <li>Explore</li>
-            <li>License</li>
             <li>Join</li>
-            <li>...</li>
           </ul>
           <a href="#" className="upload">
             Upload
