@@ -28,8 +28,7 @@ const Nav = () => {
         <div className="content">
           {/*     <h1>Royalty Free Stock Photos</h1> */}
           <h1>
-            The best free stock photos &amp; videos <br />shared by talented
-            creators.
+            The best free stock photos and videos
           </h1>
           <input type="search" className="find" />
 
@@ -39,10 +38,8 @@ const Nav = () => {
       <navbar>
         <ul>
           <li className="active">Home</li>
-          <li>Discover</li>
           <li>Videos</li>
-          <li>Leaderboard</li>
-          <li>Challenges</li>
+          <li>Categories</li>
         </ul>
       </navbar>
     </div>
