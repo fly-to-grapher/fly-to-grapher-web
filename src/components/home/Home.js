@@ -4,6 +4,27 @@ import './Home.css'
 
 const Home = () => {
     return (
+        <>
+        <div>
+      {/* Start hero*/}
+      <div className="herro">
+        <div className="content">
+          {/*     <h1>Royalty Free Stock Photos</h1> */}
+          <h1>The best free stock photos and videos</h1>
+          <input type="search" className="find" />
+        </div>
+      </div>
+      {/* End hero*/}
+      <navbar>
+        <ul>
+          <li className="active">Home</li>
+          <li className="active">Videos</li>
+          <li className="active">Categories</li>
+        </ul>
+      </navbar>
+    </div>
+
+
         <div>
             <a href="#" className="prev">
                 &lt;
@@ -101,6 +122,8 @@ const Home = () => {
                 <div className="explore">Explore</div>
             </main>
         </div>
+        </>
+
     )
 }
 

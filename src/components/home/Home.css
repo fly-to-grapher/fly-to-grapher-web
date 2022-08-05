@@ -1,110 +1,34 @@
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    text-align: center;
-    scroll-behavior: smooth;
-}
 
-.top {
-    width: 20px;
-    height: 20px;
-    border-radius: 50%;
-    position: fixed;
-    bottom: 120px;
-    right: 80px;
-    z-index: 1000;
-    filter: drop-shadow(3px 6px 4px rgba(0, 0, 0, 0.4));
-}
-
-.nav {
-    width: 1240px;
-    height: 1000px;
-    border-radius: 50%;
-    position: fixed;
-    bottom: 120px;
-    right: 60px;
-    z-index: 1000;
-    filter: drop-shadow(3px 6px 4px rgba(0, 0, 0, 0.4));
-}
-
-.top img {
-    width: 70px;
-    height: 70px;
-    border-radius: 50%;
-}
-
-.hero {
+.herro {
     background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url(https://www.picturecorrect.com/wp-content/uploads/2019/04/photography-inspiration.jpg);
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
-    height: 70vh;
+    height: 90vh;
     width: 100%;
     padding: 0 40px 0 40px;
 }
 
-.hero nav {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding-top: 20px;
-}
-
-.hero nav .logo {
-    width: 120px;
-}
-
-.hero nav ul {
-    flex: 1;
-    text-align: right;
-    cursor: pointer;
-}
-
-.hero nav ul li {
-    display: inline-block;
-    margin: 13px;
-    color: #fff;
-    font-size: 1.2em;
-}
-
-.hero nav ul li:hover {
-    opacity: 0.5;
-}
-
-.hero .upload {
-    text-decoration: none;
-    color: #fff;
-    background: #05a081;
-    padding: 5px 10px;
-    border-radius: 4px;
-    transition: 0.5s;
-}
-
-.hero .upload:hover {
-    opacity: 0.7;
-    transform: translateY(-10px);
-}
-
-.hero .content {
+.herro .content {
     display: flex;
     justify-content: center;
-    align-items: center;
+    align-items: center; 
     flex-direction: column;
     height: 80%;
 }
 
-.hero .content h1 {
+.herro .content h1 {
+    margin-top: 70px;
     font-size: 2.3em;
     color: #fff;
     margin-bottom: -20px;
 }
 
-.hero .content h1:hover {
+.herro .content h1:hover {
     opacity: 0.5;
 }
 
-.hero .find {
+.herro .find {
     width: 60%;
     max-width: 840px;
     padding: 0 20px;
@@ -116,29 +40,29 @@
     font-size: 1em;
 }
 
-.hero ::placeholder {
+/* .herro ::placeholder {
     font-weight: 500;
     font-size: 16px;
-}
+} */
 
-.hero .content p {
+.herro .content p {
     color: #fff;
 }
 
-.hero .content p a {
+.herro .content p a {
     color: #fff;
     text-decoration: none;
 }
 
-.hero .content p a:hover {
-    color: #05a081;
+.herro .content p a:hover {
+    color:  rgb(1, 40, 72);
 }
 
 navbar {
     display: flex;
     justify-content: Center;
     align-items: center;
-    border-bottom: 2px solid #05a081;
+    border-bottom: 2px solid  rgb(1, 40, 72);
     padding: 0 20px 0 20px;
     text-align: center;
 }
@@ -155,11 +79,11 @@ navbar ul li {
 }
 
 navbar ul li:hover {
-    color: #05a081;
+    color:  rgb(1, 40, 72);
 }
 
 navbar .active {
-    border-bottom: 2px solid #05a081;
+    border-bottom: 2px solid  rgb(1, 40, 72);
 }
 
 .prev,
@@ -286,7 +210,7 @@ h1 {
 
 .explore {
     width: 60%;
-    background: #05a081;
+    background:  rgb(1, 40, 72);
     height: 50px;
     font-size: 1.2em !important;
     text-align: center;
