@@ -1,7 +1,18 @@
-import React from "react";
+import React, { useState } from "react";
 import "./Nav.css";
 
 const Nav = () => {
+  const [nav, setNav] = useState(false);
+  const changeNav = () => {
+    if (window.scrollY >= 15) {
+      setNav(true);
+    } else {
+      setNav(false);
+    }
+  };
+
+  window.addEventListener("scroll", changeNav);
+
   return (
     <div>
       {/* Start hero*/}
@@ -10,7 +21,8 @@ const Nav = () => {
           <img src="https://i.postimg.cc/63TNN04y/Fourth-Of-July.gif" alt="" />
         </a>
       </div>
-      <div className="hero">
+      <div className={nav ? 'hero hero-scroll': 'hero'}>
+      {/* <div className="hero"> */}
         <nav>
           <img
             src="https://i.postimg.cc/3JgD2Jyt/p2.png"
@@ -25,23 +37,8 @@ const Nav = () => {
             Upload
           </a>
         </nav>
-        <div className="content">
-          {/*     <h1>Royalty Free Stock Photos</h1> */}
-          <h1>
-            The best free stock photos and videos
-          </h1>
-          <input type="search" className="find" />
-
-        </div>
+        
       </div>
-      {/* End hero*/}
-      <navbar>
-        <ul>
-          <li className="active">Home</li>
-          <li>Videos</li>
-          <li>Categories</li>
-        </ul>
-      </navbar>
     </div>
   );
 };
