@@ -36,10 +36,20 @@
  }
  
  .hero-scroll {
-    background-color: rgb(1, 40, 72);
-
+    background-color: rgb(255, 255, 255);
 }
- 
+
+
+.hero-scroll nav ul li div li{
+    color: black;
+} 
+.hero nav ul li div li:hover{
+    color: rgb(138, 138, 138);
+} 
+.hero-scroll nav ul li div li:hover{
+    color: rgb(0, 64, 121);
+} 
+
  .hero nav {
      display: flex;
      justify-content: space-between;
@@ -59,26 +69,29 @@
  
   .hero nav ul li {
      display: inline-block;
-     margin: 13px;
+     /* margin: 13px; */
      color: #fff;
      font-size: 1.2em;
  } 
  
-  .hero nav ul li:hover {
+  /* .hero nav ul li:hover {
      opacity: 0.5;
- } 
+ }  */
  
  .hero .upload {
      text-decoration: none;
-     color: #fff;
-     background: #878686;
-     padding: 5px 10px;
+     color: rgb(0, 0, 0);
+     background: #ffffff;
+     padding: 10px 20px;
      border-radius: 4px;
      transition: 0.5s;
      transform: translateY(-10px);
-
  }
  
+ .hero-scroll .upload{
+    background: rgb(0, 64, 121);
+    color: #ffffff;
+ }
  .hero .upload:hover {
      opacity: 0.7;
  }
