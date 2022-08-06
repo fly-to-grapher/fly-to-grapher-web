@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import "./Nav.css";
+import { Link } from "react-router-dom";
 
 const Nav = () => {
   const [nav, setNav] = useState(false);
@@ -135,9 +136,9 @@ const Nav = () => {
             </div>
             </li>
           </ul>
-          <a href="#" className="upload">
+          <Link to="/upload" href="#" className="upload">
             Upload
-          </a>
+          </Link>
         </nav>
       </div>
     </div>
