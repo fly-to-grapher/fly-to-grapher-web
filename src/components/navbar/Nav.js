@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import "./Nav.css";
-import { Link } from "react-router-dom";
 
 const Nav = () => {
   const [nav, setNav] = useState(false);
@@ -26,114 +25,113 @@ const Nav = () => {
       <div className={nav ? "hero hero-scroll" : "hero"}>
         {/* <div className="hero"> */}
         <nav>
-          {/* <img
-            src="https://i.postimg.cc/3JgD2Jyt/p2.png"
-            alt="IMg NOt Found"
-            className="logo"
-          /> */}
+          <Link to="/">
+            <img
+              src="./assert/flyto.png" className="d-block mx-lg-auto img-fluid" alt="Bootstrap Themes" width="100px" height="80px" loading="lazy" />
+          </Link>
           <ul>
             <li>
-            <div
-              className="nav-item dropdown d-flex justify-content-center align-items-center"
-            >
-              <li
-                className="nav-link dropdown-toggle"
-                id="navbarDropdown"
-                role="button"
-                data-bs-toggle="dropdown"
-                aria-expanded="false"
+              <div
+                className="nav-item dropdown d-flex justify-content-center align-items-center"
               >
-                Explore
-              </li>
-              <ul className="dropdown-menu" aria-labelledby="navbarDropdown">
-                <p>
-                  {" "}<Link
-                    to="/"
-                    className="dropdown-item"
-                  >
-                    Discover photos
-                  </Link>
-                </p>
-                {/* <li onClick={() => logout()} className="dropdown-item" style={{ color: "black" }} >Log Out</li> */}
+                <li
+                  className="nav-link dropdown-toggle"
+                  id="navbarDropdown"
+                  role="button"
+                  data-bs-toggle="dropdown"
+                  aria-expanded="false"
+                >
+                  Explore
+                </li>
+                <ul className="dropdown-menu" aria-labelledby="navbarDropdown">
+                  <p>
+                    {" "}<Link
+                      to="/"
+                      className="dropdown-item"
+                    >
+                      Discover photos
+                    </Link>
+                  </p>
+                  {/* <li onClick={() => logout()} className="dropdown-item" style={{ color: "black" }} >Log Out</li> */}
 
-                <p>
-                  {" "}<Link
-                    to="/"
-                    className="dropdown-item"
-                  >
-                    Discover videos
-                  </Link>
-                </p>
-              </ul>
-            </div>
+                  <p>
+                    {" "}<Link
+                      to="/"
+                      className="dropdown-item"
+                    >
+                      Discover videos
+                    </Link>
+                  </p>
+                </ul>
+              </div>
             </li>
             <li>
-            <div
-              className="nav-item dropdown d-flex justify-content-center align-items-center"
-              
-            >
-              <li
-                className="nav-link dropdown-toggle"
-                id="navbarDropdown"
-                role="button"
-                data-bs-toggle="dropdown"
-                aria-expanded="false"
-              >
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="23"
-                  height="23"
-                  fill="currentColor"
-                  className="bi bi-person-circle"
-                  viewBox="0 0 16 16"
-                >
-                  <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0z" />
-                  <path
-                    fillRule="evenodd"
-                    d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1z"
-                  />
-                </svg>
-              </li>
-              <ul className="dropdown-menu" aria-labelledby="navbarDropdown">
-                <p>
-                  {" "}<Link
-                    to="/account"
-                    className="dropdown-item"
-                    style={{ color: "black" }}
-                  >
-                    Your profile
-                  </Link>
-                </p>
-                <p>
-                  {" "}<Link
-                    to="/account"
-                    className="dropdown-item"
-                    style={{ color: "black" }}
-                  >
-                    Logout
-                  </Link>
-                </p>
+              <div
+                className="nav-item dropdown d-flex justify-content-center align-items-center"
 
-                <p>
-                  {" "}<Link
-                    to="/signup"
-                    className="dropdown-item"
-                    style={{ color: "black" }}
+              >
+                <li
+                  className="nav-link dropdown-toggle"
+                  id="navbarDropdown"
+                  role="button"
+                  data-bs-toggle="dropdown"
+                  aria-expanded="false"
+                >
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="23"
+                    height="23"
+                    fill="currentColor"
+                    className="bi bi-person-circle"
+                    viewBox="0 0 16 16"
                   >
-                    Sign Up
-                  </Link>
-                </p>
-                <p>
-                  {" "}<Link
-                    to="/login"
-                    className="dropdown-item"
-                    style={{ color: "black" }}
-                  >
-                    Log In
-                  </Link>{" "}
-                </p>
-              </ul>
-            </div>
+                    <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0z" />
+                    <path
+                      fillRule="evenodd"
+                      d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1z"
+                    />
+                  </svg>
+                </li>
+                <ul className="dropdown-menu" aria-labelledby="navbarDropdown">
+                  <p>
+                    {" "}<Link
+                      to="/account"
+                      className="dropdown-item"
+                      style={{ color: "black" }}
+                    >
+                      Your profile
+                    </Link>
+                  </p>
+                  <p>
+                    {" "}<Link
+                      to="/account"
+                      className="dropdown-item"
+                      style={{ color: "black" }}
+                    >
+                      Logout
+                    </Link>
+                  </p>
+
+                  <p>
+                    {" "}<Link
+                      to="/signup"
+                      className="dropdown-item"
+                      style={{ color: "black" }}
+                    >
+                      Sign Up
+                    </Link>
+                  </p>
+                  <p>
+                    {" "}<Link
+                      to="/login"
+                      className="dropdown-item"
+                      style={{ color: "black" }}
+                    >
+                      Log In
+                    </Link>{" "}
+                  </p>
+                </ul>
+              </div>
             </li>
           </ul>
           <Link to="/upload" href="#" className="upload">
