@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import "./Nav.css";
-import { Link } from "react-router-dom";
 
 const Nav = () => {
   const [nav, setNav] = useState(false);
@@ -104,15 +103,6 @@ const Nav = () => {
                     Your profile
                   </Link>
                 </p>
-                <p>
-                  {" "}<Link
-                    to="/account"
-                    className="dropdown-item"
-                    style={{ color: "black" }}
-                  >
-                    Logout
-                  </Link>
-                </p>
 
                 <p>
                   {" "}<Link
@@ -131,6 +121,15 @@ const Nav = () => {
                   >
                     Log In
                   </Link>{" "}
+                </p>
+                <p>
+                  {" "}<Link
+                    to="/account"
+                    className="dropdown-item"
+                    style={{ color: "black" }}
+                  >
+                    Logout
+                  </Link>
                 </p>
               </ul>
             </div>
