@@ -6,6 +6,7 @@ import Login from "./components/login/Login"
 import Videos from "./components/videos/Videos"
 import Footer from "./components/footer/Footer";
 import Upload from "./components/upload/Upload";
+import Categories from "./components/categories/Categories"
 
 // import './Style.css';
 
@@ -25,6 +26,7 @@ const App = () => {
         <Route path="/login" element={<Login />} />
         <Route path="/videos" element={<Videos />} />
         <Route path="/upload" element={<Upload />} />
+        <Route path="/categories" element={<Categories />} />
       </Routes>
       <Footer />
     </BrowserRouter>
