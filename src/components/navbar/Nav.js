@@ -5,7 +5,7 @@ import "./Nav.css";
 const Nav = () => {
   const [nav, setNav] = useState(false);
   const changeNav = () => {
-    if (window.scrollY >= 15) {
+    if (window.scrollY >= 500) {
       setNav(true);
     } else {
       setNav(false);
@@ -26,8 +26,13 @@ const Nav = () => {
         {/* <div className="hero"> */}
         <nav>
           <Link to="/">
-            <img
-              src="./assert/flyto.png" className="d-block mx-lg-auto img-fluid" alt="Bootstrap Themes" width="100px" height="80px" loading="lazy" />
+            {nav ?
+              <img src="./assert/flytog.png" className="d-block mx-lg-auto img-fluid" alt="Bootstrap Themes"
+                width="200px" height="200px" loading="lazy" />
+              :
+              <img src="./assert/flytog_white.png" className="d-block mx-lg-auto img-fluid" alt="Bootstrap Themes"
+                width="200px" height="200px" loading="lazy" />
+            }
           </Link>
           <ul>
             <li>

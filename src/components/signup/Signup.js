@@ -21,8 +21,7 @@ export default function SignUp() {
         const response = await fetch(process.env.REACT_APP_API_URL + "/users/signup", {
             method: "post",
             body: JSON.stringify({
-                firstname: event.target.querySelector('input[name=firstName]').value,
-                lastname: event.target.querySelector('input[name=lastName]').value,
+                name: event.target.querySelector('input[name=name]').value,
                 email: event.target.querySelector('input[name=email]').value,
                 username: event.target.querySelector('input[name=username]').value,
                 password: event.target.querySelector('input[name=password]').value
@@ -60,30 +59,17 @@ export default function SignUp() {
                         </Typography>
                         <Box
                             component="form"
-                            noValidate
                             onSubmit={handleSubmit}
                             sx={{ mt: 3 }}
                         >
                             <Grid container spacing={2}>
-                                <Grid item xs={12} sm={6}>
-                                    <TextField
-                                        autoComplete="given-name"
-                                        name="firstName"
-                                        required
-                                        fullWidth
-                                        id="firstName"
-                                        label="First Name"
-                                        autoFocus
-                                    />
-                                </Grid>
-                                <Grid item xs={12} sm={6}>
+                            <Grid item xs={12}>
                                     <TextField
                                         required
                                         fullWidth
-                                        id="lastName"
-                                        label="Last Name"
-                                        name="lastName"
-                                        autoComplete="family-name"
+                                        id="name"
+                                        label="Name"
+                                        name="name"
                                     />
                                 </Grid>
                                 <Grid item xs={12}>
