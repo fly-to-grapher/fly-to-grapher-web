@@ -204,7 +204,7 @@ h1 {
 
 .container div:not(.show):hover img {
     cursor: pointer;
-    transform: scale(1.3);
+    transform: scale(1.1);
 }
 
 .horizontal {
