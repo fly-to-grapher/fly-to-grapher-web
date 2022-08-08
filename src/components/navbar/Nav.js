@@ -71,7 +71,7 @@ const Nav = () => {
 
             </ul>
           </div>
-          <Link to="/" className="btn " style={{ color: "black" ,background:'white' }} >Upload</Link>
+          <Link to="/upload" className="btn " style={{ color: "black" ,background:'white' }} >Upload</Link>
         </div>
       </div>
     </nav>
