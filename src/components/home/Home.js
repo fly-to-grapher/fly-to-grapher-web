@@ -46,7 +46,7 @@ const Home = () => {
                 <a href="#" className="next">
                     &gt;
                 </a>
-                <h1>Free Stock Photos</h1>
+                <h1 className="d-flex justify-content-center">Free Stock Photos</h1>
                 <main className="container">
                     <div>
                         <img
