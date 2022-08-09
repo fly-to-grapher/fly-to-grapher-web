@@ -5,7 +5,7 @@ import "./Upload.css"
 
 const Upload = () => {
     return (
-        <div className="mt-5 mb-5">
+        <div className=" mt-5 mb-5">
             <div className="file-upload">
                 <button
                     className="file-upload-btn"
