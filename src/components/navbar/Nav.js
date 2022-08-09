@@ -211,7 +211,7 @@ const Nav = () => {
           :<Link
             to="/upload"
             className="btn "
-            style={{ color: "#012848", background: "white" }}
+            style={{ color: "black", background: "white" }}
           >
             Upload
           </Link>
