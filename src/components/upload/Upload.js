@@ -5,15 +5,8 @@ import "./Upload.css"
 
 const Upload = () => {
     return (
-        <div className="mt-5 mb-5">
+        <div className="mt-5 mb-5 ms-20" >
             <div className="file-upload">
-                <button
-                    className="file-upload-btn"
-                    type="button"
-                    onclick="$('.file-upload-input').trigger( 'click' )"
-                >
-                    Add File
-                </button>
                 <div className="image-upload-wrap">
                     <input
                         className="file-upload-input"
@@ -33,6 +26,13 @@ const Upload = () => {
                         </button>
                     </div>
                 </div>
+                <button
+                    className="file-upload-btn mt-3"
+                    type="button"
+                    onclick="$('.file-upload-input').trigger( 'click' )"
+                >
+                    Add File
+                </button>
             </div>
         </div>
     )
