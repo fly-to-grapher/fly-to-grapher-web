@@ -52,7 +52,7 @@ const Nav = () => {
         <Link to="/">
           {nav
             ? <img
-                src="./assert/flytog.png"
+                src="./assert/flytogr.png"
                 className="d-block mx-lg-auto img-fluid"
                 alt="Bootstrap Themes"
                 width="155px"
