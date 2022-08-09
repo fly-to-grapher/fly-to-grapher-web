@@ -22,7 +22,7 @@ const Upload = () => {
                         accept="image/*"
                     />
                     <div className="drag-text">
-                        <h3>Drag and drop a file or select add Image</h3>
+                        <h3>select or drop a video or photo</h3>
                     </div>
                 </div>
                 <div className="file-upload-content">
