@@ -19,7 +19,6 @@ import Categories from "./components/categories/Categories"
 const App = () => {
   return (
     <BrowserRouter>
-      <Nav />
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/signup" element={<Signup />} />

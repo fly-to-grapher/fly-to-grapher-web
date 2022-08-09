@@ -1,11 +1,14 @@
 import React from "react";
 import './Home.css';
 import { Link } from "react-router-dom"
+import Nav from "../navbar/Nav"
 
 
 const Home = () => {
+
     return (
         <>
+            <Nav />
             <div>
                 {/* Start hero*/}
                 <div className="herro">
