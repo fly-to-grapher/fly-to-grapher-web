@@ -11,7 +11,7 @@ import Typography from "@mui/material/Typography";
 import Container from "@mui/material/Container";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
 import { useNavigate } from "react-router-dom";
-import Navbar from "../navbar/Navbar";
+import Navbar from "../navbar/Nav2";
 
 const theme = createTheme();
 

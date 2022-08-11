@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import Nav from "../navbar/Nav";
+import Nav from "../navbar/Nav1";
 
 
 

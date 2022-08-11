@@ -1,6 +1,6 @@
 import React from "react";
 import "./Upload.css"
-import Navbar from "../navbar/Navbar";
+import Navbar from "../navbar/Nav2";
 
 
 const Upload = () => {

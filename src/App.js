@@ -1,5 +1,4 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import Nav from "./components/navbar/Nav"
 import Home from "./components/home/Home";
 import Signup from "./components/signup/Signup";
 import Login from "./components/login/Login"
@@ -8,7 +7,6 @@ import Footer from "./components/footer/Footer";
 import Upload from "./components/upload/Upload";
 import Categories from "./components/categories/Categories"
 
-// import './Style.css';
 
 
 
