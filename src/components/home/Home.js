@@ -152,7 +152,7 @@ const Home = () => {
                             alt=""
                         />
                     </div>
-                    <div className="explore d-flex justify-content-center"></div>
+                    <div className="explore d-flex justify-content-center">Load more</div>
                 </main>
             </div>
         </>

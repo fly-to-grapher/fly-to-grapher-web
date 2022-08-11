@@ -126,11 +126,6 @@ export default function ButtonBases() {
                                 <Link to="/categories" className="nav-item" style={{ textDecoration: 'none' }}>
                                     <a className="nav-link" style={{ color: "black" }}><b><h4><u>Categories</u></h4></b></a>
                                 </Link>
-
-
-                                {/* <li className="active">Home</li>
-          <li className="active">Videos</li>
-        <li className="active">Categories</li> */}
                             </ul>
                         </div>
                     </navbar>
@@ -142,7 +137,7 @@ export default function ButtonBases() {
                     <a href="#" className="next">
                         &gt;
                     </a>
-                    <h1 className="d-flex justify-content-center">Free Stock Videos</h1>
+                    {/* <h1 className="d-flex justify-content-center">Free Stock Videos</h1> */}
                 </div>
                 <div className={classes.root}>
                     {images.map((image) => (
