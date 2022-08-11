@@ -1,11 +1,11 @@
 import React from "react";
-import Navbar from "../navbar/Nav2";
+import Nav2 from "../navbar/Nav2";
 
 
 const profile = () => {
     return (
         <>
-        <Navbar />
+        <Nav2 />
             <div>
                 <h1>
                     hiiiiiiii
