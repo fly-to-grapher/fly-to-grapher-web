@@ -12,29 +12,32 @@ import Container from "@mui/material/Container";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
 import { useNavigate } from "react-router-dom";
 import Navbar from "../navbar/Nav2";
+import { AuthContext } from '../context/auth'
+import { useContext } from "react";
+import { useRequest } from "../hooks/useRequest"
+
 
 const theme = createTheme();
 
 export default function SignUp() {
-    let navigate = useNavigate();
-    const handleSubmit = async (event) => {
-        event.preventDefault();
-        const response = await fetch(process.env.REACT_APP_API_URL + "/users/login", {
-            method: "post",
-            body: JSON.stringify({
-                userNameOrEmail: event.target.querySelector("input[name=userNameOrEmail]").value,
-                password: event.target.querySelector('input[name=password]').value
-            }),
-            headers: {
-                'Content-Type': 'application/json'
-            }
-        })
-        const userRegistered = await response.json()
-        if (userRegistered.success) {
+    const navigate = useNavigate();
+    const sendRequest = useRequest()
+    const auth = useContext(AuthContext)
+    const handleSubmit = (event) => {
+    event.preventDefault();
+    sendRequest(process.env.REACT_APP_API_URL + "/users/login", {}, {
+        userNameOrEmail: event.target.querySelector('input[name=userNameOrEmail]').value,
+        password: event.target.querySelector('input[name=password]').value
+    }, { type: 'json' }, 'POST')
+        .then((response) => {
+            console.log(response);
+        if (response.success) {
+            auth.login(response) 
             navigate('/')
         } else {
-            window.alert(userRegistered.messages)
-        }
+            window.alert(response.messages)
+            }
+        });
     };
 
     return (
