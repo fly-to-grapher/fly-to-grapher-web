@@ -2,9 +2,25 @@ import React from "react";
 import './Home.css';
 import { Link } from "react-router-dom"
 import Nav1 from "../navbar/Nav1"
+import Nav from "../navbar/Nav1"
+import { useEffect, useState } from 'react';
+import { useRequest } from '../hooks/useRequest'
+
 
 
 const Home = () => {
+    const [picture, setPicture] = useState([]);
+    const sendRequest = useRequest()
+    useEffect(() => {
+        sendRequest(process.env.REACT_APP_API_URL + '/files/pictures', {}, {}, {
+            auth: true,
+        }, 'GET').then((response) => {
+            if (response?.success) {
+                setPicture(response.data)
+            }
+        })
+    }, [])
+    console.log(picture);
 
     return (
         <>

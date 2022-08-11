@@ -3,8 +3,23 @@ import { Link } from "react-router-dom";
 import Nav1 from "../navbar/Nav1";
 
 
+import { useEffect, useState } from 'react';
+import { useRequest } from '../hooks/useRequest'
+
 
 const Videos = () => {
+    const [video, setVideo] = useState([]);
+    const sendRequest = useRequest()
+    useEffect(() => {
+        sendRequest(process.env.REACT_APP_API_URL + '/files/videos', {}, {}, {
+            auth: true,
+        }, 'GET').then((response) => {
+            if (response?.success) {
+                setVideo(response.data)
+            }
+        })
+    }, [])
+    console.log(video);
 
     return (
         <>
