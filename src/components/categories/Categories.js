@@ -2,7 +2,7 @@ import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import ButtonBase from '@material-ui/core/ButtonBase';
 import Typography from '@material-ui/core/Typography';
-
+import Nav from '../navbar/Nav1';
 const images = [
     {
         src: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTXxlNeyGrGZxjytvexnR2xi77-zBBxRr_U3Q&usqp=CAU',
@@ -98,6 +98,8 @@ export default function ButtonBases() {
     const classes = useStyles();
 
     return (
+        <>
+        <Nav/>
         <div className={classes.root}>
             {images.map((image) => (
                 <ButtonBase
@@ -130,6 +132,7 @@ export default function ButtonBases() {
                 </ButtonBase>
             ))}
         </div>
+        </>
     );
 }
 
