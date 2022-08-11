@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import Nav1 from "../navbar/Nav1";
 
 
-const SingleCategorie = () => {
+const SingleCategory = () => {
     return (
         <>
             <Nav1 />
@@ -142,4 +142,4 @@ const SingleCategorie = () => {
 }
 
 
-export default SingleCategorie;
+export default SingleCategory;

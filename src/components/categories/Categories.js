@@ -102,7 +102,7 @@ export default function ButtonBases() {
 
     return (
         <>
-        <Nav1 />
+            <Nav1 />
             <div>
                 <div>
                     {/* Start hero*/}
@@ -139,38 +139,40 @@ export default function ButtonBases() {
                     </a>
                     {/* <h1 className="d-flex justify-content-center">Free Stock Videos</h1> */}
                 </div>
-                <div className={classes.root}>
-                    {images.map((image) => (
-                        <ButtonBase
-                            focusRipple
-                            key={image.title}
-                            className={classes.image}
-                            focusVisibleClassName={classes.focusVisible}
-                            style={{
-                                width: image.width,
-                            }}
-                        >
-                            <span
-                                className={classes.imageSrc}
+                <Link to="/s-category">
+                    <div className={classes.root}>
+                        {images.map((image) => (
+                            <ButtonBase
+                                focusRipple
+                                key={image.title}
+                                className={classes.image}
+                                focusVisibleClassName={classes.focusVisible}
                                 style={{
-                                    backgroundImage: `url(${image.url})`,
+                                    width: image.width,
                                 }}
-                            />
-                            <span className={classes.imageBackdrop} />
-                            <span className={classes.imageButton}>
-                                <Typography
-                                    component="span"
-                                    variant="subtitle1"
-                                    color="inherit"
-                                    className={classes.imageTitle}
-                                >
-                                    {image.title}
-                                    <span className={classes.imageMarked} />
-                                </Typography>
-                            </span>
-                        </ButtonBase>
-                    ))}
-                </div>
+                            >
+                                <span
+                                    className={classes.imageSrc}
+                                    style={{
+                                        backgroundImage: `url(${image.url})`,
+                                    }}
+                                />
+                                <span className={classes.imageBackdrop} />
+                                <span className={classes.imageButton}>
+                                    <Typography
+                                        component="span"
+                                        variant="subtitle1"
+                                        color="inherit"
+                                        className={classes.imageTitle}
+                                    >
+                                        {image.title}
+                                        <span className={classes.imageMarked} />
+                                    </Typography>
+                                </span>
+                            </ButtonBase>
+                        ))}
+                    </div>
+                </Link>
             </div>
         </>
     );

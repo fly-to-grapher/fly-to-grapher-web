@@ -8,7 +8,7 @@ import Upload from "./components/upload/Upload";
 import Categories from "./components/categories/Categories"
 
 import Profile from "./components/profile/Profile";
-import SingleCategorie from "./components/categories/SingleCategorie";
+import SingleCategory from "./components/categories/SingleCategory";
 // import './Style.css';
 
 
@@ -29,7 +29,7 @@ const App = () => {
         <Route path="/upload" element={<Upload />} />
         <Route path="/categories" element={<Categories />} />
         <Route path="/profile" element={<Profile />} />
-        <Route path="/s-categorie" element={<SingleCategorie />} />
+        <Route path="/s-category" element={<SingleCategory />} />
       </Routes>
       <Footer />
     </BrowserRouter>
