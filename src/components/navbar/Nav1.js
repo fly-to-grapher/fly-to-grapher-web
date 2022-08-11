@@ -2,45 +2,18 @@ import { Link } from "react-router-dom";
 import React, { useState, useEffect } from "react";
 
 const Nav = () => {
-  // const auth = useContext(AuthContext)
-  // const navigate = useNavigate()
-  // const logout = () => {
-  //   auth.logout()
-  //   if (window.confirm('Log Out')) {
-  //     navigate('/login')
-  //   } else {
-  //     navigate('/allposts')
-  //   }
-  // }
+  
   const [nav, setNav] = useState(false);
-  const [url, setUrl] = useState(window.location.href);
   const changeNav = () => {
-    console.log(window.location.href);
-    let urlArray = url.split("/");
-    let homeurl = urlArray[urlArray.length - 1];
+    
     if (window.scrollY >= 80) {
       setNav(true);
-    } else if (homeurl == "") {
+    } else {
       setNav(false);
     }
   };
 
-  // window.addEventListener("hashchange", () => {
-  //   setUrl(window.location.href)
-  //   console.log("location changed");
-  // });
-  useEffect(() => {
-    changeNav();
-    window.addEventListener("scroll", changeNav);
-    setUrl(window.location.href);
-  });
-
-  useEffect(
-    () => {
-      changeNav();
-    },
-    [url]
-  );
+  window.addEventListener("scroll", changeNav);
 
   return (
     <nav
