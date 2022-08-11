@@ -11,31 +11,37 @@ import LockOutlinedIcon from "@mui/icons-material/LockOutlined";
 import Typography from "@mui/material/Typography";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
 import { useNavigate } from "react-router-dom";
-import { useRequest } from "../hooks/useRequest"
-import { AuthContext } from '../context/auth'
+import { useRequest } from "../hooks/useRequest";
+import { AuthContext } from "../context/auth";
 import { useContext } from "react";
-
 
 const theme = createTheme();
 
 const Login = () => {
   const navigate = useNavigate();
-  const sendRequest = useRequest()
-  const auth = useContext(AuthContext)
-  const handleSubmit = (event) => {
+  const sendRequest = useRequest();
+  const auth = useContext(AuthContext);
+  const handleSubmit = event => {
     event.preventDefault();
-    sendRequest(process.env.REACT_APP_API_URL + "/users/login", {}, {
-      userNameOrEmail: event.target.querySelector('input[name=userNameOrEmail]').value,
-      password: event.target.querySelector('input[name=password]').value
-    }, { type: 'json' }, 'POST')
-      .then((response) => {
-        if (response.success) {
-          auth.login(response) 
-          navigate('/')
-        } else {
-          window.alert(response.messages)
-        }
-      });
+    sendRequest(
+      process.env.REACT_APP_API_URL + "/users/login",
+      {},
+      {
+        userNameOrEmail: event.target.querySelector(
+          "input[name=userNameOrEmail]"
+        ).value,
+        password: event.target.querySelector("input[name=password]").value
+      },
+      { type: "json" },
+      "POST"
+    ).then(response => {
+      if (response.success) {
+        auth.login(response);
+        navigate("/");
+      } else {
+        window.alert(response.messages);
+      }
+    });
   };
 
   return (
@@ -48,7 +54,8 @@ const Login = () => {
           sm={4}
           md={7}
           sx={{
-            backgroundImage: "url(https://expatguideturkey.com/wp-content/uploads/2020/10/which-ways-may-be-followed-in-making-long-distance-travel.jpg)",
+            backgroundImage:
+              "url(https://expatguideturkey.com/wp-content/uploads/2020/10/which-ways-may-be-followed-in-making-long-distance-travel.jpg)",
             backgroundRepeat: "no-repeat",
             backgroundColor: t =>
               t.palette.mode === "light"
@@ -111,16 +118,18 @@ const Login = () => {
                 logIn
               </Button>
               <Grid container>
-                <Grid item xs>
-                </Grid>
-                <Grid item className="btn btn-ouline-dark  container-fluid mt-3 mb-2">
-                  Don't have an account ?  
+                <Grid item xs />
+                <Grid
+                  item
+                  className="btn btn-ouline-dark  container-fluid mt-3 mb-2"
+                >
+                  Don't have an account ?
                   <Link
                     to="/signup"
                     className=""
-                    style={{ color: "blue",  textDecoration: 'none'}}
+                    style={{ color: "blue", textDecoration: "none" }}
                   >
-                       Sign Up
+                    Sign Up
                   </Link>
                 </Grid>
               </Grid>
@@ -130,5 +139,5 @@ const Login = () => {
       </Grid>
     </ThemeProvider>
   );
-}
-export default Login
+};
+export default Login;
