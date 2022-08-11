@@ -6,12 +6,12 @@ import Videos from "./components/videos/Videos"
 import Footer from "./components/footer/Footer";
 import Upload from "./components/upload/Upload";
 import Categories from "./components/categories/Categories"
-<<<<<<< HEAD
+// <<<<<<< HEAD
 
-=======
+// =======
 import Profile from "./components/profile/Profile";
 // import './Style.css';
->>>>>>> 415c1a6fd9e5e8f2075623b501b28e4c9ed14440
+// >>>>>>> 415c1a6fd9e5e8f2075623b501b28e4c9ed14440
 
 
 
