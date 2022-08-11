@@ -1,22 +1,8 @@
 import { Link } from "react-router-dom";
 import React, { useState, useEffect } from "react";
 
-<<<<<<< HEAD
 const Nav = () => {
   
-=======
-const Nav1 = () => {
-  // const auth = useContext(AuthContext)
-  // const navigate = useNavigate()
-  // const logout = () => {
-  //   auth.logout()
-  //   if (window.confirm('Log Out')) {
-  //     navigate('/login')
-  //   } else {
-  //     navigate('/allposts')
-  //   }
-  // }
->>>>>>> b37cf7f23e644750a7ed6526f0a6d0cab12cb13d
   const [nav, setNav] = useState(false);
   const changeNav = () => {
     
@@ -204,4 +190,4 @@ const Nav1 = () => {
   );
 };
 
-export default Nav1;
+export default Nav;
