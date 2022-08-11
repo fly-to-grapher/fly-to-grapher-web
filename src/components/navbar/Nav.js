@@ -105,7 +105,7 @@ const Nav = () => {
             >
               <li>
                 {" "}<Link
-                  to="/account"
+                  to="/profile"
                   className="dropdown-item"
                   style={{ color: "black" }}
                 >
@@ -169,7 +169,7 @@ const Nav = () => {
             >
               <li>
                 {" "}<Link
-                  to="/account"
+                  to="/profile"
                   className="dropdown-item"
                   style={{ color: "black" }}
                 >

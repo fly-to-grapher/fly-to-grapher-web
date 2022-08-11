@@ -7,7 +7,7 @@ import Videos from "./components/videos/Videos"
 import Footer from "./components/footer/Footer";
 import Upload from "./components/upload/Upload";
 import Categories from "./components/categories/Categories"
-
+import Profile from "./components/profile/Profile";
 // import './Style.css';
 
 
@@ -26,6 +26,7 @@ const App = () => {
         <Route path="/videos" element={<Videos />} />
         <Route path="/upload" element={<Upload />} />
         <Route path="/categories" element={<Categories />} />
+        <Route path="/profile" element={<Profile />} />
       </Routes>
       <Footer />
     </BrowserRouter>
