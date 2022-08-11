@@ -1,14 +1,14 @@
 import React from "react";
 import './Home.css';
 import { Link } from "react-router-dom"
-import Nav from "../navbar/Nav1"
+import Nav1 from "../navbar/Nav1"
 
 
 const Home = () => {
 
     return (
         <>
-            <Nav />
+            <Nav1 />
             <div>
                 {/* Start hero*/}
                 <div className="herro">
@@ -136,7 +136,7 @@ const Home = () => {
                             alt=""
                         />
                     </div>
-                    <div className="explore">Explore</div>
+                    <div className="explore d-flex justify-content-center"></div>
                 </main>
             </div>
         </>

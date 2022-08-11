@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import React, { useState, useEffect } from "react";
 
-const Nav = () => {
+const Nav1 = () => {
   // const auth = useContext(AuthContext)
   // const navigate = useNavigate()
   // const logout = () => {
@@ -217,4 +217,4 @@ const Nav = () => {
   );
 };
 
-export default Nav;
+export default Nav1;

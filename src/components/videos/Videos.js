@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import Nav from "../navbar/Nav1";
+import Nav1 from "../navbar/Nav1";
 
 
 
@@ -8,7 +8,7 @@ const Videos = () => {
 
     return (
         <>
-            <Nav />
+            <Nav1 />
             <div>
                 <div>
                     {/* Start hero*/}
