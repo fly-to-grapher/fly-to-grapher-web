@@ -130,7 +130,7 @@ export default function ButtonBases() {
                         </div>
                     </navbar>
                 </div>
-                <div>
+                <div className='mt-5'>
                     <a href="#" className="prev">
                         &lt;
                     </a>
