@@ -6,12 +6,10 @@ import Videos from "./components/videos/Videos"
 import Footer from "./components/footer/Footer";
 import Upload from "./components/upload/Upload";
 import Categories from "./components/categories/Categories"
-// <<<<<<< HEAD
 
-// =======
 import Profile from "./components/profile/Profile";
+import SingleCategorie from "./components/categories/SingleCategorie";
 // import './Style.css';
-// >>>>>>> 415c1a6fd9e5e8f2075623b501b28e4c9ed14440
 
 
 
@@ -30,6 +28,7 @@ const App = () => {
         <Route path="/upload" element={<Upload />} />
         <Route path="/categories" element={<Categories />} />
         <Route path="/profile" element={<Profile />} />
+        <Route path="/s-categorie" element={<SingleCategorie />} />
       </Routes>
       <Footer />
     </BrowserRouter>
