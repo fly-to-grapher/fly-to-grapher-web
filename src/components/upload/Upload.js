@@ -6,7 +6,7 @@ import Navbar from "../navbar/Nav2";
 const Upload = () => {
     return (
         <>
-        <Navbar />
+            <Navbar />
             <div className=" mt-5 mb-5">
                 <div className="file-upload">
                     <button
@@ -34,6 +34,20 @@ const Upload = () => {
                                 Remove <span className="image-title">Uploaded Image</span>
                             </button>
                         </div>
+                    </div>
+                </div>
+                <div className="d-flex justify-content-center">
+                    <label>
+                        <h4><b>Tags:</b></h4>
+                        <input type="text" />
+                    </label>
+                    <label>
+                        <h4><b>Location:</b></h4>
+                        <input type="text" />
+                    </label>
+                    <div class="mb-3 form-check">
+                        <input type="checkbox" class="form-check-input" id="exampleCheck1" />
+                        <label class="form-check-label" for="exampleCheck1">Check me out</label>
                     </div>
                 </div>
             </div>

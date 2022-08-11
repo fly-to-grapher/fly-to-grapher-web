@@ -102,7 +102,7 @@ export default function ButtonBases() {
 
     return (
         <>
-            <Nav1 />
+        <Nav1 />
             <div>
                 <div>
                     {/* Start hero*/}
