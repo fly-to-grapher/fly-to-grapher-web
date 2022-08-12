@@ -1,8 +1,18 @@
 import { Link } from "react-router-dom";
-import React, { useState, useEffect } from "react";
+import { useContext, useState } from "react"
+import { useNavigate } from "react-router-dom"
+import { AuthContext } from "../context/auth"
+
 
 const Nav1 = () => {
-  
+  const auth = useContext(AuthContext)
+    const navigate = useNavigate()
+    const logout = () => {
+        auth.logout()
+        if (window.confirm('Are you sure you want to log out ?')) {
+            navigate('/login')
+        } 
+    }
   const [nav, setNav] = useState(false);
   const changeNav = () => {
     
@@ -14,6 +24,12 @@ const Nav1 = () => {
   };
 
   window.addEventListener("scroll", changeNav);
+
+  // const notLogin = () => {
+  //   if (!auth.isAuthenticated) {
+  //     navigate('/login')
+  //   }
+  // }
 
   return (
     <nav
@@ -77,6 +93,7 @@ const Nav1 = () => {
                   style={{}}
                   aria-labelledby="navbarDropdown"
                 >
+                  {auth.isAuthenticated && <>
                   <li>
                     {" "}<Link
                       to="/profile"
@@ -86,7 +103,11 @@ const Nav1 = () => {
                       Your profile
                     </Link>
                   </li>
-                  <li className="dropdown-item">Log Out</li>
+                    </>}
+                  {auth.isAuthenticated && <>
+                  <li onClick={() => logout()} className="dropdown-item" style={{ color: "black" }} >Log out</li>
+                  </>}
+                  {!auth.isAuthenticated && <>
                   <li>
                     {" "}<Link
                       to="/signup"
@@ -96,6 +117,8 @@ const Nav1 = () => {
                       Sign Up
                     </Link>
                   </li>
+                  </>}
+                  {!auth.isAuthenticated && <>
                   <li>
                     {" "}<Link
                       to="/login"
@@ -105,6 +128,7 @@ const Nav1 = () => {
                       Log In
                     </Link>{" "}
                   </li>
+                  </>}
                 </ul>
               </div>
             : <div
@@ -139,6 +163,7 @@ const Nav1 = () => {
                   style={{}}
                   aria-labelledby="navbarDropdown"
                 >
+                  {auth.isAuthenticated && <>
                   <li>
                     {" "}<Link
                       to="/profile"
@@ -148,7 +173,11 @@ const Nav1 = () => {
                       Your profile
                     </Link>
                   </li>
-                  <li className="dropdown-item">Log Out</li>
+                  </>}
+                  {auth.isAuthenticated && <>
+                  <li onClick={() => logout()} className="dropdown-item" style={{ color: "black" }} >Log out</li>
+                  </>}
+                  {!auth.isAuthenticated && <>
                   <li>
                     {" "}<Link
                       to="/signup"
@@ -158,6 +187,8 @@ const Nav1 = () => {
                       Sign Up
                     </Link>
                   </li>
+                  </>}
+                  {!auth.isAuthenticated && <>
                   <li>
                     {" "}<Link
                       to="/login"
@@ -167,6 +198,7 @@ const Nav1 = () => {
                       Log In
                     </Link>{" "}
                   </li>
+                  </>}
                 </ul>
               </div>}
           {nav
@@ -184,6 +216,7 @@ const Nav1 = () => {
               >
                 Upload
               </Link>}
+          
         </div>
       </div>
     </nav>
