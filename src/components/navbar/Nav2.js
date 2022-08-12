@@ -5,6 +5,7 @@ import { AuthContext } from "../context/auth"
 
 
 const Nav2 = () => {
+
     const auth = useContext(AuthContext)
     const navigate = useNavigate()
     const logout = () => {

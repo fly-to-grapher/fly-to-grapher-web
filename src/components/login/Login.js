@@ -43,23 +43,23 @@ export default function SignUp() {
     return (
         <>
         <Navbar />
-            <div className='d-flex justify-content-center align-items-center flex-wrap mt-3 mb-2'>
+            <div className='d-flex justify-content-center align-items-center flex-wrap'>
                 <ThemeProvider theme={theme}>
                     <Container component="main" maxWidth="xs">
                         <CssBaseline />
                         <Box
                             sx={{
-                                marginTop: 8,
+                                marginTop: 4,
                                 display: "flex",
                                 flexDirection: "column",
                                 alignItems: "center"
                             }}
                         >
-                            <Avatar sx={{ m: 1, bgcolor: "#012848" }}>
+                            <Avatar sx={{ m: 0, bgcolor: "#012848" }}>
                                 <LockOutlinedIcon />
                             </Avatar>
-                            <Typography component="h1" variant="h5">
-                                Log In
+                            <Typography component="h3" variant="h5">
+                                <b>Log In</b>
                             </Typography>
                             <Box
                                 component="form"
@@ -97,15 +97,15 @@ export default function SignUp() {
                                     variant="contained"
                                     sx={{ mt: 3, mb: 2, backgroundColor: "#012848" }}
                                 >
-                                    Log In
+                                   <b>Log In</b> 
                                 </Button>
                                 <div className="btn btn-ouline-dark  container-fluid mt-2 mb-2">
-                                    <p> Don't have an account ?
+                                    <p> <b>Don't have an account ?</b>
                                         <Link
                                             to="/signup"
                                             className="btn btn-ouline"
                                             style={{ color: "blue", textDecoration: 'none' }}
-                                        >Sign up
+                                        > <b>Sign up</b>
                                         </Link>
                                     </p>
                                 </div>
