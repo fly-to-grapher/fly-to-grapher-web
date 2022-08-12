@@ -75,8 +75,8 @@ const Nav1 = () => {
                 >
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
-                    width="23"
-                    height="23"
+                    width="25"
+                    height="25"
                     fill="currentColor"
                     className="bi bi-person-circle"
                     viewBox="0 0 16 16"
