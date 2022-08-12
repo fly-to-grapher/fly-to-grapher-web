@@ -5,14 +5,10 @@ import Login from "./components/login/Login"
 import Videos from "./components/videos/Videos"
 import Footer from "./components/footer/Footer";
 import Upload from "./components/upload/Upload";
-import Categories from "./components/categories/Categories"
-
+import Categories from "./components/categories/Categories";
 import Profile from "./components/profile/Profile";
-import SingleCategory from "./components/categories/SingleCategory";
+import SingleCategory from "./components/categories/SingleCategory"
 // import './Style.css';
-
-
-
 
 
 

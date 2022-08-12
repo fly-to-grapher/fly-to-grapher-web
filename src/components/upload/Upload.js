@@ -7,7 +7,7 @@ const Upload = () => {
     return (
         <>
             <Navbar />
-            <div className=" mt-5 mb-5">
+            <div className="container-fluid mt-5 mb-5 d-flex justify-content-around align-items-center">
                 <div className="file-upload">
                     <button
                         className="file-upload-btn"
@@ -36,19 +36,49 @@ const Upload = () => {
                         </div>
                     </div>
                 </div>
-                <div className="d-flex justify-content-center">
-                    <label>
-                        <h4><b>Tags:</b></h4>
-                        <input type="text" />
-                    </label>
-                    <label>
-                        <h4><b>Location:</b></h4>
-                        <input type="text" />
-                    </label>
-                    <div class="mb-3 form-check">
-                        <input type="checkbox" class="form-check-input" id="exampleCheck1" />
-                        <label class="form-check-label" for="exampleCheck1">Check me out</label>
-                    </div>
+                <div className="d-flex justify-content-end" style={{}}>
+                    <form>
+                        <div className="row mb-3">
+                            <label className="col-sm-2 col-form-label">Email</label>
+                            <div className="col-sm-10">
+                                <input type="email" className="form-control" id="inputEmail3" />
+                            </div>
+                        </div>
+                        <div className="row mb-3">
+                            <label for="inputPassword3" className="col-sm-2 col-form-label">Password</label>
+                            <div className="col-sm-10">
+                                <input type="password" className="form-control" id="inputPassword3" />
+                            </div>
+                        </div>
+                        <div className="row mb-3">
+                            <div className="container-fluid mt-5 mb-5 d-flex justify-content-around align-items-center">
+                                <div className="form-check">
+                                    <input className="form-check-input" type="checkbox" id="gridCheck1" />
+                                    <label className="form-check-label" for="gridCheck1">
+                                        Example checkbox
+                                    </label>
+                                </div>
+                                <div className="form-check">
+                                    <input className="form-check-input" type="checkbox" id="gridCheck1" />
+                                    <label className="form-check-label" for="gridCheck1">
+                                        Example checkbox
+                                    </label>
+                                </div>
+                                <div className="form-check">
+                                    <input className="form-check-input" type="checkbox" id="gridCheck1" />
+                                    <label className="form-check-label" for="gridCheck1">
+                                         checkbox
+                                    </label>
+                                </div>
+                                <div className="form-check">
+                                    <input className="form-check-input" type="checkbox" id="gridCheck1" />
+                                    <label className="form-check-label" for="gridCheck1">
+                                        Example checkbox
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
                 </div>
             </div>
         </>

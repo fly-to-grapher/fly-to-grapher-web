@@ -2,7 +2,6 @@ import React from "react";
 import './Home.css';
 import { Link } from "react-router-dom"
 import Nav1 from "../navbar/Nav1"
-import Nav from "../navbar/Nav1"
 import { useEffect, useState } from 'react';
 import { useRequest } from '../hooks/useRequest'
 
@@ -126,33 +125,28 @@ const Home = () => {
                     </div>
                     <div>
                         <img
-                            src="https://picsum.photos/id/1/200/300
-"
+                            src="https://picsum.photos/id/1/200/300"
                             alt=""
                         />
                     </div>
                     <div className="horizontal">
                         <img
-                            src="https://source.unsplash.com/user/erondu/daily
-"
+                            src="https://source.unsplash.com/user/erondu/daily"
                             alt=""
                         />
                     </div>
                     <div>
                         <img
-                            src="https://source.unsplash.com/weekly?landscape
-"
+                            src="https://source.unsplash.com/weekly?landscape"
                             alt=""
                         />
                     </div>
                     <div className="big">
                         <img
-                            src="https://i.postimg.cc/cHyKbrbg/pexels-aleksandar-pasaric-325185.jpg
-"
+                            src="https://i.postimg.cc/cHyKbrbg/pexels-aleksandar-pasaric-325185.jpg"
                             alt=""
                         />
                     </div>
-                    <div className="explore d-flex justify-content-center">  </div>
                     <div className="explore d-flex justify-content-center">Load more</div>
                 </main>
             </div>
