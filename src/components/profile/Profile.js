@@ -23,12 +23,6 @@ const profile = () => {
                                         </label>
                                         <input name="data[User][name]" className="form-control" required="required" maxlength="255" type="text" />
                                     </div>
-                                    <div className="form-group">
-                                        <label>
-                                            Location
-                                        </label>
-                                        <input name="data[User][location]" className="form-control" required="required" maxlength="150" type="text" />
-                                    </div>
                                     <div>
                                         <label>
                                             Username
@@ -40,6 +34,12 @@ const profile = () => {
                                             Email
                                         </label>
                                         <input name="data[User][email]" className="form-control" required="required" maxlength="150" type="text" />
+                                    </div>
+                                    <div className="form-group">
+                                        <label>
+                                            Location
+                                        </label>
+                                        <input name="data[User][location]" className="form-control" required="required" maxlength="150" type="text" />
                                     </div>
                                     <div className="form-group">
                                         <label>
@@ -59,8 +59,8 @@ const profile = () => {
                             </div>
                         </div>
                     </div>
-                    <div className="card-footer">
-                        <button type="submit" className="btn btn-info btn-save-form">
+                    <div className="d-flex justify-content-center mb-5 mt-2">
+                        <button type="submit" className="btn btn-info btn-save-form " style={{ backgroundColor: "#012848", color : "white" }}>
                             Save
                         </button>
                     </div>
