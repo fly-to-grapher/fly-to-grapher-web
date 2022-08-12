@@ -31,7 +31,7 @@ const Videos = () => {
                         <div className="content">
                             {/*     <h1>Royalty Free Stock Photos</h1> */}
                             <h1>The best free stock photos and videos</h1>
-                            <input type="search" className="find" />
+                            <input type="search" placeholder="Search for free photos " className="find" />
                         </div>
                     </div>
                     {/* End hero*/}
@@ -47,11 +47,6 @@ const Videos = () => {
                                 <Link to="/categories" className="nav-item" style={{ textDecoration: 'none' }}>
                                     <a className="nav-link" style={{ color: "black" }}><b><h4><u>Categories</u></h4></b></a>
                                 </Link>
-
-
-                                {/* <li className="active">Home</li>
-          <li className="active">Videos</li>
-          <li className="active">Categories</li> */}
                             </ul>
                         </div>
                     </navbar>

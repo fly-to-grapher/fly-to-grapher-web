@@ -14,7 +14,7 @@ const SingleCategory = () => {
                         <div className="content">
                             {/*     <h1>Royalty Free Stock Photos</h1> */}
                             <h1>The best free stock photos and videos</h1>
-                            <input type="search" className="find" />
+                            <input type="search" placeholder="Search for free photos " className="find" />
                         </div>
                     </div>
                     {/* End hero*/}
@@ -46,7 +46,7 @@ const SingleCategory = () => {
                     <a href="#" className="next">
                         &gt;
                     </a>
-                    <h1 className="d-flex justify-content-center">Free Stock Videos</h1>
+                    <h1 className="d-flex justify-content-center">category name</h1>
                 </div>
                 <main className="container">
                     <div>
@@ -134,7 +134,7 @@ const SingleCategory = () => {
                             alt=""
                         />
                     </div>
-                    <div className="explore d-flex justify-content-center">  </div>
+                    <div className="explore d-flex justify-content-center"> load more </div>
                 </main>
             </div>
         </>

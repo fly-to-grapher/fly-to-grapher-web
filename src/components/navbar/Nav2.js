@@ -13,11 +13,6 @@ const Nav2 = () => {
             navigate('/login')
         } 
     }
-    const notLogin = () => {
-      if (!auth.login) {
-        navigate('/login')
-      }
-    }
     return (
         <nav className=" container-fluid px-5 " style={{ backgroundColor: "#012848" }}>
             <div className="navbar navbar-expand-lg navbar-dark d-flex justify-content-between">
