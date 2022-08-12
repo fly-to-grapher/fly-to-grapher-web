@@ -6,7 +6,7 @@ export const Footer = () => {
     <div>
       <div className="text-center text-white mt-1 mb-1" style={{ backgroundColor: "#012848" }} >
         <div className="pt-5">
-          <img src="./assert/flytog_white.png" className="d-block mx-lg-auto img-fluid" alt="" width="300px" height="300px" />
+          <img src="./assert/ftg1w.png" className="d-block mx-lg-auto img-fluid" alt="" width="300px" height="300px" />
         </div>
         <div className="container pt-3">
           <section>

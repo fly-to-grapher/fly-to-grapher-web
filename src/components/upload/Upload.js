@@ -39,20 +39,20 @@ const Upload = () => {
                 <div className="d-flex justify-content-end mt-5">
                     <form>
                         <div className="row mb-3">
-                            <label for="location" className="col-sm-2 col-form-label"><b>Location</b></label>
+                            <label for="location" className="col-sm-2 col-form-label"><b>Location :</b></label>
                             <div className="col-sm-7">
                                 <input type="text" className="form-control" id="location" />
                             </div>
                         </div>
                         <div className="row mb-3">
-                            <label className="col-sm-2 col-form-label"><b>Tags</b></label>
+                            <label className="col-sm-2 col-form-label"><b>Tags : </b></label>
                             <div className="col-sm-7">
                                 <input type="text" className="form-control" id="inputEmail3" />
                             </div>
                         </div>
                         <div className="row ">
                         <b>
-                            <label className="d-flex justify-content-around align-items-center">Select category</label>
+                            <label className="d-flex justify-content-around align-items-center mt-4">Select category :</label>
                         </b>
                             <div className="container-fluid mt-2 mb-5 d-flex justify-content-around align-items-center">
                                 <div className="form-check">

@@ -43,7 +43,7 @@ const Nav1 = () => {
         <Link to="/">
           {nav
             ? <img
-                src="./assert/flytogr.png"
+                src="./assert/ftg2.png"
                 className="d-block mx-lg-auto img-fluid"
                 alt="Bootstrap Themes"
                 width="155px"
@@ -51,7 +51,7 @@ const Nav1 = () => {
                 loading="lazy"
               />
             : <img
-                src="./assert/flytog_white.png"
+                src="./assert/ftg1w.png"
                 className="d-block mx-lg-auto img-fluid"
                 alt="Bootstrap Themes"
                 width="155px"
