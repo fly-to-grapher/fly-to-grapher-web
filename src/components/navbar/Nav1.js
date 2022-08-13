@@ -43,7 +43,7 @@ const Nav1 = () => {
         <Link to="/">
           {nav
             ? <img
-                src="./assert/flytogr.png"
+                src="./assert/ftg2.png"
                 className="d-block mx-lg-auto img-fluid"
                 alt="Bootstrap Themes"
                 width="155px"
@@ -51,7 +51,7 @@ const Nav1 = () => {
                 loading="lazy"
               />
             : <img
-                src="./assert/flytog_white.png"
+                src="./assert/ftg1w.png"
                 className="d-block mx-lg-auto img-fluid"
                 alt="Bootstrap Themes"
                 width="155px"
@@ -75,8 +75,8 @@ const Nav1 = () => {
                 >
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
-                    width="23"
-                    height="23"
+                    width="25"
+                    height="25"
                     fill="currentColor"
                     className="bi bi-person-circle"
                     viewBox="0 0 16 16"
