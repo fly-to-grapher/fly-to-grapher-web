@@ -8,19 +8,19 @@ import { useRequest } from '../hooks/useRequest'
 
 
 const Videos = () => {
-    const [video, setVideo] = useState([]);
+    const [videos, setVideos] = useState([]);
     const sendRequest = useRequest()
     useEffect(() => {
         sendRequest(process.env.REACT_APP_API_URL + '/files/videos', {}, {}, {
             auth: true,
         }, 'GET').then((response) => {
             if (response?.success) {
-                setVideo(response.data)
+                setVideos(response.data)
             }
         })
     }, [])
-    console.log(video);
-
+    console.log(videos);
+    {videos && videos.length ? videos.map((video, i) => {
     return (
         <>
             <Nav1 />
@@ -62,7 +62,11 @@ const Videos = () => {
                 </div>
             </div>
         </>
-    )
+        )
+    })
+:
+<p>No videos available</p>
+}
 }
 
 
