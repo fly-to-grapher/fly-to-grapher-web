@@ -20,7 +20,6 @@ const Videos = () => {
         })
     }, [])
     console.log(videos);
-    {videos && videos.length ? videos.map((video, i) => {
     return (
         <>
             <Nav1 />
@@ -59,14 +58,25 @@ const Videos = () => {
                         &gt;
                     </a>
                     <h1 className="d-flex justify-content-center">Free Stock Videos</h1>
+                    {
+                    videos && videos.length ? videos.map((video , i)=>{
+                        return(
+                            <>
+                            <main className="container" key={i}>
+                                <video controls >
+                                    <source src={video.file_name}/>
+                                </video>
+                            </main>
+                            </>
+                        )
+                    })
+                    :
+                    <p>No videos available</p>
+                }
                 </div>
             </div>
         </>
         )
-    })
-:
-<p>No videos available</p>
-}
 }
 
 

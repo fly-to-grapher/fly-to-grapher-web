@@ -27,15 +27,14 @@ export default function SignUp() {
     event.preventDefault();
     sendRequest(process.env.REACT_APP_API_URL + "/users/login", {}, {
         userNameOrEmail: event.target.querySelector('input[name=userNameOrEmail]').value,
-        password: event.target.querySelector('input[name=password]').value
-    }, { type: 'json' }, 'POST')
+        password: event.target.querySelector('input[name=password]').value }, { type: 'json' }, 'POST')
         .then((response) => {
             console.log(response);
         if (response.success) {
             auth.login(response) 
-            navigate('/')
+            navigate('/profile')
         } else {
-            window.alert(response.messages)
+            window.alert(response?.messages?.join(' '))
             }
         });
     };
