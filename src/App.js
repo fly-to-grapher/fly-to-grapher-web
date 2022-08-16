@@ -7,7 +7,7 @@ import Footer from "./components/footer/Footer";
 import Upload from "./components/upload/Upload";
 import Categories from "./components/categories/Categories";
 import Profile from "./components/profile/Profile";
-import editProfile from './components/profile/editProfile'
+import EditProfile from './components/profile/editProfile'
 import SingleCategory from "./components/categories/SingleCategory"
 
 
@@ -25,7 +25,8 @@ const App = () => {
         <Route path="/upload" element={<Upload />} />
         <Route path="/categories" element={<Categories />} />
         <Route path="/profile" element={<Profile />} />
-        <Route path="/edit-profile" element={<editProfile />} />
+        <Route path="/edit-profile" element={<EditProfile />} />
+        {/* <Route path="/password" element={<ChangePassword />} /> */}
         <Route path="/s-category" element={<SingleCategory />} />
       </Routes>
       <Footer />
