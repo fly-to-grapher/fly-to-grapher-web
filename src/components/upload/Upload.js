@@ -79,7 +79,7 @@ const Upload = () => {
                             onChange={(e) => {
                                 setPicture(fileRef.current.files[0])
                             }}
-                            accept="image/*"
+                            accept="image/* , video/*"
                         />
                         <div className="drag-text">
                             <h3>select or drop a video or photo</h3>
