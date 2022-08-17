@@ -29,7 +29,6 @@ export default function SignUp() {
         userNameOrEmail: event.target.querySelector('input[name=userNameOrEmail]').value,
         password: event.target.querySelector('input[name=password]').value }, { type: 'json' }, 'POST')
         .then((response) => {
-            console.log(response);
         if (response.success) {
             auth.login(response) 
             navigate('/profile')

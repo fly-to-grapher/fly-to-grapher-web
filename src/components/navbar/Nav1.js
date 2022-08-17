@@ -8,8 +8,9 @@ const Nav1 = () => {
   const auth = useContext(AuthContext)
     const navigate = useNavigate()
     const logout = () => {
-        auth.logout()
+        
         if (window.confirm('Are you sure you want to log out ?')) {
+            auth.logout()
             navigate('/login')
         } 
     }
@@ -22,6 +23,14 @@ const Nav1 = () => {
       setNav(false);
     }
   };
+
+  const checkIfLoggedIn = () => {
+    if(auth?.isAuthenticated) navigate('/upload')
+    else{
+      navigate("/login")
+      alert("Please login first")
+    } 
+  }
 
   window.addEventListener("scroll", changeNav);
 
@@ -202,20 +211,20 @@ const Nav1 = () => {
                 </ul>
               </div>}
           {nav
-            ? <Link
-                to="/upload"
+            ? <button
                 className="btn "
                 style={{ color: "white", background: "#012848" }}
+                onClick={() => checkIfLoggedIn()}
               >
                 Upload
-              </Link>
-            : <Link
-                to="/upload"
+              </button>
+            : <button
                 className="btn "
                 style={{ color: "black", background: "white" }}
+                onClick={() => checkIfLoggedIn()}
               >
                 Upload
-              </Link>}
+              </button>}
           
         </div>
       </div>
