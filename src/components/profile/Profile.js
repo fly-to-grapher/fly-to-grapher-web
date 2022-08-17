@@ -55,7 +55,7 @@ const Profile = () => {
                         HI I AM SHOWING ALL POSTS
                     </div>
                     :
-                    <div className="d-flex flex-column text-center gap-5">
+                    <div className="d-flex flex-column text-center gap-5 my-3">
                         <div className="d-flex justify-content-center align-items-center gap-5">
                             <Button variant="outlined" onClick={showPosts}>Posts</Button>
                             <Button variant="contained" onClick={showSaves}>Saves</Button>

@@ -49,6 +49,7 @@ const Upload = () => {
     
     const addFile = async () => {
         setLoading(true);
+        console.log(picture)
 		const formdata = new FormData();
 		formdata.append('location', locationRef.current.value)
 		for (var i = 0; i < selectedCategories.length; i++) {
@@ -80,6 +81,7 @@ const Upload = () => {
                             ref={fileRef}
                             onChange={(e) => {
                                 setPicture(fileRef.current.files[0])
+                                console.log(picture)
                                 }}
                             accept="image/*"
                         />
@@ -87,12 +89,13 @@ const Upload = () => {
                             <h3>select or drop a video or photo</h3>
                         </div>
                     </div>
-                    {picture && <img src={picture.name} 
+                    {picture && <img src={picture.file_name} 
                         style={{position:"absolute", top:"8em", left:"15em"}} alt={fileRef.current.files[0].name}/>}
                     <button
                         className="file-upload-btn mt-3"
                         type="button"
                         onClick={addFile}
+                        disabled={loading}
                     >
                         {!loading ? 
                             <span>Add File</span>
