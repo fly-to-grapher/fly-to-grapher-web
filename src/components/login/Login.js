@@ -24,23 +24,24 @@ export default function SignUp() {
     const sendRequest = useRequest()
     const auth = useContext(AuthContext)
     const handleSubmit = (event) => {
-    event.preventDefault();
-    sendRequest(process.env.REACT_APP_API_URL + "/users/login", {}, {
-        userNameOrEmail: event.target.querySelector('input[name=userNameOrEmail]').value,
-        password: event.target.querySelector('input[name=password]').value }, { type: 'json' }, 'POST')
-        .then((response) => {
-        if (response.success) {
-            auth.login(response) 
-            navigate('/profile')
-        } else {
-            window.alert(response?.messages?.join(' '))
-            }
-        });
+        event.preventDefault();
+        sendRequest(process.env.REACT_APP_API_URL + "/users/login", {}, {
+            userNameOrEmail: event.target.querySelector('input[name=userNameOrEmail]').value,
+            password: event.target.querySelector('input[name=password]').value
+        }, { type: 'json' }, 'POST')
+            .then((response) => {
+                if (response.success) {
+                    auth.login(response)
+                    navigate('/profile')
+                } else {
+                    window.alert(response?.messages?.join(' '))
+                }
+            });
     };
 
     return (
         <>
-        <Navbar />
+            <Navbar />
             <div className='d-flex justify-content-center align-items-center flex-wrap'>
                 <ThemeProvider theme={theme}>
                     <Container component="main" maxWidth="xs">
@@ -66,16 +67,16 @@ export default function SignUp() {
                             >
                                 <Grid container spacing={2}>
                                     <Grid item xs={12}>
-                                    <TextField
-                                        margin="normal"
-                                        required
-                                        fullWidth
-                                        id="userNameOrEmail"
-                                        label="Username or Email"
-                                        name="userNameOrEmail"
-                                        autoComplete="current-userNameOrEmail"
-                                        autoFocus
-                                    />
+                                        <TextField
+                                            margin="normal"
+                                            required
+                                            fullWidth
+                                            id="userNameOrEmail"
+                                            label="Username or Email"
+                                            name="userNameOrEmail"
+                                            autoComplete="current-userNameOrEmail"
+                                            autoFocus
+                                        />
                                     </Grid>
                                     <Grid item xs={12}>
                                         <TextField
@@ -95,7 +96,7 @@ export default function SignUp() {
                                     variant="contained"
                                     sx={{ mt: 3, mb: 2, backgroundColor: "#012848" }}
                                 >
-                                   <b>Log In</b> 
+                                    <b>Log In</b>
                                 </Button>
                                 <div className="btn btn-ouline-dark  container-fluid mt-2 mb-2">
                                     <p> <b>Don't have an account ?</b>

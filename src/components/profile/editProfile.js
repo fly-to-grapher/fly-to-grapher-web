@@ -1,5 +1,5 @@
 import React from "react"
-import {  useState, useRef, useContext } from "react"
+import { useState, useRef, useContext } from "react"
 import { useNavigate } from "react-router-dom"
 import { AuthContext } from "../context/auth"
 import { useRequest } from "../hooks/useRequest"
@@ -57,33 +57,33 @@ const EditProfile = () => {
                                 <div className="row"><div className="col-md-12">
                                     <div className="form-group">
                                         <label className="d-flex justify-content-center mb-2 mt-2">
-                                                <b>Name </b>
+                                            <b>Name </b>
                                         </label>
-                                        <input className="form-control" value={user?.name} onChange={(e)=>{setUser({...user , name: e.target.value})}} ref={nameRef} required="required" maxLength="255" type="text" style={{backgroundColor: "#d5ecff"}}/>
+                                        <input className="form-control" value={user?.name} onChange={(e) => { setUser({ ...user, name: e.target.value }) }} ref={nameRef} required="required" maxLength="255" type="text" style={{ backgroundColor: "#d5ecff" }} />
                                     </div>
                                     <div>
                                         <label className="d-flex justify-content-center mb-2 mt-2">
                                             <b>Username </b>
                                         </label>
-                                        <input className="form-control " value={user?.username} onChange={(e)=>{setUser({...user , username: e.target.value})}} ref={usernameRef} required="required" maxLength="150" type="text" style={{backgroundColor: "#d5ecff"}}/>
+                                        <input className="form-control " value={user?.username} onChange={(e) => { setUser({ ...user, username: e.target.value }) }} ref={usernameRef} required="required" maxLength="150" type="text" style={{ backgroundColor: "#d5ecff" }} />
                                     </div>
                                     <div>
                                         <label className="d-flex justify-content-center mb-2 mt-2">
                                             <b>Email </b>
                                         </label>
-                                        <input className="form-control" value={user?.email} onChange={(e)=>{setUser({...user , email: e.target.value})}} ref={emailRef} required="required" maxLength="150" type="text" style={{backgroundColor: "#d5ecff"}}/>
+                                        <input className="form-control" value={user?.email} onChange={(e) => { setUser({ ...user, email: e.target.value }) }} ref={emailRef} required="required" maxLength="150" type="text" style={{ backgroundColor: "#d5ecff" }} />
                                     </div>
                                     <div className="form-group">
                                         <label className="d-flex justify-content-center mb-2 mt-2">
                                             <b>Location </b>
                                         </label>
-                                        <input className="form-control" value={user?.location} onChange={(e)=>{setUser({...user , location: e.target.value})}} ref={locationRef} required="required" maxLength="150" type="text" style={{backgroundColor: "#d5ecff"}}/>
+                                        <input className="form-control" value={user?.location} onChange={(e) => { setUser({ ...user, location: e.target.value }) }} ref={locationRef} required="required" maxLength="150" type="text" style={{ backgroundColor: "#d5ecff" }} />
                                     </div>
                                     <div className="form-group">
                                         <label className="d-flex justify-content-center mb-2 mt-2">
                                             <b>Bio </b>
                                         </label>
-                                        <textarea className="form-control" value={user?.bio} onChange={(e)=>{setUser({...user , bio: e.target.value})}} ref={bioRef} required="required" cols="30" rows="3" style={{backgroundColor: "#d5ecff"}}>
+                                        <textarea className="form-control" value={user?.bio} onChange={(e) => { setUser({ ...user, bio: e.target.value }) }} ref={bioRef} required="required" cols="30" rows="3" style={{ backgroundColor: "#d5ecff" }}>
                                         </textarea>
                                     </div>
                                 </div>
@@ -92,7 +92,7 @@ const EditProfile = () => {
                         </div>
                     </div>
                     <div className="d-flex justify-content-center mb-5 mt-2">
-                        <button type="submit" className="btn btn-info btn-save-form " onClick={editUser} style={{ backgroundColor: "#012848", color : "white" }}>
+                        <button type="submit" className="btn btn-info btn-save-form " onClick={editUser} style={{ backgroundColor: "#012848", color: "white" }}>
                             <b>Save</b>
                         </button>
                     </div>

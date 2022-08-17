@@ -19,21 +19,17 @@ const Videos = () => {
             }
         })
     }, [])
-    console.log(videos);
     return (
         <>
             <Nav1 />
             <div>
                 <div>
-                    {/* Start hero*/}
                     <div className="herro">
                         <div className="content">
-                            {/*     <h1>Royalty Free Stock Photos</h1> */}
                             <h1>The best free stock photos and videos</h1>
                             <input type="search" placeholder="Search for free photos " className="find" />
                         </div>
                     </div>
-                    {/* End hero*/}
                     <navbar>
                         <div>
                             <ul className="nav justify-content-center mt-3 mb-2">
@@ -59,24 +55,24 @@ const Videos = () => {
                     </a>
                     <h1 className="d-flex justify-content-center">Free Stock Videos</h1>
                     {
-                    videos && videos.length ? videos.map((video , i)=>{
-                        return(
-                            <>
-                            <main className="container" key={i}>
-                                <video controls >
-                                    <source src={video.file_name}/>
-                                </video>
-                            </main>
-                            </>
-                        )
-                    })
-                    :
-                    <p>No videos available</p>
-                }
+                        videos && videos.length ? videos.map((video, i) => {
+                            return (
+                                <>
+                                    <main className="container" key={i}>
+                                        <video controls >
+                                            <source src={video.file_name} />
+                                        </video>
+                                    </main>
+                                </>
+                            )
+                        })
+                            :
+                            <p>No videos available</p>
+                    }
                 </div>
             </div>
         </>
-        )
+    )
 }
 
 
