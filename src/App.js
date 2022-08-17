@@ -6,7 +6,8 @@ import Videos from "./components/videos/Videos"
 import Footer from "./components/footer/Footer";
 import Upload from "./components/upload/Upload";
 import Categories from "./components/categories/Categories";
-import Profile from "./components/profile/Profile";
+import MyProfile from "./components/profile/myProfile";
+import UserProfile from "./components/profile/userProfile";
 import EditProfile from './components/profile/editProfile'
 import SingleCategory from "./components/categories/SingleCategory"
 import SingleFile from "./components/single file/SingleFile";
@@ -25,7 +26,8 @@ const App = () => {
         <Route path="/videos" element={<Videos />} />
         <Route path="/upload" element={<Upload />} />
         <Route path="/categories" element={<Categories />} />
-        <Route path="/profile" element={<Profile />} />
+        <Route path="/myprofile" element={<MyProfile />} />
+        <Route path="/profile" element={<UserProfile />} />
         <Route path="/edit-profile" element={<EditProfile />} />
         <Route path="/password" element={<Password />} />
         <Route path="/s-category" element={<SingleCategory />} />
