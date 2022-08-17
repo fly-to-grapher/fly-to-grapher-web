@@ -30,7 +30,7 @@ const Home = () => {
                     <div className="content">
                         {/*     <h1>Royalty Free Stock Photos</h1> */}
                         <h1>The best free stock photos and videos</h1>
-                        <input type="search" placeholder="Search for free photos " className="find" />
+                        {/* <input type="search" placeholder="Search for free photos " className="find" /> */}
                     </div>
                 </div>
                 {/* End hero*/}

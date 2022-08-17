@@ -9,6 +9,7 @@ import Categories from "./components/categories/Categories";
 import Profile from "./components/profile/Profile";
 import EditProfile from './components/profile/editProfile'
 import SingleCategory from "./components/categories/SingleCategory"
+import SingleFile from "./components/single file/SingleFile";
 
 
 
@@ -28,6 +29,7 @@ const App = () => {
         <Route path="/edit-profile" element={<EditProfile />} />
         {/* <Route path="/password" element={<ChangePassword />} /> */}
         <Route path="/s-category" element={<SingleCategory />} />
+        <Route path="/s-file" element={<SingleFile />} />
       </Routes>
       <Footer />
     </BrowserRouter>
