@@ -6,19 +6,13 @@ import { useEffect, useState } from "react";
 import { useRequest } from "../hooks/useRequest";
 import Box from "@mui/material/Box";
 import ImageList from "@mui/material/ImageList";
-import ImageListItem from "@mui/material/ImageListItem";
-import Checkbox from '@mui/material/Checkbox';
-import FavoriteBorder from '@mui/icons-material/FavoriteBorder';
-import Favorite from '@mui/icons-material/Favorite';
-import BookmarkBorderIcon from '@mui/icons-material/BookmarkBorder';
-import BookmarkIcon from '@mui/icons-material/Bookmark';
-import Avatar from '@mui/material/Avatar';
+import HomeImage from "../homeImages/HomeImage";
 
 
 const Home = () => {
     const [pictures, setPictures] = useState([]);
-    const [hover, setHover] = useState({ is: false, index: -1 });
     const sendRequest = useRequest();
+    
     useEffect(() => {
         sendRequest(
             process.env.REACT_APP_API_URL + "/files/pictures",
@@ -34,7 +28,7 @@ const Home = () => {
             }
         });
     }, []);
-    const label = { inputProps: { 'aria-label': 'Checkbox demo' } };
+    
 
 
 
@@ -106,49 +100,12 @@ const Home = () => {
                     &gt;
                 </a>
                 <h1 className="d-flex justify-content-center">Free Stock Photos</h1>
-                <Box sx={{ width: "100%", height: "100%" }}>
+                <Box sx={{ width: "96%", height: "100%", boxSizing: "border-box", marginX: "2%" }}>
                     <ImageList variant="masonry" cols={3} gap={8}>
                         {pictures && pictures.length ? (
                             pictures.map((picture, i) => {
                                 return (
-                                    <ImageListItem style={{}} key={i}>
-                                        <img
-                                            onMouseEnter={() => setHover({ is: true, index: i })}
-                                            onMouseLeave={() => setHover({ is: false, index: i })}
-                                            style={{
-                                                width: "100%",
-                                                cursor: "pointer",
-                                                opacity: hover && i == hover.index ? 0.7596 : 1,
-                                            }}
-                                            src={`${picture.file_name}?w=248&fit=crop&auto=format`}
-                                            srcSet={`${picture.file_name}?w=248&fit=crop&auto=format&dpr=2 2x`}
-                                        />
-                                        {
-                                            (hover && i == hover.index) &&
-
-                                            <div  style={{
-                                                display: 'flex',
-                                                width: '100%',
-                                                flexDirection: 'row',
-                                                justifyContent: 'space-between',
-                                                position: 'absolute',
-                                                bottom: '2px'
-                                                
-                                            }}>
-
-                                                <Avatar style={{
-                                                   
-                                                }
-                                                } alt="Remy Sharp" src="/static/images/avatar/1.jpg" />
-
-                                                <div >
-                                                    <Checkbox {...label} icon={<FavoriteBorder />} checkedIcon={<Favorite />} />
-                                                    <Checkbox {...label} icon={<BookmarkBorderIcon />} checkedIcon={<BookmarkIcon />} />
-                                                </div>
-                                            </div>
-                                        }
-                                    </ImageListItem>
-
+                                    <HomeImage picture={picture} i={i}/>
                                 );
                             })
                         ) : (
