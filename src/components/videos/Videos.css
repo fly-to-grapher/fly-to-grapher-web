@@ -1,4 +1,3 @@
-
 .top {
     width: 20px;
     height: 20px;
@@ -9,6 +8,7 @@
     z-index: 1000;
     filter: drop-shadow(3px 6px 4px rgba(0, 0, 0, 0.4));
 }
+
 .top img {
     width: 70px;
     height: 70px;
@@ -28,7 +28,7 @@
 .herro .content {
     display: flex;
     justify-content: center;
-    align-items: center; 
+    align-items: center;
     flex-direction: column;
     height: 80%;
 }
@@ -56,10 +56,6 @@
     font-size: 1.2em;
 }
 
-/* .herro ::placeholder {
-    font-weight: 500;
-    font-size: 16px;
-} */
 
 .herro .content p {
     color: #fff;
@@ -71,14 +67,14 @@
 }
 
 .herro .content p a:hover {
-    color:  rgb(1, 40, 72);
+    color: rgb(1, 40, 72);
 }
 
 navbar {
     display: flex;
     justify-content: Center;
     align-items: center;
-    border-bottom: 2px solid  rgb(1, 40, 72);
+    border-bottom: 2px solid rgb(1, 40, 72);
     padding: 0 20px 0 20px;
     text-align: center;
 }
@@ -95,11 +91,11 @@ navbar ul li {
 }
 
 navbar ul li:hover {
-    color:  rgb(1, 40, 72);
+    color: rgb(1, 40, 72);
 }
 
 navbar .active {
-    border-bottom: 2px solid  rgb(1, 40, 72);
+    border-bottom: 2px solid rgb(1, 40, 72);
 }
 
 .prev,
@@ -226,7 +222,7 @@ h1 {
 
 .explore {
     width: 60%;
-    background:  rgb(1, 40, 72);
+    background: rgb(1, 40, 72);
     height: 50px;
     font-size: 1.2em !important;
     text-align: center;

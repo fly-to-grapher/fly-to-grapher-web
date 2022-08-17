@@ -41,7 +41,7 @@ export default function SignUp() {
 
     return (
         <>
-        <Navbar />
+            <Navbar />
             <div className='d-flex justify-content-center align-items-center flex-wrap'>
                 <ThemeProvider theme={theme}>
                     <Container component="main" maxWidth="xs">
@@ -58,7 +58,7 @@ export default function SignUp() {
                                 <LockOutlinedIcon />
                             </Avatar>
                             <Typography component="h3" variant="h5">
-                               <b>Sign up</b> 
+                                <b>Sign up</b>
                             </Typography>
                             <Box
                                 component="form"
@@ -116,7 +116,7 @@ export default function SignUp() {
                                     <b>Sign Up</b>
                                 </Button>
                                 <div className="btn btn-ouline-dark  container-fluid mt-2 mb-2">
-                                    <p> <b>Do you already have an account ?</b> 
+                                    <p> <b>Do you already have an account ?</b>
                                         <Link
                                             to="/login"
                                             className="btn btn-ouline"

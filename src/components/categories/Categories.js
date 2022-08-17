@@ -35,7 +35,7 @@ const useStyles = makeStyles((theme) => ({
         position: 'relative',
         height: 200,
         [theme.breakpoints.down('xs')]: {
-            width: '100% !important', // Overrides inline-style
+            width: '100% !important', 
             height: 100,
         },
         '&:hover, &$focusVisible': {
@@ -105,15 +105,12 @@ export default function ButtonBases() {
             <Nav1 />
             <div>
                 <div>
-                    {/* Start hero*/}
                     <div className="herro">
                         <div className="content">
-                            {/*     <h1>Royalty Free Stock Photos</h1> */}
                             <h1>The best free stock photos and videos</h1>
                             <input type="search" placeholder="Search for free photos " className="find" />
                         </div>
                     </div>
-                    {/* End hero*/}
                     <navbar>
                         <div>
                             <ul className="nav justify-content-center mt-3 mb-2">
@@ -137,7 +134,6 @@ export default function ButtonBases() {
                     <a href="#" className="next">
                         &gt;
                     </a>
-                    {/* <h1 className="d-flex justify-content-center">Free Stock Videos</h1> */}
                 </div>
                 <Link to="/s-category">
                     <div className={classes.root}>
