@@ -7,6 +7,10 @@ import { useRequest } from "../hooks/useRequest";
 import Box from "@mui/material/Box";
 import ImageList from "@mui/material/ImageList";
 import ImageListItem from "@mui/material/ImageListItem";
+
+
+
+
 const Home = () => {
     const [pictures, setPictures] = useState([]);
     const [hover, setHover] = useState({ is: false, index: -1 });
@@ -26,22 +30,15 @@ const Home = () => {
             }
         });
     }, []);
-    console.log(pictures);
-    const randomClassName = () => {
-        var randomNumber = Math.floor(Math.random() * 3 + 1);
-        console.log("radnom number is: ", randomNumber);
-        if (randomNumber == 1) return "horizontal";
-        else if (randomNumber == 2) return "vertical";
-        else return "big";
-    };
+
+
+
     return (
         <div>
             <Nav1 />
             <div>
-                {/* Start hero*/}
                 <div className="herro">
                     <div className="content">
-                        {/*     <h1>Royalty Free Stock Photos</h1> */}
                         <h1>The best free stock photos and videos</h1>
                         <input
                             type="search"
@@ -50,7 +47,6 @@ const Home = () => {
                         />
                     </div>
                 </div>
-                {/* End hero*/}
                 <navbar>
                     <div>
                         <ul className="nav justify-content-center mt-3 mb-2">
@@ -93,9 +89,6 @@ const Home = () => {
                                     </b>
                                 </a>
                             </Link>
-                            {/* <li className="active">Home</li>
-          <li className="active">Videos</li>
-          <li className="active">Categories</li> */}
                         </ul>
                     </div>
                 </navbar>
@@ -108,7 +101,6 @@ const Home = () => {
                     &gt;
                 </a>
                 <h1 className="d-flex justify-content-center">Free Stock Photos</h1>
-                {/* <div className=""> */}
                 <Box sx={{ width: "100%", height: "100%" }}>
                     <ImageList variant="masonry" cols={3} gap={8}>
                         {pictures && pictures.length ? (
@@ -134,83 +126,6 @@ const Home = () => {
                         )}
                     </ImageList>
                 </Box>
-                {/* </div> */}
-                {/* <div className="vertical">
-                        <img
-                            src="https://i.postimg.cc/1RcZhLb8/pexels-maksim-goncharenok-4596641.jpg"
-                            alt=""
-                        />
-                    </div>
-                    <div className="horizontal">
-                        <img
-                            src="https://i.postimg.cc/YStVt9FZ/pexels-matheus-bertelli-573298.jpg"
-                            alt=""
-                        />
-                    </div>
-                    <div>
-                        <img
-                            src="https://i.postimg.cc/bJ6n560d/a-tattooed-hand-doing-the-sign-for-i-love-you.jpg"
-                            alt=""
-                        />
-                    </div>
-                    <div>
-                        <img
-                            src="https://i.postimg.cc/PJgCG0Cf/pexels-wouter-de-jong-571169.jpg"
-                            alt=""
-                        />
-                    </div>
-                    <div className="big">
-                        <img
-                            src="https://i.postimg.cc/K8P4YTdz/pexels-life-of-wu-3381013.jpg"
-                            alt=""
-                        />
-                    </div>
-                    <div>
-                        <img src="https://i.postimg.cc/rFXkR5tt/pic7.png" alt="" />
-                    </div>
-                    <div className="vertical">
-                        <img src="https://source.unsplash.com/random" alt="" />
-                    </div>
-                    <div>
-                        <img src="https://picsum.photos/id/29/800" alt="" />
-                    </div>
-                    <div className="horizontal">
-                        <img src="https://picsum.photos/id/10/800" alt="" />
-                    </div>
-                    <div>
-                        <img src="https://picsum.photos/id/11/800" alt="" />
-                    </div>
-                    <div className="big">
-                        <img
-                            src="https://i.postimg.cc/FRY8f6KQ/pexels-andrea-piacquadio-3776169.jpg"
-                            alt=""
-                        />
-                    </div>
-                    <div>
-                        <img
-                            src="https://picsum.photos/id/1/200/300"
-                            alt=""
-                        />
-                    </div>
-                    <div className="horizontal">
-                        <img
-                            src="https://source.unsplash.com/user/erondu/daily"
-                            alt=""
-                        />
-                    </div>
-                    <div>
-                        <img
-                            src="https://source.unsplash.com/weekly?landscape"
-                            alt=""
-                        />
-                    </div>
-                    <div className="big">
-                        <img
-                            src="https://i.postimg.cc/cHyKbrbg/pexels-aleksandar-pasaric-325185.jpg"
-                            alt=""
-                        />
-                    </div>
-                    <div className="explore d-flex justify-content-center">Load more</div> */}
             </div>
         </div>
     );
