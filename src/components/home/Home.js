@@ -127,7 +127,7 @@ const Home = () => {
                       style={{
                         width: "100%",
                         cursor: "pointer",
-                        opacity: hover && i == hover.index ? 0.7596 : 1 
+                        opacity: hover && i == hover.index ? 0.7596 : 1 ,
                       }}
                       src={`${picture.file_name}?w=248&fit=crop&auto=format`}
                       srcSet={`${picture.file_name}?w=248&fit=crop&auto=format&dpr=2 2x`}
