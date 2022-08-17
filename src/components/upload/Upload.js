@@ -14,18 +14,14 @@ const Upload = () => {
 	const locationRef = useRef()
     // const animatedComponents = makeAnimated();
 	const [tags, setTags] = useState([])
-    let options = [];
 	const [categories, setCategories] = useState([])
 	const [selectedTags, setSelectedTags] = useState([])
 	const [selectedCategories, setSelectedCategories] = useState([])
+    const [picture, setPicture] = useState("");
+    const [loading, setLoading] = useState(false);
+
     const handleTagToggle = (e) => {
-		const tagsClone = [...selectedTags]
-		if (e.target.checked) {
-			tagsClone.push(e.target.value)
-		} else {
-			tagsClone.splice(tagsClone.indexOf(e.target.value), 1)
-		}
-		setSelectedTags(tagsClone)
+        setSelectedTags(e)
 	}
 	const handleCategoryToggle = (e) => {
 		const categoriesClone = [...selectedCategories]
@@ -39,7 +35,9 @@ const Upload = () => {
     useEffect(() => {
 		sendRequest(process.env.REACT_APP_API_URL + "/tags")
 			.then((response) => {
-				setTags(response?.data)
+                response?.data.map(tag => {
+                    tags.push({value: tag.id, label: tag.name})
+                })
 			})
 		sendRequest(process.env.REACT_APP_API_URL + "/categories")
 			.then((response) => {
@@ -47,31 +45,27 @@ const Upload = () => {
 			})
 	}, [])
 
-    useEffect(() => {
-        tags?.map(tag => {
-            options.push({value: tag.id, label: tag.name})
-        })
-    }, [tags])
-
 	const sendRequest = useRequest()
     
-    const addFile = () => {
+    const addFile = async () => {
+        setLoading(true);
 		const formdata = new FormData();
-		formdata.append('title', locationRef.current.value)
+		formdata.append('location', locationRef.current.value)
 		for (var i = 0; i < selectedCategories.length; i++) {
 			formdata.append('categories[]', selectedCategories[i])
 		}
 		for (var i = 0; i < selectedTags.length; i++) {
-			formdata.append('tags[]', selectedTags[i])
+			formdata.append('tags[]', selectedTags[i].value)
 		}
 		formdata.append('file_name', fileRef.current.files[0])
-		sendRequest(process.env.REACT_APP_API_URL + "/files/add", {}, formdata, { auth: true }, 'post')
+		await sendRequest(process.env.REACT_APP_API_URL + "/files/add", {}, formdata, { auth: true }, 'post')
 			.then((response) => {
 				window.alert(response?.messages?.join(' '))
 				if (response?.success) {
 					navigate('/profile')
 				}
 			})
+        setLoading(false);
 	}
 
     return (
@@ -84,24 +78,36 @@ const Upload = () => {
                             className="file-upload-input"
                             type="file"
                             ref={fileRef}
-                            onchange="readURL(this);"
+                            onChange={(e) => {
+                                setPicture(fileRef.current.files[0])
+                                }}
                             accept="image/*"
                         />
                         <div className="drag-text">
                             <h3>select or drop a video or photo</h3>
                         </div>
                     </div>
+                    {picture && <img src={picture.name} 
+                        style={{position:"absolute", top:"8em", left:"15em"}} alt={fileRef.current.files[0].name}/>}
                     <button
                         className="file-upload-btn mt-3"
                         type="button"
-                        onclick={addFile}
+                        onClick={addFile}
                     >
-                        Add File
+                        {!loading ? 
+                            <span>Add File</span>
+                            :
+                            <div className="d-flex justify-content-evenly align-items-center">
+                                <span>Uploading</span>
+                                <div className="spinner-border" role="status"/>
+                            </div>
+                        }
                     </button>
+                    
                     <div className="file-upload-content">
                         <img className="file-upload-image" src="#" alt="your image" />
                         <div className="image-title-wrap">
-                            <button type="button" onclick="removeUpload()" className="remove-image">
+                            <button type="button" className="remove-image">
                                 Remove <span className="image-title">Uploaded Image</span>
                             </button>
                         </div>
@@ -111,38 +117,40 @@ const Upload = () => {
                     <form>
                         <div className="mb-3 d-flex justify-content-between align-items-center">
                         <div>
-                            <label for="location" className="col-sm-2 col-form-label" placeholder="location" ref={locationRef}><b>Location:</b></label>
+                            <label htmlFor="location" className="col-sm-2 col-form-label" placeholder="location" ><b>Location</b></label>
                             </div>
                             <div className="col-sm-7">
-                                <input type="text" className="form-control" id="location" style={{width: "15em"}}/>
+                                <input type="text" className="form-control" id="location" style={{width: "15em"}} ref={locationRef}/>
                             </div>
                         </div>
                         <div className="mb-3 d-flex justify-content-between align-items-center">
                         <div>
-                                    <label className="col-sm-2 col-form-label"><b>Tags: </b></label>
+                                    <label className="col-sm-2 col-form-label"><b>Tags</b></label>
                                     </div>
                                     <Select className="col-sm-7 basic-multi-select"
-                                        // closeMenuOnSelect={false}
+                                        closeMenuOnSelect={false}
                                         isMulti
                                         name="tags"
-                                        options={options}
+                                        options={tags}
                                         classNamePrefix="select"
                                         width = "15em"
-                                        // onChange={handleTagToggle}
+                                        onChange={handleTagToggle}
                                         />
                         </div>
                         <div className="">
-                            <b><label className="col-sm-3 col-form-label">Select category:</label></b>
+                            <label className="col-sm-3 col-form-label"><b>Select category</b></label>
+                            <div className="col-sm-6">
                         {
 									categories?.map((category, i) => {
 										return (
-											<div key={i} className='my-2 col-md-4 col-lg-3'>
+											<div  className='my-2'>
 												<input onChange={handleCategoryToggle} type='checkbox' value={category.id} id={`category-${category.id}`} />
-												<label htmlFor={`category-${category.id}`}>{category.name}</label>
+												<label key={i} htmlFor={`category-${category.id}`}>{category.name}</label>
 											</div>
 										)
 									})
 								}
+                                </div>
                         </div>
                     </form>
                 </div>

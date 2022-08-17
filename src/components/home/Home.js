@@ -21,6 +21,14 @@ const Home = () => {
     }, [])
     console.log(pictures);
 
+    const randomClassName = () => {
+        var randomNumber = Math.floor((Math.random() * 3) + 1)
+        console.log("radnom number is: ",randomNumber);
+        if (randomNumber == 1) return "horizontal"
+        else if (randomNumber == 2) return "vertical"
+        else return "big"
+    }
+
     return (
         <div>
             <Nav1 />
@@ -65,24 +73,26 @@ const Home = () => {
                     &gt;
                 </a>
                 <h1 className="d-flex justify-content-center">Free Stock Photos</h1>
+                <div className="">
                 {
                     pictures && pictures.length ? pictures.map((picture , i)=>{
                         return(
                             <>
-                <main className="container" key={i}>
-                    <div>
-                        <img
-                            src={picture.file_name}
-                            alt="free to use"
-                        />
-                    </div>
-                </main>
+                                <main className="container" key={i}>
+                                    <div className={randomClassName()}>
+                                        <img
+                                            src={picture.file_name}
+                                            alt="free to use"
+                                        />
+                                    </div>
+                                </main>
                             </>
                         )
                     })
                     :
                     <p>No pictures available</p>
                 }
+                </div>
                     {/* <div className="vertical">
                         <img
                             src="https://i.postimg.cc/1RcZhLb8/pexels-maksim-goncharenok-4596641.jpg"
