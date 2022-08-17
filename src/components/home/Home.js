@@ -7,8 +7,12 @@ import { useRequest } from "../hooks/useRequest";
 import Box from "@mui/material/Box";
 import ImageList from "@mui/material/ImageList";
 import ImageListItem from "@mui/material/ImageListItem";
-
-
+import Checkbox from '@mui/material/Checkbox';
+import FavoriteBorder from '@mui/icons-material/FavoriteBorder';
+import Favorite from '@mui/icons-material/Favorite';
+import BookmarkBorderIcon from '@mui/icons-material/BookmarkBorder';
+import BookmarkIcon from '@mui/icons-material/Bookmark';
+import Avatar from '@mui/material/Avatar';
 
 
 const Home = () => {
@@ -30,6 +34,7 @@ const Home = () => {
             }
         });
     }, []);
+    const label = { inputProps: { 'aria-label': 'Checkbox demo' } };
 
 
 
@@ -118,7 +123,32 @@ const Home = () => {
                                             src={`${picture.file_name}?w=248&fit=crop&auto=format`}
                                             srcSet={`${picture.file_name}?w=248&fit=crop&auto=format&dpr=2 2x`}
                                         />
+                                        {
+                                            (hover && i == hover.index) &&
+
+                                            <div  style={{
+                                                display: 'flex',
+                                                width: '100%',
+                                                flexDirection: 'row',
+                                                justifyContent: 'space-between',
+                                                position: 'absolute',
+                                                bottom: '2px'
+                                                
+                                            }}>
+
+                                                <Avatar style={{
+                                                   
+                                                }
+                                                } alt="Remy Sharp" src="/static/images/avatar/1.jpg" />
+
+                                                <div >
+                                                    <Checkbox {...label} icon={<FavoriteBorder />} checkedIcon={<Favorite />} />
+                                                    <Checkbox {...label} icon={<BookmarkBorderIcon />} checkedIcon={<BookmarkIcon />} />
+                                                </div>
+                                            </div>
+                                        }
                                     </ImageListItem>
+
                                 );
                             })
                         ) : (
