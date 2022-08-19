@@ -100,7 +100,7 @@ const Nav1 = () => {
                 {auth.isAuthenticated && <>
                   <li>
                     {" "}<Link
-                      to="/profile"
+                      to="/myprofile"
                       className="dropdown-item"
                       style={{ color: "black" }}
                     >
@@ -170,7 +170,7 @@ const Nav1 = () => {
                 {auth.isAuthenticated && <>
                   <li>
                     {" "}<Link
-                      to="/profile"
+                      to="/myprofile"
                       className="dropdown-item"
                       style={{ color: "black" }}
                     >
