@@ -12,7 +12,7 @@ import HomeImage from "../homeImages/HomeImage";
 const Home = () => {
     const [pictures, setPictures] = useState([]);
     const sendRequest = useRequest();
-    
+
     useEffect(() => {
         sendRequest(
             process.env.REACT_APP_API_URL + "/files/pictures",
@@ -28,7 +28,7 @@ const Home = () => {
             }
         });
     }, []);
-    
+
 
 
 
@@ -39,11 +39,6 @@ const Home = () => {
                 <div className="herro">
                     <div className="content">
                         <h1>The best free stock photos and videos</h1>
-                        <input
-                            type="search"
-                            placeholder="Search for free photos "
-                            className="find"
-                        />
                     </div>
                 </div>
                 <navbar>
@@ -105,7 +100,7 @@ const Home = () => {
                         {pictures && pictures.length ? (
                             pictures.map((picture, i) => {
                                 return (
-                                    <HomeImage picture={picture} i={i}/>
+                                    <HomeImage picture={picture} i={i} />
                                 );
                             })
                         ) : (

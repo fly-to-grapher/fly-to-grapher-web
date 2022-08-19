@@ -6,13 +6,13 @@ import { useEffect, useState } from "react";
 import { useRequest } from "../hooks/useRequest";
 import Box from "@mui/material/Box";
 import ImageList from "@mui/material/ImageList";
-import HomeImage from "../homeImages/HomeImage";
+import Video from "../video/Video"
 
 
 const Videos = () => {
     const [videos, setVideos] = useState([]);
     const sendRequest = useRequest();
-    
+
     useEffect(() => {
         sendRequest(
             process.env.REACT_APP_API_URL + "/files/videos",
@@ -28,7 +28,7 @@ const Videos = () => {
             }
         });
     }, []);
-    
+
 
 
 
@@ -105,7 +105,7 @@ const Videos = () => {
                         {videos && videos.length ? (
                             videos.map((video, i) => {
                                 return (
-                                    <video>video={video} i={i}</video>
+                                    <Video video={video} i={i} />
                                 );
                             })
                         ) : (
@@ -118,3 +118,8 @@ const Videos = () => {
     );
 };
 export default Videos;
+
+
+
+
+
