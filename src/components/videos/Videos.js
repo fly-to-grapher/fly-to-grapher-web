@@ -41,11 +41,6 @@ const Videos = () => {
                 <div className="herro">
                     <div className="content">
                         <h1>The best free stock photos and videos</h1>
-                        <input
-                            type="search"
-                            placeholder="Search for free photos "
-                            className="find"
-                        />
                     </div>
                 </div>
                 <navbar>
@@ -112,7 +107,7 @@ const Videos = () => {
                             })
                         ) : (
                             <div >
-                                <MDBSpinner grow color='rgb(29, 94, 147)' style={{ color:'rgb(29, 94, 147)'}}>
+                                <MDBSpinner grow color='rgb(29, 94, 147)' style={{ color: 'rgb(29, 94, 147)' }}>
                                 </MDBSpinner>
                             </div>
                         )}

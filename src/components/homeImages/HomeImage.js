@@ -67,11 +67,11 @@ const HomeImage = ({ picture, i }) => {
 
                 }}>
 
-                    <Avatar style={{position: "absolute", bottom: "2em", left: "1em"}} alt="Remy Sharp" src="/static/images/avatar/1.jpg" />
+                    <Avatar style={{ position: "absolute", bottom: "2em", left: "1em" }} alt="Remy Sharp" src="/static/images/avatar/1.jpg" />
 
                     <div >
-                        <Checkbox {...label} icon={<FavoriteBorder />} checkedIcon={<Favorite />} onClick={addRemoveLike}/>
-                        <Checkbox {...label} icon={<BookmarkBorderIcon />} checkedIcon={<BookmarkIcon onClick={addRemoveSave}/>} />
+                        <Checkbox {...label} icon={<FavoriteBorder />} checkedIcon={<Favorite />} onClick={addRemoveLike} />
+                        <Checkbox {...label} icon={<BookmarkBorderIcon />} checkedIcon={<BookmarkIcon onClick={addRemoveSave} />} />
                     </div>
                 </div>
             }
@@ -122,12 +122,12 @@ const HomeImage = ({ picture, i }) => {
                     </div>
                 </DialogTitle>
                 <DialogContent dividers={true}>
-                    <div className="mb-3 d-flex justify-content-end align-items-center gap-3">
+                    <div className="mb-3 d-flex justify-content-end align-items-center gap-3">  
                         <button className="btn btn-outline-secondary">
-                            Like
+                            <Checkbox {...label} icon={<FavoriteBorder />} checkedIcon={<Favorite />} onClick={addRemoveLike} />
                         </button>
                         <button className="btn btn-outline-secondary">
-                            Save
+                            <Checkbox {...label} icon={<BookmarkBorderIcon />} checkedIcon={<BookmarkIcon onClick={addRemoveSave} />} />
                         </button>
                     </div>
                     <div className="row d-flex justify-content-center">
