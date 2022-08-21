@@ -8,23 +8,10 @@ import Button from "@mui/material/Button"
 import { useEffect, useState } from "react";
 import { useRequest } from "../hooks/useRequest"
 
-const MyProfile = () => {
-    const [clickedPosts, setClickedPosts] = useState(true);
-    const [clickedSaves, setClickedSaves] = useState(false);
-    const showPosts = () => {
-        setClickedPosts(true);
-        setClickedSaves(false);
-    }
-    const showSaves = () => {
-        setClickedPosts(false);
-        setClickedSaves(true);
-    }
+const MyProfile = (profile) => {
+const [profiles, setProfiles] = useState([]);
 
-
-    const [profiles, setProfiles] = useState([]);
-
-
-    const sendRequest = useRequest();
+const sendRequest = useRequest();
     useEffect(() => {
         sendRequest(
             process.env.REACT_APP_API_URL + "/users/myprofile",
@@ -40,10 +27,16 @@ const MyProfile = () => {
             }
         });
     }, []);
-{
-    profiles?.((profile , i)=>{
-
-    
+    const [clickedPosts, setClickedPosts] = useState(true);
+    const [clickedSaves, setClickedSaves] = useState(false);
+    const showPosts = () => {
+        setClickedPosts(true);
+        setClickedSaves(false);
+    }
+    const showSaves = () => {
+        setClickedPosts(false);
+        setClickedSaves(true);
+    }
     return (
         <>
             <Nav2 />
@@ -92,8 +85,6 @@ const MyProfile = () => {
             </div>
         </>
     )
-})
-}
 }
 
 
