@@ -6,16 +6,15 @@ import Favorite from '@mui/icons-material/Favorite';
 import BookmarkBorderIcon from '@mui/icons-material/BookmarkBorder';
 import BookmarkIcon from '@mui/icons-material/Bookmark';
 import Avatar from '@mui/material/Avatar';
-import { useState , useEffect } from "react";
+import { useState } from "react";
 import Dialog from '@mui/material/Dialog';
 import DialogContent from '@mui/material/DialogContent';
 import DialogTitle from '@mui/material/DialogTitle';
 import { useRequest } from "../hooks/useRequest"
 
-const HomeImage = ({ picture, i }) => {
+const Video = ({ video, i }) => {
     const [hover, setHover] = useState({ is: false, index: -1 })
     const [open, setOpen] = useState(false);
-    // const [user,setUser] = useState()
     const sendRequest = useRequest()
     const handleOpen = () => {
         setOpen(true);
@@ -52,8 +51,8 @@ const HomeImage = ({ picture, i }) => {
                     cursor: "pointer",
                     opacity: hover && i == hover.index ? 0.7596 : 1,
                 }}
-                src={`${picture.file_name}?w=248&fit=crop&auto=format`}
-                srcSet={`${picture.file_name}?w=248&fit=crop&auto=format&dpr=2 2x`}
+                src={`${video.file_name}?w=248&fit=crop&auto=format`}
+                srcSet={`${video.file_name}?w=248&fit=crop&auto=format&dpr=2 2x`}
             />
             {
                 (hover && i == hover.index) &&
@@ -68,11 +67,11 @@ const HomeImage = ({ picture, i }) => {
 
                 }}>
 
-                    <Avatar style={{ position: "absolute", bottom: "2em", left: "1em" }} alt="Remy Sharp" src="/static/images/avatar/1.jpg" />
+                    <Avatar style={{position: "absolute", bottom: "2em", left: "1em"}} alt="Remy Sharp" src="/static/images/avatar/1.jpg" />
 
                     <div >
-                        <Checkbox {...label} icon={<FavoriteBorder />} checkedIcon={<Favorite />} onClick={addRemoveLike} />
-                        <Checkbox {...label} icon={<BookmarkBorderIcon />} checkedIcon={<BookmarkIcon onClick={addRemoveSave} />} />
+                        <Checkbox {...label} icon={<FavoriteBorder />} checkedIcon={<Favorite />} onClick={addRemoveLike}/>
+                        <Checkbox {...label} icon={<BookmarkBorderIcon />} checkedIcon={<BookmarkIcon onClick={addRemoveSave}/>} />
                     </div>
                 </div>
             }
@@ -99,8 +98,8 @@ const HomeImage = ({ picture, i }) => {
                                 maxHeight: "33em",
                                 cursor: "pointer",
                             }}
-                            src={`${picture.file_name}?w=248&fit=crop&auto=format`}
-                            srcSet={`${picture.file_name}?w=248&fit=crop&auto=format&dpr=2 2x`}
+                            src={`${video.file_name}?w=248&fit=crop&auto=format`}
+                            srcSet={`${video.file_name}?w=248&fit=crop&auto=format&dpr=2 2x`}
                         />
                     </div>
                 </Box>
@@ -123,12 +122,12 @@ const HomeImage = ({ picture, i }) => {
                     </div>
                 </DialogTitle>
                 <DialogContent dividers={true}>
-                    <div className="mb-3 d-flex justify-content-end align-items-center gap-3">  
+                    <div className="mb-3 d-flex justify-content-end align-items-center gap-3">
                         <button className="btn btn-outline-secondary">
-                            <Checkbox {...label} icon={<FavoriteBorder />} checkedIcon={<Favorite />} onClick={addRemoveLike} />
+                            Like
                         </button>
                         <button className="btn btn-outline-secondary">
-                            <Checkbox {...label} icon={<BookmarkBorderIcon />} checkedIcon={<BookmarkIcon onClick={addRemoveSave} />} />
+                            Save
                         </button>
                     </div>
                     <div className="row d-flex justify-content-center">
@@ -138,8 +137,8 @@ const HomeImage = ({ picture, i }) => {
                                 height: "auto",
                                 cursor: "pointer",
                             }}
-                            src={`${picture.file_name}?w=248&fit=crop&auto=format`}
-                            srcSet={`${picture.file_name}?w=248&fit=crop&auto=format&dpr=2 2x`}
+                            src={`${video.file_name}?w=248&fit=crop&auto=format`}
+                            srcSet={`${video.file_name}?w=248&fit=crop&auto=format&dpr=2 2x`}
                         />
                     </div>
                 </DialogContent>
@@ -148,4 +147,4 @@ const HomeImage = ({ picture, i }) => {
     )
 }
 
-export default HomeImage;
+export default Video;

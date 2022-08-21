@@ -5,6 +5,8 @@ import Nav1 from "../navbar/Nav1";
 import { useEffect, useState } from "react";
 import { useRequest } from "../hooks/useRequest";
 import Box from "@mui/material/Box";
+import ImageList from "@mui/material/ImageList";
+import Video from "../video/Video"
 import { MDBSpinner } from 'mdb-react-ui-kit';
 
 
@@ -12,7 +14,7 @@ import { MDBSpinner } from 'mdb-react-ui-kit';
 const Videos = () => {
     const [videos, setVideos] = useState([]);
     const sendRequest = useRequest();
-    
+
     useEffect(() => {
         sendRequest(
             process.env.REACT_APP_API_URL + "/files/videos",
@@ -28,7 +30,7 @@ const Videos = () => {
             }
         });
     }, []);
-    
+
 
 
 
@@ -39,11 +41,6 @@ const Videos = () => {
                 <div className="herro">
                     <div className="content">
                         <h1>The best free stock photos and videos</h1>
-                        <input
-                            type="search"
-                            placeholder="Search for free photos "
-                            className="find"
-                        />
                     </div>
                 </div>
                 <navbar>
@@ -105,12 +102,12 @@ const Videos = () => {
                         {videos && videos.length ? (
                             videos.map((video, i) => {
                                 return (
-                                    <video>video={video} i={i}</video>
+                                    <Video video={video} i={i} />
                                 );
                             })
                         ) : (
                             <div >
-                                <MDBSpinner grow color='rgb(29, 94, 147)' style={{ color:'rgb(29, 94, 147)'}}>
+                                <MDBSpinner grow color='rgb(29, 94, 147)' style={{ color: 'rgb(29, 94, 147)' }}>
                                 </MDBSpinner>
                             </div>
                         )}
@@ -121,3 +118,8 @@ const Videos = () => {
     );
 };
 export default Videos;
+
+
+
+
+

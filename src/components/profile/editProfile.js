@@ -1,6 +1,6 @@
 import React from "react"
 import { useState, useRef, useContext } from "react"
-import { useNavigate } from "react-router-dom"
+import { Link, useNavigate } from "react-router-dom"
 import { AuthContext } from "../context/auth"
 import { useRequest } from "../hooks/useRequest"
 import Nav2 from "../navbar/Nav2";
@@ -92,9 +92,11 @@ const EditProfile = () => {
                         </div>
                     </div>
                     <div className="d-flex justify-content-center mb-5 mt-2">
-                        <button type="submit" className="btn btn-info btn-save-form " onClick={editUser} style={{ backgroundColor: "#012848", color: "white" }}>
-                            <b>Save</b>
-                        </button>
+                        <Link to="/myprofile">
+                            <button type="submit" className="btn btn-info btn-save-form " onClick={editUser} style={{ backgroundColor: "#012848", color: "white" }}>
+                                <b>Save</b>
+                            </button>
+                        </Link>
                     </div>
                 </div>
             </div>
