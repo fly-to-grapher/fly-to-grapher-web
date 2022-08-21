@@ -12,7 +12,7 @@ import DialogContent from '@mui/material/DialogContent';
 import DialogTitle from '@mui/material/DialogTitle';
 import { useRequest } from "../hooks/useRequest"
 
-const Video = ({ video, i }) => {
+const HomeVideo = ({ video, i }) => {
     const [hover, setHover] = useState({ is: false, index: -1 })
     const [open, setOpen] = useState(false);
     const sendRequest = useRequest()
@@ -67,11 +67,11 @@ const Video = ({ video, i }) => {
 
                 }}>
 
-                    <Avatar style={{position: "absolute", bottom: "2em", left: "1em"}} alt="Remy Sharp" src="/static/images/avatar/1.jpg" />
+                    <Avatar style={{ position: "absolute", bottom: "2em", left: "1em" }} alt="Remy Sharp" src="/static/images/avatar/1.jpg" />
 
                     <div >
-                        <Checkbox {...label} icon={<FavoriteBorder />} checkedIcon={<Favorite />} onClick={addRemoveLike}/>
-                        <Checkbox {...label} icon={<BookmarkBorderIcon />} checkedIcon={<BookmarkIcon onClick={addRemoveSave}/>} />
+                        <Checkbox {...label} icon={<FavoriteBorder />} checkedIcon={<Favorite />} onClick={addRemoveLike} />
+                        <Checkbox {...label} icon={<BookmarkBorderIcon />} checkedIcon={<BookmarkIcon onClick={addRemoveSave} />} />
                     </div>
                 </div>
             }
@@ -122,12 +122,12 @@ const Video = ({ video, i }) => {
                     </div>
                 </DialogTitle>
                 <DialogContent dividers={true}>
-                    <div className="mb-3 d-flex justify-content-end align-items-center gap-3">
+                    <div className="mb-3 d-flex justify-content-end align-items-center gap-3">  
                         <button className="btn btn-outline-secondary">
-                            Like
+                            <Checkbox {...label} icon={<FavoriteBorder />} checkedIcon={<Favorite />} onClick={addRemoveLike} />
                         </button>
                         <button className="btn btn-outline-secondary">
-                            Save
+                            <Checkbox {...label} icon={<BookmarkBorderIcon />} checkedIcon={<BookmarkIcon onClick={addRemoveSave} />} />
                         </button>
                     </div>
                     <div className="row d-flex justify-content-center">
@@ -147,4 +147,4 @@ const Video = ({ video, i }) => {
     )
 }
 
-export default Video;
+export default HomeVideo;

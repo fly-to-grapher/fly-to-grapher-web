@@ -6,7 +6,7 @@ import { useEffect, useState } from "react";
 import { useRequest } from "../hooks/useRequest";
 import Box from "@mui/material/Box";
 import ImageList from "@mui/material/ImageList";
-import Video from "../video/Video"
+import HomeVideo from "../video/HomeVideo"
 import { MDBSpinner } from 'mdb-react-ui-kit';
 
 
@@ -102,7 +102,7 @@ const Videos = () => {
                         {videos && videos.length ? (
                             videos.map((video, i) => {
                                 return (
-                                    <Video video={video} i={i} />
+                                    <HomeVideo video={video} i={i} />
                                 );
                             })
                         ) : (
