@@ -6,7 +6,7 @@ import Favorite from '@mui/icons-material/Favorite';
 import BookmarkBorderIcon from '@mui/icons-material/BookmarkBorder';
 import BookmarkIcon from '@mui/icons-material/Bookmark';
 import Avatar from '@mui/material/Avatar';
-import { useState } from "react";
+import { useState , useEffect } from "react";
 import Dialog from '@mui/material/Dialog';
 import DialogContent from '@mui/material/DialogContent';
 import DialogTitle from '@mui/material/DialogTitle';
@@ -15,6 +15,7 @@ import { useRequest } from "../hooks/useRequest"
 const HomeImage = ({ picture, i }) => {
     const [hover, setHover] = useState({ is: false, index: -1 })
     const [open, setOpen] = useState(false);
+    // const [user,setUser] = useState()
     const sendRequest = useRequest()
     const handleOpen = () => {
         setOpen(true);
