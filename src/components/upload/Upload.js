@@ -69,7 +69,7 @@ const Upload = () => {
     return (
         <>
             <Nav2 />
-            <div className="container-fluid mt-5 mb-5 d-flex justify-content-around align-items-center">
+            <div className="container-fluid mt-5 mb-5 d-flex justify-content-around ">
                 <div className="col-6 file-upload">
                     <div className="image-upload-wrap">
                         <input
@@ -112,7 +112,7 @@ const Upload = () => {
                         </div>
                     </div>
                 </div>
-                <div className="d-flex offset-1 col-5  mt-5">
+                <div className="d-flex offset-1 col-5  mt-3 ">
                     <form>
                         <div className="mb-3 d-flex justify-content-between align-items-center">
                             <div>
@@ -138,11 +138,11 @@ const Upload = () => {
                         </div>
                         <div className="">
                             <label className="col-sm-3 col-form-label"><b>Select category</b></label>
-                            <div className="col-sm-6">
+                            <div className="row mb-4">
                                 {
                                     categories?.map((category, i) => {
                                         return (
-                                            <div className='my-2'>
+                                            <div className='my-2 col-md-4 col-lg-3'>
                                                 <input onChange={handleCategoryToggle} type='checkbox' value={category.id} id={`category-${category.id}`} />
                                                 <label key={i} htmlFor={`category-${category.id}`}>{category.name}</label>
                                             </div>

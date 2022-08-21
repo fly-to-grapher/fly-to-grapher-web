@@ -1,5 +1,5 @@
 import Nav2 from "../navbar/Nav2";
-import { Link } from "react-router-dom"
+import { Link , useParams} from "react-router-dom"
 import LocationOnOutlinedIcon from '@mui/icons-material/LocationOnOutlined';
 import Divider from '@mui/material/Divider';
 import Button from "@mui/material/Button"
@@ -25,11 +25,11 @@ const UserProfile = () => {
 
     const [profile, setProfile] = useState([]);
 
-    // const id = 
+        const {id} = useParams()
     const sendRequest = useRequest();
     useEffect(() => {
         sendRequest(
-            process.env.REACT_APP_API_URL + `/users/profile/$id`,
+            process.env.REACT_APP_API_URL + `/users/profile/${id}`,
             {},
             {},
             {

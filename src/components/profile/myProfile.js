@@ -8,23 +8,10 @@ import Button from "@mui/material/Button"
 import { useEffect, useState } from "react";
 import { useRequest } from "../hooks/useRequest"
 
-const MyProfile = () => {
-    const [clickedPosts, setClickedPosts] = useState(true);
-    const [clickedSaves, setClickedSaves] = useState(false);
-    const showPosts = () => {
-        setClickedPosts(true);
-        setClickedSaves(false);
-    }
-    const showSaves = () => {
-        setClickedPosts(false);
-        setClickedSaves(true);
-    }
+const MyProfile = (profile) => {
+const [profiles, setProfiles] = useState([]);
 
-
-    const [profile, setProfile] = useState([]);
-
-
-    const sendRequest = useRequest();
+const sendRequest = useRequest();
     useEffect(() => {
         sendRequest(
             process.env.REACT_APP_API_URL + "/users/myprofile",
@@ -36,10 +23,20 @@ const MyProfile = () => {
             "GET"
         ).then((response) => {
             if (response?.success) {
-                setProfile(response.data);
+                setProfiles(response.data);
             }
         });
     }, []);
+    const [clickedPosts, setClickedPosts] = useState(true);
+    const [clickedSaves, setClickedSaves] = useState(false);
+    const showPosts = () => {
+        setClickedPosts(true);
+        setClickedSaves(false);
+    }
+    const showSaves = () => {
+        setClickedPosts(false);
+        setClickedSaves(true);
+    }
     return (
         <>
             <Nav2 />
@@ -47,7 +44,7 @@ const MyProfile = () => {
                 <div className="row mt-5">
                     <div className="offset-2 col-8 d-flex justify-content-center align-items-center">
                         <img
-                            src="https://cdn.dribbble.com/users/772985/screenshots/9247897/media/59b9f4624886350945af7b7fd2ee318f.png?compress=1&resize=400x300&vertical=top"
+                            src={profile.avatar}
                             alt="avatar" style={{ width: "10em", height: "10em", borderRadius: "50%" }} />
                     </div>
                     <div className="offset-1 col-1 d-flex justify-content-center align-items-center flex-column gap-3">
@@ -57,14 +54,14 @@ const MyProfile = () => {
                 </div>
                 <div className="d-flex justifiy-content-center align-items-center flex-column my-3">
                     <div>
-                        Mohannad
+                        {profile.name}
                     </div>
                     <div className="d-flex gap-1">
                         <LocationOnOutlinedIcon />
-                        <span>Yemen</span>
+                        <span>{profile.location}</span>
                     </div>
                     <div>
-                        Hi i am mohannad
+                        {profile.bio}
                     </div>
                 </div>
                 <Divider />
