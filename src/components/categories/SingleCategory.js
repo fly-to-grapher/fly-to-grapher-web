@@ -81,7 +81,7 @@ const SingleCategory = () => {
                     </div>
                     <div className="vertical">
                         <img src="https://source.unsplash.com/random" alt="" />
-                    </div>
+                    </div> 
                     <div>
                         <img src="https://picsum.photos/id/29/800" alt="" />
                     </div>
