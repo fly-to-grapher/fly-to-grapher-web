@@ -45,7 +45,7 @@ const Categories = () => {
                     </h5>
                 </div>
                 <Divider />
-                    <div className="d-flex flex-wrap justify-content-between ">
+                    <div className="d-flex flex-wrap justify-content-between gap-3 my-3  p-5">
                             {
                                 categories && categories.length ? (
                                 categories.map((category, i) => {
