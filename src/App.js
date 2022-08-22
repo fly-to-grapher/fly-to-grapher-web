@@ -30,8 +30,9 @@ const App = () => {
         <Route path="/profile" element={<UserProfile />} />
         <Route path="/edit-profile" element={<EditProfile />} />
         <Route path="/password" element={<Password />} />
-        <Route path="/s-category" element={<SingleCategory />} />
+        <Route path="/s-category/:id" element={<SingleCategory />} />
         <Route path="/s-file" element={<SingleFile />} />
+        <Route path="*" element={<>Not found</>} />
       </Routes>
       <Footer />
     </BrowserRouter>

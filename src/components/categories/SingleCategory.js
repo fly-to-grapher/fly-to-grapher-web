@@ -1,9 +1,34 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link , useParams } from "react-router-dom";
 import Nav1 from "../navbar/Nav1";
+import { useEffect, useState } from "react";
+import { useRequest } from "../hooks/useRequest";
 
 
 const SingleCategory = () => {
+
+    // const [categories, setCategories] = useState([]);
+    // const sendRequest = useRequest();
+	// const { id } = useParams()
+
+
+    // useEffect(() => {
+    //     sendRequest(
+    //         process.env.REACT_APP_API_URL + `/categories/bycategory/${id}`,
+    //         {},
+    //         {},
+    //         {
+    //             auth: true
+    //         },
+    //         "GET"
+    //     ).then((response) => {
+    //         if (response?.success) {
+    //             setCategories(response.data);
+    //         }
+    //     });
+    // }, []);
+
+
     return (
         <>
             <Nav1 />
@@ -37,7 +62,19 @@ const SingleCategory = () => {
                     <a href="#" className="next">
                         &gt;
                     </a>
-                    <h1 className="d-flex justify-content-center">category name</h1>
+                    {/* {
+                                categories && categories.length ? (
+                                categories.map((category, i) => {
+                                return (
+                                    <>
+                                        <h1 className="d-flex justify-content-center">{category.name}</h1>
+                                        
+                                    </>
+                                    );
+                            })
+                        ) : (
+                            <p>No categories available</p>
+                        )} */}
                 </div>
                 <main className="container">
                     <div>
