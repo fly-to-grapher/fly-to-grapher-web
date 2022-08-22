@@ -6,7 +6,7 @@ import Favorite from '@mui/icons-material/Favorite';
 import BookmarkBorderIcon from '@mui/icons-material/BookmarkBorder';
 import BookmarkIcon from '@mui/icons-material/Bookmark';
 import Avatar from '@mui/material/Avatar';
-import { useState , useEffect } from "react";
+import { useState, useEffect } from "react";
 import Dialog from '@mui/material/Dialog';
 import DialogContent from '@mui/material/DialogContent';
 import DialogTitle from '@mui/material/DialogTitle';
@@ -53,23 +53,23 @@ const HomeImage = ({ picture, i }) => {
                 src={`${picture.file_name}?w=248&fit=crop&auto=format`}
                 srcSet={`${picture.file_name}?w=248&fit=crop&auto=format&dpr=2 2x`}
             />
-                <div style={{
-                    display: 'flex',
-                    width: '100%',
-                    flexDirection: 'row',
-                    justifyContent: 'space-between',
-                    position: 'absolute',
-                    bottom: '2px'
+            <div style={{
+                display: 'flex',
+                width: '100%',
+                flexDirection: 'row',
+                justifyContent: 'space-between',
+                position: 'absolute',
+                bottom: '2px'
 
-                }}>
+            }}>
 
-                    {/* <Avatar style={{ position: "absolute", bottom: "2em", left: "1em" }} alt="Remy Sharp" src="/static/images/avatar/1.jpg" />
+                {/* <Avatar style={{ position: "absolute", bottom: "2em", left: "1em" }} alt="Remy Sharp" src="/static/images/avatar/1.jpg" />
 
                     <div >
                         <Checkbox {...label} icon={<FavoriteBorder />} checkedIcon={<Favorite />} onClick={addRemoveLike} />
                         <Checkbox {...label} icon={<BookmarkBorderIcon />} checkedIcon={<BookmarkIcon/>} onClick={addRemoveSave}  />
                     </div> */}
-                </div>
+            </div>
             <Dialog
                 open={open}
                 onClose={handleClose}
@@ -80,25 +80,17 @@ const HomeImage = ({ picture, i }) => {
                 <DialogTitle id="scroll-dialog-title">
                     <div className="d-flex justify-content-between align-items-center">
                         <div>
-                        <img
-                            src={picture.user_id.avatar}
-                            alt="avatar" style={{ width: "10em", height: "10em", borderRadius: "50%" }} />
+                            <img
+                                src={picture.user_id.avatar}
+                                alt="avatar" style={{ width: "10em", height: "10em", borderRadius: "50%" }} />
                         </div>
                         <div>
-                        <LocationOnOutlinedIcon />
+                            <LocationOnOutlinedIcon />
                             {picture.location}
                         </div>
                     </div>
                 </DialogTitle>
                 <DialogContent dividers={true}>
-                    <div className="mb-3 d-flex justify-content-end align-items-center gap-3">  
-                        <button className="btn btn-outline-secondary">
-                            <Checkbox {...label} icon={<FavoriteBorder />} checkedIcon={<Favorite />} onClick={addRemoveLike} />
-                        </button>
-                        <button className="btn btn-outline-secondary">
-                            <Checkbox {...label} icon={<BookmarkBorderIcon />} checkedIcon={<BookmarkIcon />}  onClick={addRemoveSave} />
-                        </button>
-                    </div>
                     <div className="row d-flex justify-content-center">
                         <img
                             style={{
@@ -109,6 +101,14 @@ const HomeImage = ({ picture, i }) => {
                             src={`${picture.file_name}?w=248&fit=crop&auto=format`}
                             srcSet={`${picture.file_name}?w=248&fit=crop&auto=format&dpr=2 2x`}
                         />
+                    </div>
+                    <div className="mb-3 mt-4 d-flex justify-content-center align-items-center gap-3">
+                        <button className="btn btn-outline-secondary">
+                            <Checkbox {...label} icon={<FavoriteBorder />} checkedIcon={<Favorite />} onClick={addRemoveLike} />
+                        </button>
+                        <button className="btn btn-outline-secondary">
+                            <Checkbox {...label} icon={<BookmarkBorderIcon />} checkedIcon={<BookmarkIcon />} onClick={addRemoveSave} />
+                        </button>
                     </div>
                 </DialogContent>
             </Dialog>
