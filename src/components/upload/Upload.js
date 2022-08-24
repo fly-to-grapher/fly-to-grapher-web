@@ -60,7 +60,7 @@ const Upload = () => {
             .then((response) => {
                 window.alert(response?.messages?.join(' '))
                 if (response?.success) {
-                    navigate('/profile')
+                    navigate('/myprofile')
                 }
             })
         setLoading(false);
