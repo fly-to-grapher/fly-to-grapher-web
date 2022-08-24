@@ -102,9 +102,7 @@ const Videos = () => {
                         videos.map((video, i) => {
                             return (
                                 <div>
-                                    <video width={400} height={300} controls="">
-                                        <source src={video.file_name}  type="video/mp4"/>
-                                    </video>
+                                    <video src={video.file_name} width="400" height="300" controls></video>
                                 </div>
                             );
                         })

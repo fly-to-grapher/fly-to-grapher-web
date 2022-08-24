@@ -77,13 +77,13 @@ const itemData = [
 
 
 
-const MyProfile = (profile) => {
-    const [profiles, setProfiles] = useState([]);
+const MyProfile = () => {
+    const [profile, setProfiles] = useState([]);
 
     const sendRequest = useRequest();
     useEffect(() => {
         sendRequest(
-            process.env.REACT_APP_API_URL + "/users/myprofile",
+            "http://localhost:5000/users/myprofile",
             {},
             {},
             {
@@ -91,10 +91,13 @@ const MyProfile = (profile) => {
             },
             "GET"
         ).then((response) => {
+            
             if (response?.success) {
+                console.log(`res`,response);
                 setProfiles(response.data);
             }
         });
+        console.log(profile);
     }, []);
     const [clickedPosts, setClickedPosts] = useState(true);
     const [clickedSaves, setClickedSaves] = useState(false);
@@ -114,7 +117,7 @@ const MyProfile = (profile) => {
                 <div className="row mt-5">
                     <div className="offset-2 col-8 d-flex justify-content-center align-items-center">
                         <img
-                            src={profile.avatar}
+                            src={profile?.user?.avatar}
                             alt="avatar" style={{ width: "10em", height: "10em", borderRadius: "50%" }} />
                     </div>
                     <div className="offset-1 col-1 d-flex justify-content-center align-items-center flex-column gap-3">
@@ -124,14 +127,14 @@ const MyProfile = (profile) => {
                 </div>
                 <div className="d-flex justifiy-content-center align-items-center flex-column my-3">
                     <div>
-                        {profile.name}
+                        {profile?.user?.name}
                     </div>
                     <div className="d-flex gap-1">
                         <LocationOnOutlinedIcon />
-                        <span>{profile.location}</span>
+                        <span>{profile?.user?.location}</span>
                     </div>
                     <div>
-                        {profile.bio}
+                        {profile?.user?.bio}
                     </div>
                 </div>
                 <Divider />
