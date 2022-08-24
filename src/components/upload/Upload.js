@@ -138,7 +138,7 @@ const Upload = () => {
                         </div>
                         <div className="">
                             <label className="col-sm-3 col-form-label"><b>Select category</b></label>
-                            <div className="row mb-4">
+                            <div className="    ">
                                 {
                                     categories?.map((category, i) => {
                                         return (
