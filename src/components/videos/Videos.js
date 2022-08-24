@@ -97,26 +97,32 @@ const Videos = () => {
                     &gt;
                 </a>
                 <h1 className="d-flex justify-content-center">Free Stock Videos</h1>
-                <Box sx={{ width: "96%", height: "100%", boxSizing: "border-box", marginX: "2%" }}>
-                    <video variant="masonry" cols={3} gap={8}>
-                        {videos && videos.length ? (
-                            videos.map((video, i) => {
-                                return (
-                                    <HomeVideo video={video} i={i} />
-                                );
-                            })
-                        ) : (
-                            <div >
-                                <MDBSpinner grow color='rgb(29, 94, 147)' style={{ color: 'rgb(29, 94, 147)' }}>
-                                </MDBSpinner>
-                            </div>
-                        )}
-                    </video>
-                </Box>
+                <div className="d-flex flex-wrap justify-content-between gap-3 my-3  p-5">
+                    {videos && videos.length ? (
+                        videos.map((video, i) => {
+                            return (
+                                <div>
+                                    <video width={400} height={300} controls="">
+                                        <source src={video.file_name}  type="video/mp4"/>
+                                    </video>
+                                </div>
+                            );
+                        })
+                    ) : (
+                        <div className="d-flex justify-content-center" >
+                            <MDBSpinner grow color='rgb(29, 94, 147)' style={{ color: 'rgb(29, 94, 147)' }}>
+                            </MDBSpinner>
+                        </div>
+                    )}
+                </div>
             </div>
         </div>
     );
 };
+
+
+
+
 export default Videos;
 
 

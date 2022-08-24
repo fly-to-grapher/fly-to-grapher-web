@@ -32,7 +32,7 @@ export default function SignUp() {
             .then((response) => {
                 if (response.success) {
                     auth.login(response)
-                    navigate('/profile')
+                    navigate('/myprofile')
                 } else {
                     window.alert(response?.messages?.join(' '))
                 }
