@@ -71,12 +71,6 @@ const itemData = [
 
 
 
-
-
-
-
-
-
 const MyProfile = () => {
     const [profile, setProfiles] = useState([]);
 
