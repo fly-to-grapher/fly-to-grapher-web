@@ -8,12 +8,44 @@ import Box from "@mui/material/Box";
 import ImageList from "@mui/material/ImageList";
 import HomeVideo from "../video/HomeVideo"
 import { MDBSpinner } from 'mdb-react-ui-kit';
+import Checkbox from '@mui/material/Checkbox';
+import FavoriteBorder from '@mui/icons-material/FavoriteBorder';
+import BookmarkIcon from '@mui/icons-material/Bookmark';
+import BookmarkBorderIcon from '@mui/icons-material/BookmarkBorder';
+import Favorite from '@mui/icons-material/Favorite';
 
 
 
-const Videos = () => {
+
+
+
+
+
+const Videos = ({ video, i }) => {
+
     const [videos, setVideos] = useState([]);
     const sendRequest = useRequest();
+
+    const label = { inputProps: { 'aria-label': 'Checkbox demo' } };
+
+    const addRemoveLike = () => {
+        sendRequest(`${process.env.REACT_APP_API_URL}/likes/${i}`, {}, {}, {
+            type: 'json',
+            auth: true
+        }, 'post')
+            .then((response) => {
+                console.log(response)
+            });
+    }
+    const addRemoveSave = () => {
+        sendRequest(`${process.env.REACT_APP_API_URL}/save/${i}`, {}, {}, {
+            type: 'json',
+            auth: true
+        }, 'post')
+            .then((response) => {
+                console.log(response)
+            });
+    }
 
     useEffect(() => {
         sendRequest(
@@ -30,7 +62,6 @@ const Videos = () => {
             }
         });
     }, []);
-
 
 
 
@@ -97,12 +128,16 @@ const Videos = () => {
                     &gt;
                 </a>
                 <h1 className="d-flex justify-content-center">Free Stock Videos</h1>
-                <div className="d-flex flex-wrap justify-content-between gap-3 my-3  p-5">
+                <div className="d-flex flex-wrap justify-content-between gap-2 p-4">
                     {videos && videos.length ? (
                         videos.map((video, i) => {
                             return (
                                 <div>
                                     <video src={video.file_name} width="400" height="300" controls></video>
+                                    <div className=" d-flex justify-content-end align-items-center gap-2">
+                                        <Checkbox {...label} icon={<FavoriteBorder />} checkedIcon={<Favorite />} onClick={addRemoveLike} />
+                                        <Checkbox {...label} icon={<BookmarkBorderIcon />} checkedIcon={<BookmarkIcon />} onClick={addRemoveSave} />
+                                    </div>
                                 </div>
                             );
                         })
