@@ -4,9 +4,6 @@ import { Link } from "react-router-dom";
 import Nav1 from "../navbar/Nav1";
 import { useEffect, useState } from "react";
 import { useRequest } from "../hooks/useRequest";
-import Box from "@mui/material/Box";
-import ImageList from "@mui/material/ImageList";
-import HomeVideo from "../video/HomeVideo"
 import { MDBSpinner } from 'mdb-react-ui-kit';
 import Checkbox from '@mui/material/Checkbox';
 import FavoriteBorder from '@mui/icons-material/FavoriteBorder';
