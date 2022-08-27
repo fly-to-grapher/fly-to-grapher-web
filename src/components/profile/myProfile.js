@@ -14,10 +14,6 @@ import Box from '@mui/material/Box';
 
 
 
-
-
-
-
 const itemData = [
     {
         img: 'https://images.unsplash.com/photo-1551963831-b3b1ca40c98e',
@@ -91,7 +87,6 @@ const MyProfile = () => {
                 setProfiles(response.data);
             }
         });
-        console.log(profile);
     }, []);
     const [clickedPosts, setClickedPosts] = useState(true);
     const [clickedSaves, setClickedSaves] = useState(false);
@@ -160,7 +155,7 @@ const MyProfile = () => {
                             <Button variant="contained" onClick={showSaves}>Saves</Button>
                         </div>
                         <div>
-                            <Box sx={{ width: 1320, height: 950, overflowY: 'scroll' }}>
+                            <Box sx={{ width: 1320, height: 950 }}>
                                 <ImageList variant="masonry" cols={4} gap={8}>
                                     {itemData.map((item) => (
                                         <ImageListItem key={item.img}>

@@ -13,8 +13,6 @@ import ImageListItem from '@mui/material/ImageListItem';
 
 
 
-
-
 const itemData = [
     {
       img: 'https://images.unsplash.com/photo-1551963831-b3b1ca40c98e',
@@ -70,25 +68,10 @@ const itemData = [
 
 
 
-
-
-
-
-
 const UserProfile = () => {
     const auth = useContext(AuthContext)
     const [clickedPosts, setClickedPosts] = useState(true);
     const [clickedSaves, setClickedSaves] = useState(false);
-    // const showPosts = () => {
-    //     setClickedPosts(true);
-    //     setClickedSaves(false);
-    // }
-    // const showSaves = () => {
-    //     setClickedPosts(false);
-    //     setClickedSaves(true);
-    // }
-
-
 
     const [profile, setProfile] = useState([]);
 
@@ -116,20 +99,20 @@ const UserProfile = () => {
                 <div className="row mt-5">
                     <div className="offset-2 col-8 d-flex justify-content-center align-items-center">
                         <img
-                            src='https://firebasestorage.googleapis.com/v0/b/flytographer-a1fa1.appspot.com/o/avatar%2Fprofile-icon-png-908.png?alt=media&token=3d4fc76e-e162-4074-b8d8-d7b4cd8c3ad4'
+                            src={profile?.user?.avatar}
                             alt="avatar" style={{ width: "10em", height: "10em", borderRadius: "50%" }} />
                     </div>
                 </div>
                 <div className="d-flex justifiy-content-center align-items-center flex-column my-3">
                     <div>
-                        Mohannad
+                        {profile?.user?.name}
                     </div>
                     <div className="d-flex gap-1">
                         <LocationOnOutlinedIcon />
-                        <span>Yemen</span>
+                        <span>{profile?.user?.location}</span>
                     </div>
                     <div>
-                        Hi i am mohannad
+                      {profile?.user?.bio}
                     </div>
                 </div>
                 <Divider />
