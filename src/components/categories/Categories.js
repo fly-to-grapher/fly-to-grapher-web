@@ -50,7 +50,7 @@ const Categories = () => {
                                 categories && categories.length ? (
                                 categories.map((category, i) => {
                                 return (
-                                <Link to={`/s-category/${i}`}>
+                                <Link to={`/s-category/${category.id}`}>
                                             <div key={i} className="card bg-dark text-white my-2 col-md-4 col-lg-3" style={{ width: "300px", height: "250px" }}>
                                                     <img src={category.picture} className="card-img" alt="..." style={{ width: "aotu", height: "aotu" }} />
                                                 <div className="card-img-overlay d-flex justify-content-center">
