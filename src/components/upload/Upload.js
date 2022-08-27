@@ -122,7 +122,7 @@ const Upload = () => {
                                 <input type="text" className="form-control" id="location" style={{ width: "15em" }} ref={locationRef} />
                             </div>
                         </div>
-                        <div className="mb-3 d-flex justify-content-between align-items-center">
+                        {/* <div className="mb-3 d-flex justify-content-between align-items-center">
                             <div>
                                 <label className="col-sm-2 col-form-label"><b>Tags</b></label>
                             </div>
@@ -135,10 +135,10 @@ const Upload = () => {
                                 width="15em"
                                 onChange={handleTagToggle}
                             />
-                        </div>
+                        </div> */}
                         <div className="">
                             <label className="col-sm-3 col-form-label"><b>Select category</b></label>
-                            <div className="    ">
+                            <div className="row mb-4">
                                 {
                                     categories?.map((category, i) => {
                                         return (

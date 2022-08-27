@@ -27,7 +27,7 @@ const App = () => {
         <Route path="/upload" element={<Upload />} />
         <Route path="/categories" element={<Categories />} />
         <Route path="/myprofile" element={<MyProfile />} />
-        <Route path="/profile" element={<UserProfile />} />
+        <Route path="/profile/:id" element={<UserProfile />} />
         <Route path="/edit-profile" element={<EditProfile />} />
         <Route path="/password" element={<Password />} />
         <Route path="/s-category/:id" element={<SingleCategory />} />

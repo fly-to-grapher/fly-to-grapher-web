@@ -15,7 +15,7 @@ import LocationOnOutlinedIcon from '@mui/icons-material/LocationOnOutlined';
 import { Link } from "react-router-dom";
 
 
-const HomeImage = ({ picture, i }) => {
+const ProfileImage = ({ picture, i, user }) => {
     // const [hover, setHover] = useState({ is: false, index: -1 })
     const [open, setOpen] = useState(false);
     const sendRequest = useRequest()
@@ -80,11 +80,11 @@ const HomeImage = ({ picture, i }) => {
             >
                 <DialogTitle id="scroll-dialog-title">
                     <div className="d-flex justify-content-between align-items-center">
-                        <Link to= {"/profile/"+picture?.User?.id} className="d-flex gap-3 align-items-center text-decoration-none">
+                        <Link to= {"/profile/"+user?.id} className="d-flex gap-3 align-items-center text-decoration-none">
                             <img
-                                src={picture?.User?.avatar}
+                                src={user?.avatar}
                                 alt="avatar" style={{ width: "3em", height: "3em", borderRadius: "50%" }} />
-                                <span style={{color: "black"}}>{picture?.User?.username}</span>
+                                <span style={{color: "black"}}>{user?.username}</span>
                         </Link>
                         <div>
                             <LocationOnOutlinedIcon />
@@ -118,4 +118,4 @@ const HomeImage = ({ picture, i }) => {
     )
 }
 
-export default HomeImage;
+export default ProfileImage;

@@ -17,7 +17,7 @@ const Home = () => {
 
 useEffect(() => {
     sendRequest(
-        process.env.REACT_APP_API_URL + `/categories/bycategory/${id}`,
+        process.env.REACT_APP_API_URL + `/files/bycategory/${id}`,
             {},
             {},
             {
@@ -42,7 +42,6 @@ useEffect(() => {
                         <h1>The best free stock photos and videos</h1>
                     </div>
                 </div>
-                <navbar>
                     <div>
                         <ul className="nav justify-content-center mt-3 mb-2">
                             <Link
@@ -86,7 +85,6 @@ useEffect(() => {
                             </Link>
                         </ul>
                     </div>
-                </navbar>
             </div>
             <div>
                 <a href="#" className="prev">

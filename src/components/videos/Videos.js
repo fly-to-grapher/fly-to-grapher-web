@@ -4,6 +4,8 @@ import { Link } from "react-router-dom";
 import Nav1 from "../navbar/Nav1";
 import { useEffect, useState } from "react";
 import { useRequest } from "../hooks/useRequest";
+import Box from "@mui/material/Box";
+import ImageList from "@mui/material/ImageList";
 import { MDBSpinner } from 'mdb-react-ui-kit';
 import Checkbox from '@mui/material/Checkbox';
 import FavoriteBorder from '@mui/icons-material/FavoriteBorder';
@@ -21,12 +23,13 @@ import Favorite from '@mui/icons-material/Favorite';
 const Videos = ({ video, i }) => {
 
     const [videos, setVideos] = useState([]);
+    // console.log("videos: ",videos)
     const sendRequest = useRequest();
 
     const label = { inputProps: { 'aria-label': 'Checkbox demo' } };
 
-    const addRemoveLike = () => {
-        sendRequest(`${process.env.REACT_APP_API_URL}/likes/${i}`, {}, {}, {
+    const addRemoveLike = (id) => {
+        sendRequest(`${process.env.REACT_APP_API_URL}/likes/${id}`, {}, {}, {
             type: 'json',
             auth: true
         }, 'post')
@@ -34,8 +37,8 @@ const Videos = ({ video, i }) => {
                 console.log(response)
             });
     }
-    const addRemoveSave = () => {
-        sendRequest(`${process.env.REACT_APP_API_URL}/save/${i}`, {}, {}, {
+    const addRemoveSave = (id) => {
+        sendRequest(`${process.env.REACT_APP_API_URL}/save/${id}`, {}, {}, {
             type: 'json',
             auth: true
         }, 'post')
@@ -55,7 +58,8 @@ const Videos = ({ video, i }) => {
             "GET"
         ).then((response) => {
             if (response?.success) {
-                setVideos(response.data);
+                console.log("data: ",response.data)
+                setVideos(response.data.videos);
             }
         });
     }, []);
@@ -71,7 +75,6 @@ const Videos = ({ video, i }) => {
                         <h1>The best free stock photos and videos</h1>
                     </div>
                 </div>
-                <navbar>
                     <div>
                         <ul className="nav justify-content-center mt-3 mb-2">
                             <Link
@@ -115,7 +118,6 @@ const Videos = ({ video, i }) => {
                             </Link>
                         </ul>
                     </div>
-                </navbar>
             </div>
             <div>
                 <a href="#" className="prev">
@@ -132,8 +134,8 @@ const Videos = ({ video, i }) => {
                                 <div>
                                     <video src={video.file_name} width="400" height="300" controls></video>
                                     <div className=" d-flex justify-content-end align-items-center gap-2">
-                                        <Checkbox {...label} icon={<FavoriteBorder />} checkedIcon={<Favorite />} onClick={addRemoveLike} />
-                                        <Checkbox {...label} icon={<BookmarkBorderIcon />} checkedIcon={<BookmarkIcon />} onClick={addRemoveSave} />
+                                        <Checkbox {...label} icon={<FavoriteBorder />} checkedIcon={<Favorite />} onClick={() => addRemoveLike(video.id)} />
+                                        <Checkbox {...label} icon={<BookmarkBorderIcon />} checkedIcon={<BookmarkIcon />} onClick={()=>addRemoveSave(video.id)} />
                                     </div>
                                 </div>
                             );

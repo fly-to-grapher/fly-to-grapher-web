@@ -25,6 +25,7 @@ const Home = () => {
         ).then((response) => {
             if (response?.success) {
                 setPictures(response.data);
+                console.log("images: ", response.data)
             }
         });
     }, []);
@@ -41,7 +42,6 @@ const Home = () => {
                         <h1>The best free stock photos and videos</h1>
                     </div>
                 </div>
-                <navbar>
                     <div>
                         <ul className="nav justify-content-center mt-3 mb-2">
                             <Link
@@ -85,7 +85,6 @@ const Home = () => {
                             </Link>
                         </ul>
                     </div>
-                </navbar>
             </div>
             <div>
                 <a href="#" className="prev">
