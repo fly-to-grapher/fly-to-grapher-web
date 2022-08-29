@@ -12,6 +12,7 @@ import EditProfile from './components/profile/editProfile'
 import SingleCategory from "./components/categories/SingleCategory"
 import SingleFile from "./components/single file/SingleFile";
 import Password from "./components/profile/ChangePassword";
+import Avatar from "./components/profile/UpdateAvatar";
 
 
 
@@ -30,6 +31,7 @@ const App = () => {
         <Route path="/profile/:id" element={<UserProfile />} />
         <Route path="/edit-profile" element={<EditProfile />} />
         <Route path="/password" element={<Password />} />
+        <Route path="/avatar" element={<Avatar />} />
         <Route path="/s-category/:id" element={<SingleCategory />} />
         <Route path="/s-file" element={<SingleFile />} />
         <Route path="*" element={<>Not found</>} />

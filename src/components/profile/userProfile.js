@@ -11,8 +11,7 @@ import * as React from 'react';
 import ImageList from '@mui/material/ImageList';
 import ImageListItem from '@mui/material/ImageListItem';
 import Box from '@mui/material/Box';
-// import HomeImage from "../homeImages/HomeImage";
-import ProfileImage from "./ProfileImage";
+import UserProfileImage from "./UserProfileImage";
 import { useParams } from "react-router-dom";
 
 
@@ -24,6 +23,8 @@ const UserProfile = () => {
     const [posts, setPosts] = useState([]);
     const [saves, setSaves] = useState([]);
     const {id} = useParams()
+    const [likes, setLikes] = useState([]);
+    // const [saved, setSaved] = useState([]);
 
     const sendRequest = useRequest();
     useEffect(() => {
@@ -42,6 +43,7 @@ const UserProfile = () => {
                 setProfiles(response.data);
                 setPosts(response.data.files);
                 setSaves(response.data.saves);
+                setLikes(response.data.likes);
                 // setItemData(response.data.files)
             }
         });
@@ -56,10 +58,10 @@ const UserProfile = () => {
                             src={profile?.user?.avatar}
                             alt="avatar" style={{ width: "10em", height: "10em", borderRadius: "50%" }} />
                     </div>
-                    <div className="offset-1 col-1 d-flex justify-content-center align-items-center flex-column gap-3">
+                    {/* <div className="offset-1 col-1 d-flex justify-content-center align-items-center flex-column gap-3">
                         <Link to='/edit-profile'><ModeEditOutlineOutlinedIcon /></Link>
                         <Link to='/password'><KeyOutlinedIcon /></Link>
-                    </div>
+                    </div> */}
                 </div>
                 <div className="d-flex justifiy-content-center align-items-center flex-column my-3">
                     <div>
@@ -95,11 +97,11 @@ const UserProfile = () => {
                         {posts && posts.length ? (
                             posts.map((post, i) => {
                                 return (
-                                    <ProfileImage picture={post} i={i} user={profile.user}/>
+                                    <UserProfileImage picture={post} i={i} user={profile.user} likes={likes} saves={saves}/>
                                 );
                             })
                         ) : (
-                            <p>No posts available</p>
+                            <b><p>{profile?.user?.name} has no photos or videos yet 😔</p></b> 
                         )}
                     </ImageList>
                 </Box>

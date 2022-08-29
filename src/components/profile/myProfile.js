@@ -12,8 +12,8 @@ import ImageList from '@mui/material/ImageList';
 import ImageListItem from '@mui/material/ImageListItem';
 import Box from '@mui/material/Box';
 // import HomeImage from "../homeImages/HomeImage";
-import ProfileImage from "./ProfileImage";
-
+import MyProfileImage from "./MyProfileImage";
+import AccountCircleOutlinedIcon from '@mui/icons-material/AccountCircleOutlined';
 
 
 
@@ -21,6 +21,8 @@ import ProfileImage from "./ProfileImage";
 const MyProfile = () => {
     const [profile, setProfiles] = useState([]);
     const [posts, setPosts] = useState([]);
+    const [savess, setSavess] = useState([]);
+    const [likes, setLikes] = useState([]);
     const [saves, setSaves] = useState([]);
 
     const sendRequest = useRequest();
@@ -39,7 +41,9 @@ const MyProfile = () => {
                 console.log(`res`,response);
                 setProfiles(response.data);
                 setPosts(response.data.files);
-                setSaves(response.data.saves);
+                setSavess(response.data.saves);
+                setLikes(response.data.likes);
+                setSaves(response.data.save);
                 // setItemData(response.data.files)
             }
         });
@@ -67,9 +71,15 @@ const MyProfile = () => {
                             src={profile?.user?.avatar}
                             alt="avatar" style={{ width: "10em", height: "10em", borderRadius: "50%" }} />
                     </div>
+                    {/* <Link to='/avatar' className="text-decoration-none">
+                    <div>
+                    <span>Change your Avatar</span>
+                    </div>
+                    </Link> */}
                     <div className="offset-1 col-1 d-flex justify-content-center align-items-center flex-column gap-3">
-                        <Link to='/edit-profile'><ModeEditOutlineOutlinedIcon /></Link>
+                        <Link to='/edit-profile' alt='edit your profile'><ModeEditOutlineOutlinedIcon /></Link>
                         <Link to='/password'><KeyOutlinedIcon /></Link>
+                        <Link to='/avatar'><AccountCircleOutlinedIcon /></Link>
                     </div>
                 </div>
                 <div className="d-flex justifiy-content-center align-items-center flex-column my-3">
@@ -109,7 +119,7 @@ const MyProfile = () => {
                         {posts && posts.length ? (
                             posts.map((post, i) => {
                                 return (
-                                    <ProfileImage picture={post} i={i} user={profile.user}/>
+                                    <MyProfileImage picture={post} i={i} user={profile.user} likes={likes} saves={saves}/>
                                 );
                             })
                         ) : (
@@ -128,14 +138,14 @@ const MyProfile = () => {
                         <div>
                         <Box sx={{ width: "96%", height: "100%", boxSizing: "border-box", marginX: "2%" }}>
                     <ImageList variant="masonry" cols={3} gap={8}>
-                        {saves && saves.length ? (
-                            saves.map((save, i) => {
+                        {savess && savess.length ? (
+                            savess.map((save, i) => {
                                 return (
-                                    <ProfileImage picture={save.File} i={i} user={profile.user}/>
+                                    <MyProfileImage picture={save.File} i={i} user={profile.user}/>
                                 );
                             })
                         ) : (
-                            <p>No posts available</p>
+                            <b><p>{profile?.user?.name}has no photos or videos yet 😔</p></b> 
                         )}
                     </ImageList>
                 </Box>

@@ -7,6 +7,7 @@ import { useRequest } from "../hooks/useRequest";
 import Box from "@mui/material/Box";
 import ImageList from "@mui/material/ImageList";
 import HomeImage from "../homeImages/HomeImage";
+import { MDBSpinner } from 'mdb-react-ui-kit';
 
 
 const Home = () => {
@@ -107,7 +108,10 @@ const Home = () => {
                                 );
                             })
                         ) : (
-                            <p>No pictures available</p>
+                            <div className="d-flex justify-content-center" >
+                                <MDBSpinner grow color='rgb(29, 94, 147)' style={{ color: 'rgb(29, 94, 147)' }}>
+                                </MDBSpinner>
+                            </div>
                         )}
                     </ImageList>
                 </Box>
