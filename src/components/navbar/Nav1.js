@@ -104,7 +104,7 @@ const Nav1 = () => {
                       className="dropdown-item"
                       style={{ color: "black" }}
                     >
-                      Your profile
+                      My profile
                     </Link>
                   </li>
                 </>}
@@ -174,7 +174,7 @@ const Nav1 = () => {
                       className="dropdown-item"
                       style={{ color: "black" }}
                     >
-                      Your profile
+                      My profile
                     </Link>
                   </li>
                 </>}

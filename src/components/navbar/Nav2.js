@@ -44,7 +44,7 @@ const Nav2 = () => {
                         </li>
                         <ul className="dropdown-menu" aria-labelledby="navbarDropdown">
                             {auth.isAuthenticated && <>
-                                <li> <Link to="/myprofile" className="dropdown-item" style={{ color: "black" }} >Your profile</Link></li>
+                                <li> <Link to="/myprofile" className="dropdown-item" style={{ color: "black" }} >My profile</Link></li>
                                 <li onClick={() => logout()} className="dropdown-item" style={{ color: "black" }} >Log out</li>
                             </>}
                             {!auth.isAuthenticated && <>
