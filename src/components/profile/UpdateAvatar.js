@@ -50,8 +50,15 @@ const Avatar = () => {
                     </div>
                 </div>
                 <div className="d-flex justify-content-center mb-4 mt-2">
-                    <button type="submit" className="btn btn-info btn-save-form " onClick={changeAvatar} style={{ backgroundColor: "#012848", color: "white" }}>
-                        <b>Save</b>
+                    <button type="submit" className="btn btn-info btn-save-form " disabled={loading} onClick={changeAvatar} style={{ backgroundColor: "#012848", color: "white" }}>
+                    {!loading ?
+                            <span>Save</span>
+                            :
+                            <div className="d-flex justify-content-evenly align-items-center">
+                                <span>Uploading</span>
+                                <div className="spinner-border" role="status" />
+                            </div>
+                        }
                     </button>
                 </div>
             </div>
