@@ -59,8 +59,8 @@ const Videos = ({ video, i }) => {
         ).then((response) => {
             if (response?.success) {
                 console.log("data: ",response.data)
-                setVideos(response.data.videos);
-            }
+                setVideos(response.data.files);
+                }
         });
     }, []);
 

@@ -6,19 +6,36 @@ import Favorite from '@mui/icons-material/Favorite';
 import BookmarkBorderIcon from '@mui/icons-material/BookmarkBorder';
 import BookmarkIcon from '@mui/icons-material/Bookmark';
 import Avatar from '@mui/material/Avatar';
-import { useState, useEffect } from "react";
+import { useState, useEffect , useContext} from "react";
 import Dialog from '@mui/material/Dialog';
 import DialogContent from '@mui/material/DialogContent';
 import DialogTitle from '@mui/material/DialogTitle';
 import { useRequest } from "../hooks/useRequest"
 import LocationOnOutlinedIcon from '@mui/icons-material/LocationOnOutlined';
 import { Link } from "react-router-dom";
+import { AuthContext } from "../context/auth"
 
 
-const HomeImage = ({ picture, i }) => {
+const HomeImage = ({ picture, i, likes, saves }) => {
     // const [hover, setHover] = useState({ is: false, index: -1 })
     const [open, setOpen] = useState(false);
     const sendRequest = useRequest()
+    let liked = false;
+    let saved = false;
+    const auth = useContext(AuthContext)
+    const file_likes = likes.filter(like => like.file_id == picture.id);
+    for(var j = 0; j < file_likes.length; j++) {
+        if(file_likes[j].user_id == auth?.user?.id) 
+            liked = true;
+            break;
+    }
+    const file_saves = saves.filter(save => save.file_id == picture.id);
+    for(var j = 0; j < file_saves.length; j++) {
+        if(file_saves[j].user_id == auth?.user?.id) 
+            saved = true;
+            break;
+    }
+
     const handleOpen = () => {
         setOpen(true);
     }
@@ -26,7 +43,7 @@ const HomeImage = ({ picture, i }) => {
     const label = { inputProps: { 'aria-label': 'Checkbox demo' } };
 
     const addRemoveLike = () => {
-        sendRequest(`${process.env.REACT_APP_API_URL}/likes/${i}`, {}, {}, {
+        sendRequest(`${process.env.REACT_APP_API_URL}/likes/${picture.id}`, {}, {}, {
             type: 'json',
             auth: true
         }, 'post')
@@ -35,7 +52,7 @@ const HomeImage = ({ picture, i }) => {
             });
     }
     const addRemoveSave = () => {
-        sendRequest(`${process.env.REACT_APP_API_URL}/save/${i}`, {}, {}, {
+        sendRequest(`${process.env.REACT_APP_API_URL}/save/${picture.id}`, {}, {}, {
             type: 'json',
             auth: true
         }, 'post')
@@ -43,6 +60,7 @@ const HomeImage = ({ picture, i }) => {
                 console.log(response)
             });
     }
+    // console.log('bbbbbbbbbbbbb', picture)
     return (
         <ImageListItem style={{}} key={i}>
             <img
@@ -105,12 +123,26 @@ const HomeImage = ({ picture, i }) => {
                         />
                     </div>
                     <div className="mb-3 mt-4 d-flex justify-content-center align-items-center gap-3">
+                    {liked == false ? 
                         <button className="btn btn-outline-secondary">
                             <Checkbox {...label} icon={<FavoriteBorder />} checkedIcon={<Favorite />} onClick={addRemoveLike} />
                         </button>
+                    :
+                        <button className="btn btn-outline-secondary">
+                            <Checkbox {...label} icon={<Favorite />} checkedIcon={<FavoriteBorder />} onClick={addRemoveLike} />
+                        </button>
+                    }
+                    {saved == false ? 
                         <button className="btn btn-outline-secondary">
                             <Checkbox {...label} icon={<BookmarkBorderIcon />} checkedIcon={<BookmarkIcon />} onClick={addRemoveSave} />
                         </button>
+                    :
+                    <button className="btn btn-outline-secondary">
+                            <Checkbox {...label} icon={<BookmarkIcon />} checkedIcon={<BookmarkBorderIcon />} onClick={addRemoveSave} />
+                        </button>
+                    }
+                        
+                        
                     </div>
                 </DialogContent>
             </Dialog>

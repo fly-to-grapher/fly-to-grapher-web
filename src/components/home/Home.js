@@ -11,6 +11,8 @@ import HomeImage from "../homeImages/HomeImage";
 
 const Home = () => {
     const [pictures, setPictures] = useState([]);
+    const [likes, setLikes] = useState([]);
+    const [saves, setSaves] = useState([]);
     const sendRequest = useRequest();
 
     useEffect(() => {
@@ -24,8 +26,10 @@ const Home = () => {
             "GET"
         ).then((response) => {
             if (response?.success) {
-                setPictures(response.data);
-                console.log("images: ", response.data)
+                setPictures(response.data.files);
+                setLikes(response.data.likes);
+                setSaves(response.data.saves);
+                console.log("data: ", response.data)
             }
         });
     }, []);
@@ -99,7 +103,7 @@ const Home = () => {
                         {pictures && pictures.length ? (
                             pictures.map((picture, i) => {
                                 return (
-                                    <HomeImage picture={picture} i={i} />
+                                    <HomeImage picture={picture} i={i} likes={likes} saves={saves}/>
                                 );
                             })
                         ) : (
