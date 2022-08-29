@@ -6,7 +6,7 @@ import Favorite from '@mui/icons-material/Favorite';
 import BookmarkBorderIcon from '@mui/icons-material/BookmarkBorder';
 import BookmarkIcon from '@mui/icons-material/Bookmark';
 import Avatar from '@mui/material/Avatar';
-import { useState, useEffect ,useContext } from "react";
+import { useState, useEffect, useContext } from "react";
 import Dialog from '@mui/material/Dialog';
 import DialogContent from '@mui/material/DialogContent';
 import DialogTitle from '@mui/material/DialogTitle';
@@ -15,7 +15,7 @@ import LocationOnOutlinedIcon from '@mui/icons-material/LocationOnOutlined';
 import { Link } from "react-router-dom";
 import { AuthContext } from "../context/auth"
 
-const MyProfileImage = ({ picture, i, user , likes, saves  }) => {
+const MyProfileImage = ({ picture, i, user, likes, saves }) => {
     // const [hover, setHover] = useState({ is: false, index: -1 })
     const [open, setOpen] = useState(false);
     const sendRequest = useRequest()
@@ -23,16 +23,16 @@ const MyProfileImage = ({ picture, i, user , likes, saves  }) => {
     let saved = false;
     const auth = useContext(AuthContext)
     const file_likes = likes.filter(like => like.file_id == picture.id);
-    for(var j = 0; j < file_likes.length; j++) {
-        if(file_likes[j].user_id == auth?.user?.id) 
+    for (var j = 0; j < file_likes.length; j++) {
+        if (file_likes[j].user_id == auth?.user?.id)
             liked = true;
-            break;
+        break;
     }
     const file_saves = saves.filter(save => save.file_id == picture.id);
-    for(var j = 0; j < file_saves.length; j++) {
-        if(file_saves[j].user_id == auth?.user?.id) 
+    for (var j = 0; j < file_saves.length; j++) {
+        if (file_saves[j].user_id == auth?.user?.id)
             saved = true;
-            break;
+        break;
     }
 
     const handleOpen = () => {
@@ -96,11 +96,11 @@ const MyProfileImage = ({ picture, i, user , likes, saves  }) => {
             >
                 <DialogTitle id="scroll-dialog-title">
                     <div className="d-flex justify-content-between align-items-center">
-                        <Link to= {"/profile/"+user?.id} className="d-flex gap-3 align-items-center text-decoration-none">
+                        <Link to={"/profile/" + user?.id} className="d-flex gap-3 align-items-center text-decoration-none">
                             <img
                                 src={user?.avatar}
                                 alt="avatar" style={{ width: "3em", height: "3em", borderRadius: "50%" }} />
-                                <span style={{color: "black"}}>{user?.username}</span>
+                            <span style={{ color: "black" }}>{user?.username}</span>
                         </Link>
                         <div>
                             <LocationOnOutlinedIcon />
@@ -120,24 +120,27 @@ const MyProfileImage = ({ picture, i, user , likes, saves  }) => {
                             srcSet={`${picture.file_name}?w=248&fit=crop&auto=format&dpr=2 2x`}
                         />
                     </div>
-                    {liked == false ? 
-                        <button className="btn btn-outline-secondary">
-                            <Checkbox {...label} icon={<FavoriteBorder />} checkedIcon={<Favorite />} onClick={addRemoveLike} />
-                        </button>
-                    :
-                        <button className="btn btn-outline-secondary">
-                            <Checkbox {...label} icon={<Favorite />} checkedIcon={<FavoriteBorder />} onClick={addRemoveLike} />
-                        </button>
-                    }
-                    {saved == false ? 
-                        <button className="btn btn-outline-secondary">
-                            <Checkbox {...label} icon={<BookmarkBorderIcon />} checkedIcon={<BookmarkIcon />} onClick={addRemoveSave} />
-                        </button>
-                    :
-                    <button className="btn btn-outline-secondary">
-                            <Checkbox {...label} icon={<BookmarkIcon />} checkedIcon={<BookmarkBorderIcon />} onClick={addRemoveSave} />
-                        </button>
-                    }
+                    <div className="mb-3 mt-4 d-flex justify-content-center align-items-center gap-3">
+                        {liked == false ?
+                            <button className="btn btn-outline-secondary">
+                                <Checkbox {...label} icon={<FavoriteBorder />} checkedIcon={<Favorite />} onClick={addRemoveLike} />
+                            </button>
+                            :
+                            <button className="btn btn-outline-secondary">
+                                <Checkbox {...label} icon={<Favorite />} checkedIcon={<FavoriteBorder />} onClick={addRemoveLike} />
+                            </button>
+                        }
+                        {saved == false ?
+                            <button className="btn btn-outline-secondary">
+                                <Checkbox {...label} icon={<BookmarkBorderIcon />} checkedIcon={<BookmarkIcon />} onClick={addRemoveSave} />
+                            </button>
+                            :
+                            <button className="btn btn-outline-secondary">
+                                <Checkbox {...label} icon={<BookmarkIcon />} checkedIcon={<BookmarkBorderIcon />} onClick={addRemoveSave} />
+                            </button>
+                        }
+                    </div>
+
                 </DialogContent>
             </Dialog>
         </ImageListItem>
