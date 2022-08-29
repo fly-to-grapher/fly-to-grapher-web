@@ -58,9 +58,9 @@ const Videos = ({ video, i }) => {
             "GET"
         ).then((response) => {
             if (response?.success) {
-                console.log("data: ",response.data)
+                console.log("data: ", response.data)
                 setVideos(response.data.files);
-                }
+            }
         });
     }, []);
 
@@ -75,49 +75,49 @@ const Videos = ({ video, i }) => {
                         <h1>The best free stock photos and videos</h1>
                     </div>
                 </div>
-                    <div>
-                        <ul className="nav justify-content-center mt-3 mb-2">
-                            <Link
-                                to="/"
-                                className="nav-item"
-                                style={{ textDecoration: "none" }}
-                            >
-                                <a className="nav-link" style={{ color: "black" }}>
-                                    <b>
-                                        <h4>
-                                            <u>Home</u>
-                                        </h4>
-                                    </b>
-                                </a>
-                            </Link>
-                            <Link
-                                to="/videos"
-                                className="nav-item"
-                                style={{ textDecoration: "none" }}
-                            >
-                                <a className="nav-link" style={{ color: "black" }}>
-                                    <b>
-                                        <h4>
-                                            <u>Videos</u>
-                                        </h4>
-                                    </b>
-                                </a>
-                            </Link>
-                            <Link
-                                to="/categories"
-                                className="nav-item"
-                                style={{ textDecoration: "none" }}
-                            >
-                                <a className="nav-link" style={{ color: "black" }}>
-                                    <b>
-                                        <h4>
-                                            <u>Categories</u>
-                                        </h4>
-                                    </b>
-                                </a>
-                            </Link>
-                        </ul>
-                    </div>
+                <div>
+                    <ul className="nav justify-content-center mt-3 mb-2">
+                        <Link
+                            to="/"
+                            className="nav-item"
+                            style={{ textDecoration: "none" }}
+                        >
+                            <a className="nav-link" style={{ color: "black" }}>
+                                <b>
+                                    <h4>
+                                        <u>Home</u>
+                                    </h4>
+                                </b>
+                            </a>
+                        </Link>
+                        <Link
+                            to="/videos"
+                            className="nav-item"
+                            style={{ textDecoration: "none" }}
+                        >
+                            <a className="nav-link" style={{ color: "black" }}>
+                                <b>
+                                    <h4>
+                                        <u>Videos</u>
+                                    </h4>
+                                </b>
+                            </a>
+                        </Link>
+                        <Link
+                            to="/categories"
+                            className="nav-item"
+                            style={{ textDecoration: "none" }}
+                        >
+                            <a className="nav-link" style={{ color: "black" }}>
+                                <b>
+                                    <h4>
+                                        <u>Categories</u>
+                                    </h4>
+                                </b>
+                            </a>
+                        </Link>
+                    </ul>
+                </div>
             </div>
             <div>
                 <a href="#" className="prev">
@@ -133,9 +133,19 @@ const Videos = ({ video, i }) => {
                             return (
                                 <div>
                                     <video src={video.file_name} width="400" height="300" controls></video>
-                                    <div className=" d-flex justify-content-end align-items-center gap-2">
-                                        <Checkbox {...label} icon={<FavoriteBorder />} checkedIcon={<Favorite />} onClick={() => addRemoveLike(video.id)} />
-                                        <Checkbox {...label} icon={<BookmarkBorderIcon />} checkedIcon={<BookmarkIcon />} onClick={()=>addRemoveSave(video.id)} />
+                                    <div className=" d-flex justify-content-between align-items-center">
+                                        <div className="">
+                                            <Link to={"/profile/" + video?.User?.id} className="d-flex gap-3 align-items-center text-decoration-none">
+                                                <img
+                                                    src={video?.User?.avatar}
+                                                    alt="avatar" style={{ width: "3em", height: "3em", borderRadius: "50%" }} />
+                                                <span style={{ color: "black" }}>{video?.User?.username}</span>
+                                            </Link>
+                                        </div>
+                                        <div>
+                                            <Checkbox {...label} icon={<FavoriteBorder />} checkedIcon={<Favorite />} onClick={() => addRemoveLike(video.id)} />
+                                            <Checkbox {...label} icon={<BookmarkBorderIcon />} checkedIcon={<BookmarkIcon />} onClick={() => addRemoveSave(video.id)} />
+                                        </div>
                                     </div>
                                 </div>
                             );
