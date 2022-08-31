@@ -123,7 +123,7 @@ const MyProfile = () => {
                                 );
                             })
                         ) : (
-                            <p>No posts available</p>
+                            <b><p>{profile?.user?.name} has no photos or videos yet 😔</p></b> 
                         )}
                     </ImageList>
                 </Box>
@@ -145,7 +145,7 @@ const MyProfile = () => {
                                 );
                             })
                         ) : (
-                            <b><p>{profile?.user?.name}has no photos or videos yet 😔</p></b> 
+                            <p>No posts available</p> 
                         )}
                     </ImageList>
                 </Box>

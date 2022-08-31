@@ -45,16 +45,16 @@ const Categories = () => {
                     </h5>
                 </div>
                 <Divider />
-                    <div className="d-flex flex-wrap justify-content-between gap-3 my-3 p-5">
+                    <div className="d-flex flex-wrap justify-content-between gap-3 my-3 p-5 row mb-4">
                             {
                                 categories && categories.length ? (
                                 categories.map((category, i) => {
                                 return (
                                 <Link to={`/s-category/${category.id}`}>
-                                            <div key={i} className="card bg-dark text-white my-2 col-md-4 col-lg-3" style={{ width: "300px", height: "250px" }}>
+                                            <div key={i} className="card bg-dark text-white my-2 col-md-4 col-lg-3" style={{ width: "aotu", height: "aotu" }}>
                                                     <img src={category.picture} className="card-img" alt="..." style={{ width: "aotu", height: "aotu" }} />
                                                 <div className="card-img-overlay d-flex justify-content-center">
-                                                        <h5 className="card-title align-self-center" style={{ color: "white" }}>{category.name}</h5>
+                                                        <h5 className="card-title align-self-center" style={{ color: "white" , textShadow:' -1px 1px 10px rgba(10, 10, 10, 10)' }}>{category.name}</h5>
                                                 </div>
                                             </div>
                                 </Link>
