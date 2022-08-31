@@ -4,15 +4,8 @@ import FavoriteBorder from '@mui/icons-material/FavoriteBorder';
 import Favorite from '@mui/icons-material/Favorite';
 import BookmarkBorderIcon from '@mui/icons-material/BookmarkBorder';
 import BookmarkIcon from '@mui/icons-material/Bookmark';
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
-=======
->>>>>>> 4b27c29508d393e484d813b28394da0d921e8ffa
 import { useState, useEffect ,useContext } from "react";
 import Avatar from '@mui/material/Avatar';
->>>>>>> a24bf15c2ed2acdf8facf6ae1eda39a2aa910063
 import { useState, useEffect, useContext } from "react";
 import Dialog from '@mui/material/Dialog';
 import DialogContent from '@mui/material/DialogContent';
@@ -24,20 +17,8 @@ import { Link, Navigate } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 import { AuthContext } from "../context/auth"
 
-<<<<<<< HEAD
-<<<<<<< HEAD
-
-=======
-<<<<<<< HEAD
 const MyProfileImage = ({ picture, i, user , likes, saves  }) => {
     let navigate = useNavigate();
-=======
->>>>>>> a24bf15c2ed2acdf8facf6ae1eda39a2aa910063
-const MyProfileImage = ({ picture, i, user, likes, saves }) => {
-=======
-const MyProfileImage = ({ picture, i, user , likes, saves  }) => {
-    let navigate = useNavigate();
->>>>>>> 4b27c29508d393e484d813b28394da0d921e8ffa
     // const [hover, setHover] = useState({ is: false, index: -1 })
     const [open, setOpen] = useState(false);
     const sendRequest = useRequest()
