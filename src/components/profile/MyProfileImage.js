@@ -4,18 +4,36 @@ import FavoriteBorder from '@mui/icons-material/FavoriteBorder';
 import Favorite from '@mui/icons-material/Favorite';
 import BookmarkBorderIcon from '@mui/icons-material/BookmarkBorder';
 import BookmarkIcon from '@mui/icons-material/Bookmark';
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+import { useState, useEffect ,useContext } from "react";
+=======
+import Avatar from '@mui/material/Avatar';
+>>>>>>> a24bf15c2ed2acdf8facf6ae1eda39a2aa910063
 import { useState, useEffect, useContext } from "react";
+>>>>>>> 1ac145739e8c025e5e54dd8c4eef0d21994a420f
 import Dialog from '@mui/material/Dialog';
 import DialogContent from '@mui/material/DialogContent';
 import DialogTitle from '@mui/material/DialogTitle';
+import Icon from "@mui/material/Icon";
 import { useRequest } from "../hooks/useRequest"
 import LocationOnOutlinedIcon from '@mui/icons-material/LocationOnOutlined';
-import { Link } from "react-router-dom";
+import { Link, Navigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { AuthContext } from "../context/auth"
 
+<<<<<<< HEAD
 
+=======
+<<<<<<< HEAD
+const MyProfileImage = ({ picture, i, user , likes, saves  }) => {
+    let navigate = useNavigate();
+=======
+>>>>>>> a24bf15c2ed2acdf8facf6ae1eda39a2aa910063
 const MyProfileImage = ({ picture, i, user, likes, saves }) => {
     // const [hover, setHover] = useState({ is: false, index: -1 })
+>>>>>>> 1ac145739e8c025e5e54dd8c4eef0d21994a420f
     const [open, setOpen] = useState(false);
     const sendRequest = useRequest()
     let liked = false;
@@ -32,6 +50,18 @@ const MyProfileImage = ({ picture, i, user, likes, saves }) => {
         if (file_saves[j].user_id == auth?.user?.id)
             saved = true;
         break;
+    }
+    const deleteFile = () => {
+        if (window.confirm('Do you want to delete this file ?')) {
+            sendRequest(`${process.env.REACT_APP_API_URL}/files/${picture.id}`, {}, {}, {
+                auth: true,
+            }, 'DELETE')
+            .then((response) => {
+                if (response?.success) {
+                    window.location.reload();
+                }
+            })
+        }
     }
 
     const handleOpen = () => {
@@ -57,6 +87,7 @@ const MyProfileImage = ({ picture, i, user, likes, saves }) => {
             .then((response) => {
                 console.log(response)
             });
+
     }
     return (
         <ImageListItem style={{}} key={i}>
@@ -109,6 +140,12 @@ const MyProfileImage = ({ picture, i, user, likes, saves }) => {
                 </DialogTitle>
                 <DialogContent dividers={true}>
                     <div className="row d-flex justify-content-center">
+                    <button onClick={deleteFile} style={{
+                                width: "5em",
+                                height: "auto",
+                                cursor: "pointer",
+                            }}
+                            className=" d-flex justify-content-end btn btn-danger mb-2" >Delete</button>
                         <img
                             style={{
                                 width: "35em",
