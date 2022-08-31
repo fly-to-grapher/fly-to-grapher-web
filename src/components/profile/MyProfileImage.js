@@ -5,12 +5,9 @@ import FavoriteBorder from '@mui/icons-material/FavoriteBorder';
 import Favorite from '@mui/icons-material/Favorite';
 import BookmarkBorderIcon from '@mui/icons-material/BookmarkBorder';
 import BookmarkIcon from '@mui/icons-material/Bookmark';
-<<<<<<< HEAD
 import { useState, useEffect ,useContext } from "react";
-=======
 import Avatar from '@mui/material/Avatar';
 import { useState, useEffect, useContext } from "react";
->>>>>>> 1ac145739e8c025e5e54dd8c4eef0d21994a420f
 import Dialog from '@mui/material/Dialog';
 import DialogContent from '@mui/material/DialogContent';
 import DialogTitle from '@mui/material/DialogTitle';
@@ -21,13 +18,9 @@ import { Link, Navigate } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 import { AuthContext } from "../context/auth"
 
-<<<<<<< HEAD
 const MyProfileImage = ({ picture, i, user , likes, saves  }) => {
     let navigate = useNavigate();
-=======
-const MyProfileImage = ({ picture, i, user, likes, saves }) => {
     // const [hover, setHover] = useState({ is: false, index: -1 })
->>>>>>> 1ac145739e8c025e5e54dd8c4eef0d21994a420f
     const [open, setOpen] = useState(false);
     const sendRequest = useRequest()
     let liked = false;
