@@ -2,7 +2,6 @@ import React from "react";
 import { useEffect, useRef, useState } from "react"
 import { useNavigate } from "react-router-dom"
 import { useRequest } from "../hooks/useRequest";
-import Select from 'react-select';
 import "./Upload.css"
 import Nav2 from "../navbar/Nav2";
 

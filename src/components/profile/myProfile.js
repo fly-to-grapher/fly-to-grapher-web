@@ -9,9 +9,7 @@ import { useEffect, useState } from "react";
 import { useRequest } from "../hooks/useRequest"
 import * as React from 'react';
 import ImageList from '@mui/material/ImageList';
-import ImageListItem from '@mui/material/ImageListItem';
 import Box from '@mui/material/Box';
-// import HomeImage from "../homeImages/HomeImage";
 import MyProfileImage from "./MyProfileImage";
 import AccountCircleOutlinedIcon from '@mui/icons-material/AccountCircleOutlined';
 
@@ -21,7 +19,7 @@ import AccountCircleOutlinedIcon from '@mui/icons-material/AccountCircleOutlined
 const MyProfile = () => {
     const [profile, setProfiles] = useState([]);
     const [posts, setPosts] = useState([]);
-    const [savess, setSavess] = useState([]);
+    // const [savess, setSavess] = useState([]);
     const [likes, setLikes] = useState([]);
     const [saves, setSaves] = useState([]);
 
@@ -41,9 +39,12 @@ const MyProfile = () => {
                 console.log(`res`,response);
                 setProfiles(response.data);
                 setPosts(response.data.files);
-                setSavess(response.data.saves);
+                // setSavess(response.data.saves);
                 setLikes(response.data.likes);
                 setSaves(response.data.save);
+                console.log("data.saves : ",response.data.saves);
+                console.log("data.save : ",response.data.save);
+
                 // setItemData(response.data.files)
             }
         });
@@ -53,12 +54,10 @@ const MyProfile = () => {
     const showPosts = () => {
         setClickedPosts(true);
         setClickedSaves(false);
-        // setItemData(saves)
     }
     const showSaves = () => {
         setClickedPosts(false);
         setClickedSaves(true);
-        // setItemData(posts)
     }
     return (
         <>
@@ -138,10 +137,10 @@ const MyProfile = () => {
                         <div>
                         <Box sx={{ width: "96%", height: "100%", boxSizing: "border-box", marginX: "2%" }}>
                     <ImageList variant="masonry" cols={3} gap={8}>
-                        {savess && savess.length ? (
-                            savess.map((save, i) => {
+                        {saves && saves.length ? (
+                            saves.map((save, i) => {
                                 return (
-                                    <MyProfileImage picture={save.File} i={i} user={profile.user}/>
+                                    <MyProfileImage picture={save.File} i={i} user={profile.user} likes ={likes} saves={saves}/>
                                 );
                             })
                         ) : (

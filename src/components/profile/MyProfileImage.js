@@ -1,11 +1,9 @@
-import Box from "@mui/material/Box";
 import ImageListItem from "@mui/material/ImageListItem";
 import Checkbox from '@mui/material/Checkbox';
 import FavoriteBorder from '@mui/icons-material/FavoriteBorder';
 import Favorite from '@mui/icons-material/Favorite';
 import BookmarkBorderIcon from '@mui/icons-material/BookmarkBorder';
 import BookmarkIcon from '@mui/icons-material/Bookmark';
-import Avatar from '@mui/material/Avatar';
 import { useState, useEffect, useContext } from "react";
 import Dialog from '@mui/material/Dialog';
 import DialogContent from '@mui/material/DialogContent';
@@ -15,6 +13,7 @@ import LocationOnOutlinedIcon from '@mui/icons-material/LocationOnOutlined';
 import { Link } from "react-router-dom";
 import { AuthContext } from "../context/auth"
 
+
 const MyProfileImage = ({ picture, i, user, likes, saves }) => {
     // const [hover, setHover] = useState({ is: false, index: -1 })
     const [open, setOpen] = useState(false);
@@ -22,14 +21,14 @@ const MyProfileImage = ({ picture, i, user, likes, saves }) => {
     let liked = false;
     let saved = false;
     const auth = useContext(AuthContext)
-    const file_likes = likes.filter(like => like.file_id == picture.id);
-    for (var j = 0; j < file_likes.length; j++) {
+    const file_likes = likes?.filter(like => like.file_id == picture.id);
+    for (var j = 0; j < file_likes?.length; j++) {
         if (file_likes[j].user_id == auth?.user?.id)
             liked = true;
         break;
     }
-    const file_saves = saves.filter(save => save.file_id == picture.id);
-    for (var j = 0; j < file_saves.length; j++) {
+    const file_saves = saves?.filter(save => save.file_id == picture.id);
+    for (var j = 0; j < file_saves?.length; j++) {
         if (file_saves[j].user_id == auth?.user?.id)
             saved = true;
         break;
@@ -141,7 +140,7 @@ const MyProfileImage = ({ picture, i, user, likes, saves }) => {
                         }
                     </div>
 
-                </DialogContent>
+                </DialogContent> 
             </Dialog>
         </ImageListItem>
     )

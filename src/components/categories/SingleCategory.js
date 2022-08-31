@@ -1,12 +1,10 @@
 import React from "react";
-// import "./Home.css";
 import { Link , useParams } from "react-router-dom";
 import Nav1 from "../navbar/Nav1";
 import { useEffect, useState } from "react";
 import { useRequest } from "../hooks/useRequest";
 import Box from "@mui/material/Box";
 import ImageList from "@mui/material/ImageList";
-// import HomeImage from "../homeImages/HomeImage";
 import CategoryImage from "../categoryImage/CategoryImage";
 
 

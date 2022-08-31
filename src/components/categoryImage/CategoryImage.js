@@ -1,11 +1,9 @@
-import Box from "@mui/material/Box";
 import ImageListItem from "@mui/material/ImageListItem";
 import Checkbox from '@mui/material/Checkbox';
 import FavoriteBorder from '@mui/icons-material/FavoriteBorder';
 import Favorite from '@mui/icons-material/Favorite';
 import BookmarkBorderIcon from '@mui/icons-material/BookmarkBorder';
 import BookmarkIcon from '@mui/icons-material/Bookmark';
-import Avatar from '@mui/material/Avatar';
 import { useState, useEffect } from "react";
 import Dialog from '@mui/material/Dialog';
 import DialogContent from '@mui/material/DialogContent';

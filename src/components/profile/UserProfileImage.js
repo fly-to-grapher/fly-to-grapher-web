@@ -1,11 +1,9 @@
-import Box from "@mui/material/Box";
 import ImageListItem from "@mui/material/ImageListItem";
 import Checkbox from '@mui/material/Checkbox';
 import FavoriteBorder from '@mui/icons-material/FavoriteBorder';
 import Favorite from '@mui/icons-material/Favorite';
 import BookmarkBorderIcon from '@mui/icons-material/BookmarkBorder';
 import BookmarkIcon from '@mui/icons-material/Bookmark';
-import Avatar from '@mui/material/Avatar';
 import { useState, useEffect, useContext } from "react";
 import Dialog from '@mui/material/Dialog';
 import DialogContent from '@mui/material/DialogContent';
@@ -14,6 +12,9 @@ import { useRequest } from "../hooks/useRequest"
 import LocationOnOutlinedIcon from '@mui/icons-material/LocationOnOutlined';
 import { Link } from "react-router-dom";
 import { AuthContext } from "../context/auth"
+
+
+
 
 const UserProfileImage = ({ picture, i, user, likes, saves }) => {
     // const [hover, setHover] = useState({ is: false, index: -1 })
@@ -77,7 +78,6 @@ const UserProfileImage = ({ picture, i, user, likes, saves }) => {
                 justifyContent: 'space-between',
                 position: 'absolute',
                 bottom: '2px'
-
             }}>
             </div>
             <Dialog
@@ -138,5 +138,6 @@ const UserProfileImage = ({ picture, i, user, likes, saves }) => {
         </ImageListItem>
     )
 }
+
 
 export default UserProfileImage;

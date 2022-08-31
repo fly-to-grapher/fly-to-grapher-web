@@ -3,6 +3,10 @@ import { useState, useRef } from "react"
 import { useNavigate } from "react-router-dom"
 import { useRequest } from "../hooks/useRequest"
 import Nav2 from "../navbar/Nav2";
+// import Avatar from 'react-avatar-edit'
+
+
+
 
 const Avatar = () => {
     const navigate = useNavigate()
@@ -17,7 +21,7 @@ const Avatar = () => {
         await sendRequest(process.env.REACT_APP_API_URL + "/users/avatar", {}, formdata, { auth: true }, 'put')
             .then((response) => {
                 window.alert(response?.messages?.join(' '))
-                if (response?.success) {
+                if (response?.success) { 
                     navigate('/myprofile')
                 }
             })
@@ -37,21 +41,22 @@ const Avatar = () => {
                 <div className="card-body">
                     <div className="row">
                         <div className="col-sm-12 d-flex justify-content-center">
-                            <div className="row"><div className="col-md-12 ">
-                                <div className="form-group mt-4">
-                                    <label className="d-flex justify-content-center">
-                                        <b>Choose your avatar</b>
-                                    </label>
-                                    <input className="form-control mt-2" ref={avatarRef} name="newPassword"  required="required" maxLength="255" type="file" style={{ backgroundColor: "#d5ecff" }} accept="image/*" />
+                            <div className="row">
+                                <div className="col-md-12 ">
+                                    <div className="form-group mt-4">
+                                        <label className="d-flex justify-content-center">
+                                            <b>Choose your avatar</b>
+                                        </label>
+                                        <input className="form-control mt-2" ref={avatarRef} name="newPassword" required="required" maxLength="255" type="file" style={{ backgroundColor: "#d5ecff" }} accept="image/*" />
+                                    </div>
                                 </div>
-                            </div>
                             </div>
                         </div>
                     </div>
                 </div>
                 <div className="d-flex justify-content-center mb-4 mt-2">
                     <button type="submit" className="btn btn-info btn-save-form " disabled={loading} onClick={changeAvatar} style={{ backgroundColor: "#012848", color: "white" }}>
-                    {!loading ?
+                        {!loading ?
                             <span>Save</span>
                             :
                             <div className="d-flex justify-content-evenly align-items-center">
