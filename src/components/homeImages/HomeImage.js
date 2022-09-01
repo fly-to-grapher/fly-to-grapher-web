@@ -60,7 +60,8 @@ const HomeImage = ({ picture, i, likes, saves }) => {
     }
     // console.log('bbbbbbbbbbbbb', picture)
     return (
-        <ImageListItem style={{}} key={i}>
+        <div key={i}>
+        <ImageListItem>
             <img
                 onClick={handleOpen}
                 style={{
@@ -138,13 +139,12 @@ const HomeImage = ({ picture, i, likes, saves }) => {
                     <button className="btn btn-outline-secondary">
                             <Checkbox {...label} icon={<BookmarkIcon />} checkedIcon={<BookmarkBorderIcon />} onClick={addRemoveSave} />
                         </button>
-                    }
-                        
-                        
-                    </div>
+                    } 
+                   </div>
                 </DialogContent>
             </Dialog>
         </ImageListItem>
+        </div>
     )
 }
 

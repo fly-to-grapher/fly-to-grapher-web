@@ -6,7 +6,6 @@ import BookmarkBorderIcon from '@mui/icons-material/BookmarkBorder';
 import BookmarkIcon from '@mui/icons-material/Bookmark';
 import { useState, useEffect ,useContext } from "react";
 import Avatar from '@mui/material/Avatar';
-import { useState, useEffect, useContext } from "react";
 import Dialog from '@mui/material/Dialog';
 import DialogContent from '@mui/material/DialogContent';
 import DialogTitle from '@mui/material/DialogTitle';

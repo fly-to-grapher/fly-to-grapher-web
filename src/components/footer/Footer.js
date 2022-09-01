@@ -9,7 +9,7 @@ export const Footer = () => {
     <div>
       <div className="text-center text-white mt-1 mb-1" style={{ backgroundColor: "#012848" }} >
         <div className="pt-5 d-flex justify-content-center">
-          <img src="./assert/ftg1w.png" className="d-block mx-lg-auto img-fluid" alt="" width="300px" height="300px" />
+          <img src={process.env.PUBLIC_URL+"/assert/ftg1w.png"} className="d-block mx-lg-auto img-fluid" alt="" width="300px" height="300px" />
         </div>
         <div className="container pt-3"  style={{display: "inline-block"}}>
           <ul>

@@ -47,7 +47,7 @@ const Nav1 = () => {
         <Link to="/">
           {nav
             ? <img
-              src="./assert/ftg2.png"
+              src={process.env.PUBLIC_URL+"/assert/ftg2.png"}
               className="d-block mx-lg-auto img-fluid"
               alt="Bootstrap Themes"
               width="155px"
@@ -55,7 +55,7 @@ const Nav1 = () => {
               loading="lazy"
             />
             : <img
-              src="./assert/ftg1w.png"
+              src={process.env.PUBLIC_URL+"/assert/ftg1w.png"}
               className="d-block mx-lg-auto img-fluid"
               alt="Bootstrap Themes"
               width="155px"

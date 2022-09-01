@@ -1,160 +1,320 @@
 import Nav2 from "../navbar/Nav2";
-import { Link } from "react-router-dom"
-import ModeEditOutlineOutlinedIcon from '@mui/icons-material/ModeEditOutlineOutlined';
-import KeyOutlinedIcon from '@mui/icons-material/KeyOutlined';
-import LocationOnOutlinedIcon from '@mui/icons-material/LocationOnOutlined';
-import Divider from '@mui/material/Divider';
-import Button from "@mui/material/Button"
+import { Link } from "react-router-dom";
+import ModeEditOutlineOutlinedIcon from "@mui/icons-material/ModeEditOutlineOutlined";
+import KeyOutlinedIcon from "@mui/icons-material/KeyOutlined";
+import LocationOnOutlinedIcon from "@mui/icons-material/LocationOnOutlined";
+import Divider from "@mui/material/Divider";
+import Button from "@mui/material/Button";
 import { useEffect, useState } from "react";
-import { useRequest } from "../hooks/useRequest"
-import * as React from 'react';
-import ImageList from '@mui/material/ImageList';
-import Box from '@mui/material/Box';
+import { useRequest } from "../hooks/useRequest";
+import * as React from "react";
+import ImageList from "@mui/material/ImageList";
+import Box from "@mui/material/Box";
 import MyProfileImage from "./MyProfileImage";
-import AccountCircleOutlinedIcon from '@mui/icons-material/AccountCircleOutlined';
-
-
-
+import AccountCircleOutlinedIcon from "@mui/icons-material/AccountCircleOutlined";
+import { MDBSpinner } from "mdb-react-ui-kit";
+import Checkbox from "@mui/material/Checkbox";
+import FavoriteBorder from "@mui/icons-material/FavoriteBorder";
+import BookmarkIcon from "@mui/icons-material/Bookmark";
+import BookmarkBorderIcon from "@mui/icons-material/BookmarkBorder";
+import Favorite from "@mui/icons-material/Favorite";
 
 const MyProfile = () => {
-    const [profile, setProfiles] = useState([]);
-    const [posts, setPosts] = useState([]);
-    // const [savess, setSavess] = useState([]);
-    const [likes, setLikes] = useState([]);
-    const [saves, setSaves] = useState([]);
+  const [profile, setProfiles] = useState([]);
+  const [pictures, setPictures] = useState([]);
+  const [videos, setVideos] = useState([]);
+  const [likes, setLikes] = useState([]);
+  const [saves, setSaves] = useState([]);
+  const [count, setCount] = useState(0);
+  const label = { inputProps: { "aria-label": "Checkbox demo" } };
 
-    const sendRequest = useRequest();
-    useEffect(() => {
-        sendRequest(
-            "http://localhost:5000/users/myprofile",
-            {},
-            {},
-            {
-                auth: true
-            },
-            "GET"
-        ).then((response) => {
-            
-            if (response?.success) {
-                console.log(`res`,response);
-                setProfiles(response.data);
-                setPosts(response.data.files);
-                // setSavess(response.data.saves);
-                setLikes(response.data.likes);
-                setSaves(response.data.save);
-                console.log("data.saves : ",response.data.saves);
-                console.log("data.save : ",response.data.save);
+  const addRemoveLike = (id) => {
+    sendRequest(
+      `${process.env.REACT_APP_API_URL}/likes/${id}`,
+      {},
+      {},
+      {
+        type: "json",
+        auth: true
+      },
+      "post"
+    ).then((response) => {
+      console.log(response);
+      setCount(count + 1);
+    });
+  };
+  const addRemoveSave = (id) => {
+    sendRequest(
+      `${process.env.REACT_APP_API_URL}/save/${id}`,
+      {},
+      {},
+      {
+        type: "json",
+        auth: true
+      },
+      "post"
+    ).then((response) => {
+      console.log(response);
+      setCount(count + 1);
+    });
+  };
 
-                // setItemData(response.data.files)
-            }
-        });
-    }, []);
-    const [clickedPosts, setClickedPosts] = useState(true);
-    const [clickedSaves, setClickedSaves] = useState(false);
-    const showPosts = () => {
-        setClickedPosts(true);
-        setClickedSaves(false);
-    }
-    const showSaves = () => {
-        setClickedPosts(false);
-        setClickedSaves(true);
-    }
-    return (
-        <>
-            <Nav2 />
+  const sendRequest = useRequest();
+  useEffect(() => {
+    sendRequest(
+      "http://localhost:5000/users/myprofile",
+      {},
+      {},
+      {
+        auth: true
+      },
+      "GET"
+    ).then((response) => {
+      if (response?.success) {
+        console.log(`res`, response);
+        setProfiles(response.data);
+        setPictures(response.data.pictures);
+        setVideos(response.data.videos);
+        // setSavess(response.data.saves);
+        setLikes(response.data.likes);
+        setSaves(response.data.save);
 
-            <div className="container-fluid">
-                <div className="row mt-5">
-                    <div className="offset-2 col-8 d-flex justify-content-center align-items-center">
-                        <img
-                            src={profile?.user?.avatar}
-                            alt="avatar" style={{ width: "10em", height: "10em", borderRadius: "50%" }} />
-                    </div>
-                    {/* <Link to='/avatar' className="text-decoration-none">
-                    <div>
-                    <span>Change your Avatar</span>
-                    </div>
-                    </Link> */}
-                    <div className="offset-1 col-1 d-flex justify-content-center align-items-center flex-column gap-3">
-                        <Link to='/edit-profile' alt='edit your profile'><ModeEditOutlineOutlinedIcon /></Link>
-                        <Link to='/password'><KeyOutlinedIcon /></Link>
-                        <Link to='/avatar'><AccountCircleOutlinedIcon /></Link>
-                    </div>
-                </div>
-                <div className="d-flex justifiy-content-center align-items-center flex-column my-3">
-                    <div>
-                        {profile?.user?.name}
-                    </div>
-                    <div className="d-flex gap-1">
-                        <LocationOnOutlinedIcon />
-                        <span>{profile?.user?.location}</span>
-                    </div>
-                    <div>
-                        {profile?.user?.bio}
-                    </div>
-                </div>
-                <Divider />
-                {clickedPosts ?
-                    <div className="d-flex flex-column text-center gap-5 my-3">
-                        <div className="d-flex justify-content-center align-items-center gap-5">
-                            <Button variant="contained" onClick={showPosts}>Posts</Button>
-                            <Button variant="outlined" onClick={showSaves}>Saves</Button>
-                        </div>
-                        <div>
-                            {/* <ImageList sx={{ width: 1320, height: 950 }} cols={4}>
-                                {posts.map((item) => (
-                                    <ImageListItem key={item.file_name}>
-                                        <img
-                                            src={`${item.file_name}?w=164&h=164&fit=crop&auto=format`}
-                                            srcSet={`${item.file_name}?w=164&h=164&fit=crop&auto=format&dpr=2 2x`}
-                                            // alt={item.title}
-                                            loading="lazy"
-                                        />
-                                    </ImageListItem>
-                                ))}
-                            </ImageList> */}
-                            <Box sx={{ width: "96%", height: "100%", boxSizing: "border-box", marginX: "2%" }}>
-                    <ImageList variant="masonry" cols={3} gap={8}>
-                        {posts && posts.length ? (
-                            posts.map((post, i) => {
-                                return (
-                                    <MyProfileImage picture={post} i={i} user={profile.user} likes={likes} saves={saves}/>
-                                );
-                            })
-                        ) : (
-                            <b><p>{profile?.user?.name} has no photos or videos yet 😔</p></b> 
-                        )}
-                    </ImageList>
-                </Box>
-                        </div>
-                    </div>
-                    :
-                    <div className="d-flex flex-column text-center gap-5 my-3">
-                        <div className="d-flex justify-content-center align-items-center gap-5">
-                            <Button variant="outlined" onClick={showPosts}>Posts</Button>
-                            <Button variant="contained" onClick={showSaves}>Saves</Button>
-                        </div>
-                        <div>
-                        <Box sx={{ width: "96%", height: "100%", boxSizing: "border-box", marginX: "2%" }}>
-                    <ImageList variant="masonry" cols={3} gap={8}>
-                        {saves && saves.length ? (
-                            saves.map((save, i) => {
-                                return (
-                                    <MyProfileImage picture={save.File} i={i} user={profile.user} likes ={likes} saves={saves}/>
-                                );
-                            })
-                        ) : (
-                            <p>No posts available</p> 
-                        )}
-                    </ImageList>
-                </Box>
-                        </div>
-                    </div>
-                }
+        // setItemData(response.data.files)
+      }
+    });
+  }, [count]);
+  const [clickedPictures, setClickedPictures] = useState(true);
+  const [clickedVideos, setClickedVideos] = useState(false);
+  const [clickedSaves, setClickedSaves] = useState(false);
+  const showPictures = () => {
+    setClickedPictures(true);
+    setClickedSaves(false);
+    setClickedVideos(false);
+  };
+  const showVideos = () => {
+    setClickedVideos(true);
+    setClickedPictures(false);
+    setClickedSaves(false);
+  };
+  const showSaves = () => {
+    setClickedSaves(true);
+    setClickedPictures(false);
+    setClickedVideos(false);
+  };
+  return (
+    <>
+      <Nav2 />
+
+      <div className="container-fluid">
+        <div className="row mt-5">
+          <div className="offset-2 col-8 d-flex justify-content-center align-items-center">
+            <img
+              src={profile?.user?.avatar}
+              alt="avatar"
+              style={{ width: "10em", height: "10em", borderRadius: "50%" }}
+            />
+          </div>
+          <div className="offset-1 col-1 d-flex justify-content-center align-items-center flex-column gap-3">
+            <Link to="/edit-profile" alt="edit your profile">
+              <ModeEditOutlineOutlinedIcon />
+            </Link>
+            <Link to="/password">
+              <KeyOutlinedIcon />
+            </Link>
+            <Link to="/avatar">
+              <AccountCircleOutlinedIcon />
+            </Link>
+          </div>
+        </div>
+        <div className="d-flex justifiy-content-center align-items-center flex-column my-3">
+          <div>{profile?.user?.name}</div>
+          <div className="d-flex gap-1">
+            <LocationOnOutlinedIcon />
+            <span>{profile?.user?.location}</span>
+          </div>
+          <div>{profile?.user?.bio}</div>
+        </div>
+        <Divider />
+        {clickedPictures ? (
+          <div className="d-flex flex-column text-center gap-5 my-3">
+            <div className="d-flex justify-content-center align-items-center gap-5">
+              <Button variant="contained" onClick={showPictures}>
+                pictures
+              </Button>
+              <Button variant="outlined" onClick={showVideos}>
+                Videos
+              </Button>
+              <Button variant="outlined" onClick={showSaves}>
+                Saves
+              </Button>
             </div>
-        </>
-    )
-}
-
+            <div>
+              <Box
+                sx={{
+                  width: "96%",
+                  height: "100%",
+                  boxSizing: "border-box",
+                  marginX: "2%"
+                }}
+              >
+                <ImageList variant="masonry" cols={3} gap={8}>
+                  {pictures && pictures.length ? (
+                    pictures.map((post, i) => {
+                      return (
+                        <MyProfileImage
+                          picture={post}
+                          key={i}
+                          user={profile.user}
+                          likes={likes}
+                          saves={saves}
+                        />
+                      );
+                    })
+                  ) : (
+                    <b>
+                      <p>
+                        {profile?.user?.name} has no photos or videos yet 😔
+                      </p>
+                    </b>
+                  )}
+                </ImageList>
+              </Box>
+            </div>
+          </div>
+        ) : clickedVideos ? (
+          <div className="d-flex flex-column text-center gap-5 my-3">
+            <div className="d-flex justify-content-center align-items-center gap-5">
+              <Button variant="outlined" onClick={showPictures}>
+                pictures
+              </Button>
+              <Button variant="contained" onClick={showVideos}>
+                Videos
+              </Button>
+              <Button variant="outlined" onClick={showSaves}>
+                Saves
+              </Button>
+            </div>
+            {/* <div className="mt-3"> */}
+            <div className="d-flex flex-wrap justify-content-between gap-2 p-4">
+              {videos && videos.length ? (
+                videos.map((video, i) => {
+                  return (
+                    <div key={i}>
+                      <video
+                        src={video.file_name}
+                        width="400"
+                        height="300"
+                        controls
+                      ></video>
+                      <div className=" d-flex justify-content-between align-items-center">
+                        <div className="">
+                          <Link
+                            to={"/profile/" + video?.User?.id}
+                            className="d-flex gap-3 align-items-center text-decoration-none"
+                          >
+                            <img
+                              src={video?.User?.avatar}
+                              alt="avatar"
+                              style={{
+                                width: "3em",
+                                height: "3em",
+                                borderRadius: "50%"
+                              }}
+                            />
+                            <span style={{ color: "black" }}>
+                              {video?.User?.username}
+                            </span>
+                          </Link>
+                        </div>
+                        <div className="mb-3 mt-4 d-flex justify-content-center align-items-center gap-3">
+                          <div className="secondary">
+                            <Checkbox
+                              {...label}
+                              icon={<FavoriteBorder />}
+                              checked={
+                                likes.find((like) => video?.id == like.file_id)
+                                  ? true
+                                  : false
+                              }
+                              checkedIcon={<Favorite />}
+                              onClick={() => addRemoveLike(video.id)}
+                            />
+                          </div>
+                          <div className="secondary">
+                            <Checkbox
+                              {...label}
+                              icon={<BookmarkBorderIcon />}
+                              checked={
+                                saves.find((save) => video?.id == save.file_id)
+                                  ? true
+                                  : false
+                              }
+                              checkedIcon={<BookmarkIcon />}
+                              onClick={() => addRemoveSave(video.id)}
+                            />
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  );
+                })
+              ) : (
+                <div className="d-flex justify-content-center">
+                  <MDBSpinner
+                    grow
+                    color="rgb(29, 94, 147)"
+                    style={{ color: "rgb(29, 94, 147)" }}
+                  ></MDBSpinner>
+                </div>
+              )}
+            </div>
+          </div>
+        ) : (
+          <div className="d-flex flex-column text-center gap-5 my-3">
+            <div className="d-flex justify-content-center align-items-center gap-5">
+              <Button variant="outlined" onClick={showPictures}>
+                pictures
+              </Button>
+              <Button variant="outlined" onClick={showVideos}>
+                Videos
+              </Button>
+              <Button variant="contained" onClick={showSaves}>
+                Saves
+              </Button>
+            </div>
+            <div>
+              <Box
+                sx={{
+                  width: "96%",
+                  height: "100%",
+                  boxSizing: "border-box",
+                  marginX: "2%"
+                }}
+              >
+                <ImageList variant="masonry" cols={3} gap={8}>
+                  {saves && saves.length ? (
+                    saves.map((save, i) => {
+                      return (
+                        <MyProfileImage
+                          picture={save.File}
+                          key={i}
+                          user={profile.user}
+                          likes={likes}
+                          saves={saves}
+                        />
+                      );
+                    })
+                  ) : (
+                    <p>No saves yet</p>
+                  )}
+                </ImageList>
+              </Box>
+            </div>
+          </div>
+        )}
+      </div>
+    </>
+  );
+};
 
 export default MyProfile;

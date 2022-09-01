@@ -30,7 +30,6 @@ const Home = () => {
                 setPictures(response.data.files);
                 setLikes(response.data.likes);
                 setSaves(response.data.saves);
-                console.log("data: ", response.data)
             }
         });
     }, []);
@@ -54,57 +53,57 @@ const Home = () => {
                                 className="nav-item"
                                 style={{ textDecoration: "none" }}
                             >
-                                <a className="nav-link" style={{ color: "black" }}>
+                                <li className="nav-link" style={{ color: "black" }}>
                                     <b>
                                         <h4>
                                             <u>Home</u>
                                         </h4>
                                     </b>
-                                </a>
+                                </li>
                             </Link>
                             <Link
                                 to="/videos"
                                 className="nav-item"
                                 style={{ textDecoration: "none" }}
                             >
-                                <a className="nav-link" style={{ color: "black" }}>
+                                <li className="nav-link" style={{ color: "black" }}>
                                     <b>
                                         <h4>
                                             <u>Videos</u>
                                         </h4>
                                     </b>
-                                </a>
+                                </li>
                             </Link>
                             <Link
                                 to="/categories"
                                 className="nav-item"
                                 style={{ textDecoration: "none" }}
                             >
-                                <a className="nav-link" style={{ color: "black" }}>
+                                <li className="nav-link" style={{ color: "black" }}>
                                     <b>
                                         <h4>
                                             <u>Categories</u>
                                         </h4>
                                     </b>
-                                </a>
+                                </li>
                             </Link>
                         </ul>
                     </div>
             </div>
             <div>
-                <a href="#" className="prev">
+                <li href="#" className="prev">
                     &lt;
-                </a>
-                <a href="#" className="next">
+                </li>
+                <li href="#" className="next">
                     &gt;
-                </a>
+                </li>
                 <h1 className="d-flex justify-content-center">Free Stock Photos</h1>
                 <Box sx={{ width: "96%", height: "100%", boxSizing: "border-box", marginX: "2%" }}>
                     <ImageList variant="masonry" cols={3} gap={8}>
                         {pictures && pictures.length ? (
                             pictures.map((picture, i) => {
                                 return (
-                                    <HomeImage picture={picture} i={i} likes={likes} saves={saves}/>
+                                    <HomeImage picture={picture} key={i} likes={likes} saves={saves}/>
                                 );
                             })
                         ) : (
