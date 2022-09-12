@@ -16,7 +16,7 @@ const Videos = () => {
   const [videos, setVideos] = useState([]);
   const [likes, setLikes] = useState([]);
   const [saves, setSaves] = useState([]);
-  const [count , setCount] = useState(0)
+  const [count, setCount] = useState(0);
   const sendRequest = useRequest();
   const label = { inputProps: { "aria-label": "Checkbox demo" } };
   const auth = useContext(AuthContext);
@@ -33,7 +33,7 @@ const Videos = () => {
       "post"
     ).then((response) => {
       console.log(response);
-      setCount(count+1)
+      setCount(count + 1);
     });
   };
   const addRemoveSave = (id) => {
@@ -48,7 +48,7 @@ const Videos = () => {
       "post"
     ).then((response) => {
       console.log(response);
-      setCount(count+1)
+      setCount(count + 1);
     });
   };
 
@@ -122,6 +122,7 @@ const Videos = () => {
             </Link>
           </ul>
         </div>
+        <hr></hr>
       </div>
       <div>
         <li href="#" className="prev">
@@ -134,7 +135,7 @@ const Videos = () => {
         <div className="d-flex flex-wrap justify-content-between gap-2 p-4">
           {videos && videos.length ? (
             videos.map((video) => {
-              return (  
+              return (
                 <div key={video.id}>
                   <video
                     src={video.file_name}
@@ -163,24 +164,32 @@ const Videos = () => {
                       </Link>
                     </div>
                     <div className="mb-3 mt-4 d-flex justify-content-center align-items-center gap-3">
-                        <div className="secondary">
-                          <Checkbox
-                            {...label}
-                            icon={<FavoriteBorder />}
-                            checked={likes.find((like)=> video?.id == like.file_id ) ? true : false}
-                            checkedIcon={<Favorite />}
-                            onClick={() =>addRemoveLike(video.id) }
-                          />
-                        </div>
-                        <div className="secondary">
-                          <Checkbox
-                            {...label}
-                            icon={<BookmarkBorderIcon />}
-                            checked={saves.find((save)=> video?.id == save.file_id ) ? true : false}
-                            checkedIcon={<BookmarkIcon />}
-                            onClick={() =>addRemoveSave(video.id)}
-                          />
-                        </div>
+                      <div className="secondary">
+                        <Checkbox
+                          {...label}
+                          icon={<FavoriteBorder />}
+                          checked={
+                            likes.find((like) => video?.id == like.file_id)
+                              ? true
+                              : false
+                          }
+                          checkedIcon={<Favorite />}
+                          onClick={() => addRemoveLike(video.id)}
+                        />
+                      </div>
+                      <div className="secondary">
+                        <Checkbox
+                          {...label}
+                          icon={<BookmarkBorderIcon />}
+                          checked={
+                            saves.find((save) => video?.id == save.file_id)
+                              ? true
+                              : false
+                          }
+                          checkedIcon={<BookmarkIcon />}
+                          onClick={() => addRemoveSave(video.id)}
+                        />
+                      </div>
                     </div>
                   </div>
                 </div>
