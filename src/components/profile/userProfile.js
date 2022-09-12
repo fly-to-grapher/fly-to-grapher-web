@@ -241,18 +241,13 @@ const UserProfile = () => {
                     );
                   })
                 ) : (
-                  <div className="d-flex justify-content-center">
-                    <MDBSpinner
-                      grow
-                      color="rgb(29, 94, 147)"
-                      style={{ color: "rgb(29, 94, 147)" }}
-                    ></MDBSpinner>
-                  </div>
+                  <b>
+                    <p>{profile?.user?.name} has no videos yet 😔</p>
+                  </b>
                 )}
               </div>
             </div>
           )}
-          {/* <div className="d-flex justify-content-center align-items-center gap-5"></div> */}
         </div>
       </div>
     </>

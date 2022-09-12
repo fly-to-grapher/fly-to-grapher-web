@@ -59,6 +59,24 @@ const MyProfile = () => {
     });
   };
 
+  const deleteFile = (id) => {
+    if (window.confirm("Do you want to delete this file ?")) {
+      sendRequest(
+        `${process.env.REACT_APP_API_URL}/files/${id}`,
+        {},
+        {},
+        {
+          auth: true
+        },
+        "DELETE"
+      ).then((response) => {
+        if (response?.success) {
+          window.location.reload();
+        }
+      });
+    }
+  };
+
   const sendRequest = useRequest();
   useEffect(() => {
     sendRequest(
@@ -71,15 +89,11 @@ const MyProfile = () => {
       "GET"
     ).then((response) => {
       if (response?.success) {
-        console.log(`res`, response);
         setProfiles(response.data);
         setPictures(response.data.pictures);
         setVideos(response.data.videos);
-        // setSavess(response.data.saves);
         setLikes(response.data.likes);
         setSaves(response.data.save);
-
-        // setItemData(response.data.files)
       }
     });
   }, [count]);
@@ -173,7 +187,7 @@ const MyProfile = () => {
                   ) : (
                     <b>
                       <p>
-                        {profile?.user?.name} has no photos or videos yet 😔
+                        {profile?.user?.name} has no photos yet 😔
                       </p>
                     </b>
                   )}
@@ -252,21 +266,30 @@ const MyProfile = () => {
                               checkedIcon={<BookmarkIcon />}
                               onClick={() => addRemoveSave(video.id)}
                             />
+                            <button
+                              onClick={() => deleteFile(video.id)}
+                              style={{
+                                width: "5em",
+                                height: "auto",
+                                cursor: "pointer"
+                              }}
+                              className="justify-content-end btn btn-danger mb-2"
+                            >
+                              Delete
+                            </button>
                           </div>
                         </div>
                       </div>
                     </div>
                   );
                 })
-              ) : (
-                <div className="d-flex justify-content-center">
-                  <MDBSpinner
-                    grow
-                    color="rgb(29, 94, 147)"
-                    style={{ color: "rgb(29, 94, 147)" }}
-                  ></MDBSpinner>
-                </div>
-              )}
+                ) : (
+                    <b>
+                      <p>
+                        {profile?.user?.name} has no videos yet 😔
+                      </p>
+                    </b>
+                  )}
             </div>
           </div>
         ) : (
