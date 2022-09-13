@@ -132,15 +132,15 @@ const Videos = () => {
           &gt;
         </li>
         <h1 className="d-flex justify-content-center">Free Stock Videos</h1>
-        <div className="d-flex flex-wrap justify-content-between gap-2 p-4">
+        <div className="d-flex flex-wrap justify-content-between gap-2 p-3 mb-5">
           {videos && videos.length ? (
-            videos.map((video) => {
+            videos.map((video , i) => {
               return (
-                <div key={video.id}>
+                <div key={i}>
                   <video
                     src={video.file_name}
-                    width="400"
-                    height="300"
+                    width="350"
+                    height="250"
                     controls
                   ></video>
                   <div className=" d-flex justify-content-between align-items-center">

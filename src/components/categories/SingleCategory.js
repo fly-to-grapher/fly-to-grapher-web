@@ -87,6 +87,7 @@ useEffect(() => {
                             </Link>
                         </ul>
                     </div>
+                    <hr></hr>
             </div>
             <div>
                 <li href="#" className="prev">

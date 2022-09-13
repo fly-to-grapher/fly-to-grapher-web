@@ -116,7 +116,7 @@ const Home = () => {
                 );
               })
             ) : (
-              <div className="d-flex justify-content-center">
+              <div className="">
                 <MDBSpinner
                   grow
                   color="rgb(29, 94, 147)"

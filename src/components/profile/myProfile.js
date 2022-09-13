@@ -120,7 +120,7 @@ const MyProfile = () => {
       <Nav2 />
 
       <div className="container-fluid">
-        <div className="row mt-5">
+        <div className="row mt-2">
           <div className="offset-2 col-8 d-flex justify-content-center align-items-center">
             <img
               src={profile?.user?.avatar}
@@ -186,9 +186,7 @@ const MyProfile = () => {
                     })
                   ) : (
                     <b>
-                      <p>
-                        {profile?.user?.name} has no photos yet 😔
-                      </p>
+                      <p>{profile?.user?.name} has no photos yet 😔</p>
                     </b>
                   )}
                 </ImageList>
@@ -216,8 +214,8 @@ const MyProfile = () => {
                     <div key={i}>
                       <video
                         src={video.file_name}
-                        width="400"
-                        height="300"
+                        width="350"
+                        height="250"
                         controls
                       ></video>
                       <div className=" d-flex justify-content-between align-items-center">
@@ -283,13 +281,11 @@ const MyProfile = () => {
                     </div>
                   );
                 })
-                ) : (
-                    <b>
-                      <p>
-                        {profile?.user?.name} has no videos yet 😔
-                      </p>
-                    </b>
-                  )}
+              ) : (
+                <b>
+                  <p>{profile?.user?.name} has no videos yet 😔</p>
+                </b>
+              )}
             </div>
           </div>
         ) : (

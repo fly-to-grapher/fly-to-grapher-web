@@ -172,74 +172,68 @@ const UserProfile = () => {
                 </Button>
               </div>
               <div className="d-flex flex-wrap justify-content-between gap-2 p-4">
-                {videos && videos.length ? (
-                  videos.map((video, i) => {
-                    return (
-                      <div key={i}>
-                        <video
-                          src={video.file_name}
-                          width="400"
-                          height="300"
-                          controls
-                        ></video>
-                        <div className=" d-flex justify-content-between align-items-center">
-                          <div className="">
-                            <Link
-                              to={"/profile/" + video?.User?.id}
-                              className="d-flex gap-3 align-items-center text-decoration-none"
-                            >
-                              <img
-                                src={video?.User?.avatar}
-                                alt="avatar"
-                                style={{
-                                  width: "3em",
-                                  height: "3em",
-                                  borderRadius: "50%"
-                                }}
-                              />
-                              <span style={{ color: "black" }}>
-                                {video?.User?.username}
-                              </span>
-                            </Link>
-                          </div>
-                          <div>
-                            <div className="mb-3 mt-4 d-flex justify-content-center align-items-center gap-3">
-                              <div className="secondary">
-                                <Checkbox
-                                  {...label}
-                                  icon={<FavoriteBorder />}
-                                  checked={
-                                    likes.find(
-                                      (like) => video?.id == like.file_id
-                                    )
-                                      ? true
-                                      : false
-                                  }
-                                  checkedIcon={<Favorite />}
-                                  onClick={() => addRemoveLike(video.id)}
-                                />
-                              </div>
-                              <div className="secondary">
-                                <Checkbox
-                                  {...label}
-                                  icon={<BookmarkBorderIcon />}
-                                  checked={
-                                    saves.find(
-                                      (save) => video?.id == save.file_id
-                                    )
-                                      ? true
-                                      : false
-                                  }
-                                  checkedIcon={<BookmarkIcon />}
-                                  onClick={() => addRemoveSave(video.id)}
-                                />
-                              </div>
-                            </div>
-                          </div>
-                        </div>
+              {videos && videos.length ? (
+            videos.map((video , i) => {
+              return (
+                <div key={i}>
+                  <video
+                    src={video.file_name}
+                    width="350"
+                    height="250"
+                    controls
+                  ></video>
+                  <div className=" d-flex justify-content-between align-items-center">
+                    <div className="">
+                      <Link
+                        to={"/profile/" + video?.User?.id}
+                        className="d-flex gap-3 align-items-center text-decoration-none"
+                      >
+                        <img
+                          src={video?.User?.avatar}
+                          alt="avatar"
+                          style={{
+                            width: "3em",
+                            height: "3em",
+                            borderRadius: "50%"
+                          }}
+                        />
+                        <span style={{ color: "black" }}>
+                          {video?.User?.username}
+                        </span>
+                      </Link>
+                    </div>
+                    <div className="mb-3 mt-4 d-flex justify-content-center align-items-center gap-3">
+                      <div className="secondary">
+                        <Checkbox
+                          {...label}
+                          icon={<FavoriteBorder />}
+                          checked={
+                            likes.find((like) => video?.id == like.file_id)
+                              ? true
+                              : false
+                          }
+                          checkedIcon={<Favorite />}
+                          onClick={() => addRemoveLike(video.id)}
+                        />
                       </div>
-                    );
-                  })
+                      <div className="secondary">
+                        <Checkbox
+                          {...label}
+                          icon={<BookmarkBorderIcon />}
+                          checked={
+                            saves.find((save) => video?.id == save.file_id)
+                              ? true
+                              : false
+                          }
+                          checkedIcon={<BookmarkIcon />}
+                          onClick={() => addRemoveSave(video.id)}
+                        />
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              );
+            })
                 ) : (
                   <b>
                     <p>{profile?.user?.name} has no videos yet 😔</p>
