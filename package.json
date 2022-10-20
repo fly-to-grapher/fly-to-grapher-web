@@ -1,8 +1,7 @@
-
 {
   "name": "client",
   "version": "0.1.0",
-   "engines": {
+  "engines": {
     "node": "16.15.0",
     "npm": "8.5.5"
   },
@@ -22,6 +21,7 @@
     "@testing-library/user-event": "^13.5.0",
     "bootstrap": "^5.2.0",
     "context": "^3.0.1",
+    "heroku": "^7.65.0",
     "md-button": "^1.0.12",
     "mdb-react-ui-kit": "^4.1.0",
     "react": "^18.2.0",
